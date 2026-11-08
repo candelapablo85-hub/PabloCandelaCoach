@@ -1,0 +1,367 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CardBook from '../components/ui/CardBook.astro';
+import JsonLd from '../components/seo/JsonLd.astro';
+import { siteConfig } from '../data/siteConfig';
+---
+
+<BaseLayout
+  title="Pablo Candela | Coaching Ontológico para Supervisores y Líderes de Industria"
+  description="Desarrollo de liderazgo operativo y gestión humana para mandos medios en entornos industriales. De la trinchera en planta a la gestión efectiva de equipos."
+  canonical={`${siteConfig.siteUrl}/`}
+>
+  <Fragment slot="head">
+    <JsonLd schema={{ type: 'Person' }} />
+    <JsonLd schema={{ type: 'ProfessionalService' }} />
+    <JsonLd schema={{ type: 'Book' }} />
+  </Fragment>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <span class="badge">Coaching Ontológico & Operativo</span>
+        <h1 class="hero-title">
+          Liderazgo real para la trinchera industrial: de apagar fuegos a guiar equipos de alto desempeño
+        </h1>
+        <p class="hero-subtitle">
+          Acompañamiento especializado para supervisores, jefes de turno y líderes de planta que necesitan transformar la presión operativa, los conflictos y el desgaste diario en autoridad genuina y resultados sostenibles.
+        </p>
+        <div class="hero-actions">
+          <a href="/coaching#agendar" class="btn btn-primary">
+            Agendar consulta diagnóstica
+          </a>
+          <a href="/sobre-mi" class="btn btn-outline">
+            Conocer mi trayectoria
+          </a>
+        </div>
+
+        <!-- Credenciales de autoridad directa -->
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <span class="metric-number">2004</span>
+            <span class="metric-label">Ingreso a la industria siderúrgica</span>
+          </div>
+          <div class="metric-divider" aria-hidden="true"></div>
+          <div class="metric-item">
+            <span class="metric-number">2013</span>
+            <span class="metric-label">Supervisor activo en línea de fuego</span>
+          </div>
+          <div class="metric-divider" aria-hidden="true"></div>
+          <div class="metric-item">
+            <span class="metric-number">Ingeniería</span>
+            <span class="metric-label">Formación técnica + Coaching ontológico</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Para quién es -->
+  <section class="section section-subtle" id="para-quien">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Audiencia Clave</span>
+        <h2>¿Para quién está diseñado este acompañamiento?</h2>
+        <p class="section-subtitle">
+          No hacemos teoría abstracta de pizarrón. Trabajamos con los desafíos concretos de quienes tienen la responsabilidad de hacer rodar la producción día a día.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">🏭</div>
+          <h3>Supervisores y Jefes de Turno</h3>
+          <p>
+            Profesionales que están bajo fuego cruzado constante: la presión de las metas gerenciales arriba y la resistencia, apatía o conflictos del personal operativo abajo.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">⚙️</div>
+          <h3>Técnicos Promovidos a Mandos Medios</h3>
+          <p>
+            Especialistas que destacaron por su habilidad técnica o de proceso, pero que hoy se encuentran con el desafío más complejo: coordinar voluntades, delegar y liderar personas.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">📊</div>
+          <h3>Gerencias de Operaciones y Planta</h3>
+          <p>
+            Directores que buscan profesionalizar su primera línea de mando para reducir el ausentismo, evitar paradas operativas por roces interpersonales y crear cultura de seguridad real.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qué problemas resuelve -->
+  <section class="section" id="problemas-que-resuelve">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Foco en Soluciones</span>
+        <h2>Desafíos críticos que resolvemos en planta</h2>
+        <p class="section-subtitle">
+          El coaching ontológico aplicado a la industria permite desarmar los patrones de conducta que hoy frenan el rendimiento operativo.
+        </p>
+      </div>
+
+      <div class="grid-2 pain-points-grid">
+        <div class="pain-card">
+          <div class="pain-header">
+            <span class="pain-cross" aria-hidden="true">✕</span>
+            <h3>El síndrome del «apagafuegos permanente»</h3>
+          </div>
+          <p class="pain-problem">
+            <strong>El síntoma:</strong> Vivís corriendo detrás de las urgencias de planta, sin tiempo para planificar, revisar procesos ni formar a tu equipo.
+          </p>
+          <p class="pain-solution">
+            <strong>La intervención:</strong> Redefinición de distinciones operativas, estructura de compromisos y delegación efectiva con seguimiento sin microgestión.
+          </p>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-header">
+            <span class="pain-cross" aria-hidden="true">✕</span>
+            <h3>Conversaciones difíciles postergadas o explosivas</h3>
+          </div>
+          <p class="pain-problem">
+            <strong>El síntoma:</strong> Miedo a poner límites por temor a una huelga de brazos caídos o choques que terminan escalando innecesariamente a recursos humanos.
+          </p>
+          <p class="pain-solution">
+            <strong>La intervención:</strong> Adquisición de herramientas de comunicación asertiva, escucha activa de los juicios del operario y diseño de conversaciones constructivas.
+          </p>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-header">
+            <span class="pain-cross" aria-hidden="true">✕</span>
+            <h3>Resistencia crónica al cambio y a nuevas normativas</h3>
+          </div>
+          <p class="pain-problem">
+            <strong>El síntoma:</strong> La clásica respuesta: <em>«Acá las cosas siempre se hicieron así»</em> cuando se implementa 5S, TPM o un nuevo estándar de seguridad.
+          </p>
+          <p class="pain-solution">
+            <strong>La intervención:</strong> Trabajo sobre la corporalidad, los estados de ánimo colectivos y la generación de sentido para lograr adhesión voluntaria en lugar de sumisión forzada.
+          </p>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-header">
+            <span class="pain-cross" aria-hidden="true">✕</span>
+            <h3>El desgaste emocional y la soledad del líder</h3>
+          </div>
+          <p class="pain-problem">
+            <strong>El síntoma:</strong> Llevarse la bronca del turno a casa, insomnio por los números del mes y sensación de falta de respaldo.
+          </p>
+          <p class="pain-solution">
+            <strong>La intervención:</strong> Espacio confidencial y seguro de coaching individual para gestionar la autoexigencia, regular la reactividad y recobrar el bienestar.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloque del Libro -->
+  <section class="section section-dark" id="libro">
+    <div class="container">
+      <CardBook />
+    </div>
+  </section>
+
+  <!-- Llamado a la Acción Principal -->
+  <section class="section cta-section">
+    <div class="container container-narrow text-center">
+      <span class="badge">Da el primer paso</span>
+      <h2>¿Hablamos sobre los desafíos específicos de tu liderazgo?</h2>
+      <p>
+        Coordinemos una sesión inicial de diagnóstico de 30 minutos sin costo para analizar la dinámica actual de tu equipo y determinar si el programa de coaching es el camino adecuado para tu contexto.
+      </p>
+      <div class="cta-actions">
+        <a href="/coaching#agendar" class="btn btn-primary btn-lg">
+          Agendar Sesión de Diagnóstico
+        </a>
+        <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          Consultar por WhatsApp
+        </a>
+      </div>
+      <p class="cta-guarantee">
+        [ESCRIBIR AQUÍ: Política de confidencialidad o detalles sobre modalidad online/presencial]
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-section {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-16);
+    background: radial-gradient(circle at top right, #f0f9ff 0%, #ffffff 70%);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  @media (min-width: 768px) {
+    .hero-section {
+      padding-top: var(--space-20);
+      padding-bottom: var(--space-20);
+    }
+  }
+
+  .hero-title {
+    font-size: var(--font-size-hero);
+    line-height: 1.15;
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-6);
+    color: var(--color-primary-950);
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-body);
+    max-width: 820px;
+    margin-bottom: var(--space-8);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-bottom: var(--space-12);
+  }
+
+  .hero-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-6);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .metric-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .metric-number {
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    color: var(--color-accent-700);
+    line-height: 1;
+    margin-bottom: var(--space-1);
+  }
+
+  .metric-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .metric-divider {
+    display: none;
+    width: 1px;
+    height: 36px;
+    background-color: var(--color-border);
+  }
+
+  @media (min-width: 640px) {
+    .metric-divider {
+      display: block;
+    }
+  }
+
+  .section-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .pain-points-grid {
+    align-items: stretch;
+  }
+
+  .pain-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .pain-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .pain-cross {
+    color: #ef4444;
+    font-weight: bold;
+    font-size: 1.25rem;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .pain-header h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0;
+  }
+
+  .pain-problem {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-body);
+    margin-bottom: var(--space-3);
+    background-color: #fff1f2;
+    padding: var(--space-3);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid #f43f5e;
+  }
+
+  .pain-solution {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-body);
+    background-color: #f0fdf4;
+    padding: var(--space-3);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid #22c55e;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .cta-section {
+    background: linear-gradient(180deg, var(--color-surface-bg) 0%, var(--color-surface-subtle) 100%);
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-4);
+  }
+
+  .cta-guarantee {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+  }
+
+  .btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
+</style>

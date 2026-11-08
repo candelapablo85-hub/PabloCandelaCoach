@@ -1,0 +1,73 @@
+:root {
+  /* Paleta Corporativa / Industria / Autoridad */
+  --color-primary-950: #0b1120;
+  --color-primary-900: #0f172a;
+  --color-primary-800: #1e293b;
+  --color-primary-700: #334155;
+  
+  --color-accent-600: #0284c7;
+  --color-accent-700: #0369a1;
+  --color-accent-50: #f0f9ff;
+
+  --color-gold-600: #d97706;
+  --color-gold-700: #b45309;
+  --color-gold-100: #fef3c7;
+  --color-gold-50: #fffbeb;
+
+  --color-surface-bg: #ffffff;
+  --color-surface-subtle: #f8fafc;
+  --color-surface-card: #ffffff;
+  --color-surface-dark: #0f172a;
+
+  --color-text-heading: #0f172a;
+  --color-text-body: #334155;
+  --color-text-muted: #64748b;
+  --color-text-on-dark: #f8fafc;
+
+  --color-border: #e2e8f0;
+  --color-border-subtle: #f1f5f9;
+  --color-border-focus: #0284c7;
+
+  /* Tipografía fluida y accesible */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-serif: Georgia, Cambria, 'Times New Roman', Times, serif;
+
+  --font-size-xs: 0.75rem;     /* 12px */
+  --font-size-sm: 0.875rem;    /* 14px */
+  --font-size-base: 1.0625rem; /* 17px para óptima legibilidad en móviles y desktop */
+  --font-size-lg: 1.25rem;     /* 20px */
+  --font-size-xl: 1.5rem;      /* 24px */
+  --font-size-2xl: clamp(1.75rem, 3vw, 2.25rem); /* 28-36px */
+  --font-size-3xl: clamp(2.25rem, 4vw, 3rem);    /* 36-48px */
+  --font-size-hero: clamp(2.5rem, 5vw, 3.75rem); /* 40-60px */
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.75;
+
+  /* Espaciado sistemático */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  /* Contenedores */
+  --container-max: 1140px;
+  --container-narrow: 780px;
+
+  /* Elevaciones sutiles sin sobrecargar render */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+
+  /* Transición rápida para UX */
+  --transition-fast: 150ms ease-in-out;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}

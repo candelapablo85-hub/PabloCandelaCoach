@@ -1,0 +1,197 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { siteConfig } from '../../../data/siteConfig';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+  const allTags = [...new Set(allPosts.flatMap((post) => post.data.tags))];
+
+  return allTags.map((tag) => {
+    const filteredPosts = allPosts
+      .filter((post) =>
+        post.data.tags.map((t) => t.toLowerCase()).includes(tag.toLowerCase())
+      )
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+    return {
+      params: { tag: encodeURIComponent(tag.toLowerCase()) },
+      props: { tag, posts: filteredPosts },
+    };
+  });
+}
+
+const { tag, posts } = Astro.props as { tag: string; posts: any[] };
+
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('es-ES', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(date);
+};
+---
+
+<BaseLayout
+  title={`Artículos sobre #${tag} | Blog de Pablo Candela`}
+  description={`Guías, lecciones y herramientas de coaching sobre ${tag} para supervisores y líderes del sector industrial.`}
+  canonical={`${siteConfig.siteUrl}/blog/etiqueta/${encodeURIComponent(tag.toLowerCase())}`}
+>
+  <section class="section">
+    <div class="container">
+      <!-- Breadcrumb accesible -->
+      <nav class="breadcrumb-nav" aria-label="Miga de pan">
+        <ol class="breadcrumb-list">
+          <li><a href="/">Inicio</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/blog">Blog</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">Etiqueta: #{tag}</li>
+        </ol>
+      </nav>
+
+      <div class="section-header text-left">
+        <span class="badge">Filtrado por Tema</span>
+        <h1 class="page-title">Artículos etiquetados como #{tag}</h1>
+        <p class="tag-count">
+          Se encontraron {posts.length} {posts.length === 1 ? 'artículo' : 'artículos'} sobre este tema.
+        </p>
+      </div>
+
+      <div class="articles-grid">
+        {posts.map((post) => (
+          <article class="article-card">
+            <div class="article-meta">
+              <span class="article-date">{formatDate(post.data.pubDate)}</span>
+              <span class="article-separator">•</span>
+              <span class="article-reading-time">{post.data.readingTime}</span>
+            </div>
+
+            <h2 class="article-card-title">
+              <a href={`/blog/${post.slug}`}>
+                {post.data.title}
+              </a>
+            </h2>
+
+            <p class="article-card-desc">
+              {post.data.description}
+            </p>
+
+            <div class="article-card-footer">
+              <a href={`/blog/${post.slug}`} class="read-more-link">
+                Leer artículo →
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="back-to-blog">
+        <a href="/blog" class="btn btn-outline">
+          ← Volver a todos los artículos
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .breadcrumb-nav {
+    margin-bottom: var(--space-6);
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+  }
+
+  .breadcrumb-list a {
+    color: var(--color-accent-600);
+    text-decoration: underline;
+  }
+
+  .tag-count {
+    font-size: var(--font-size-base);
+    color: var(--color-text-muted);
+    margin-top: var(--space-2);
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    margin-top: var(--space-8);
+  }
+
+  @media (min-width: 768px) {
+    .articles-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .articles-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .article-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+  }
+
+  .article-card-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-3);
+    line-height: 1.3;
+  }
+
+  .article-card-title a {
+    color: var(--color-primary-950);
+  }
+
+  .article-card-title a:hover {
+    color: var(--color-accent-600);
+  }
+
+  .article-card-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-body);
+    line-height: 1.6;
+    margin-bottom: var(--space-6);
+    flex: 1;
+  }
+
+  .article-card-footer {
+    border-top: 1px solid var(--color-border-subtle);
+    padding-top: var(--space-4);
+  }
+
+  .read-more-link {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-accent-600);
+  }
+
+  .back-to-blog {
+    margin-top: var(--space-12);
+    text-align: center;
+  }
+</style>

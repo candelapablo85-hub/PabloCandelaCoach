@@ -1,0 +1,53 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
+  type?: 'website' | 'article' | 'book';
+  noindex?: boolean;
+}
+
+const {
+  title = siteConfig.defaultTitle,
+  description = siteConfig.defaultDescription,
+  canonical = Astro.url.href,
+  image = `${siteConfig.siteUrl}/images/og-default.jpg`,
+  type = 'website',
+  noindex = false,
+} = Astro.props;
+
+// Formateo del título para asegurar presencia de marca sin duplicación
+const formattedTitle = title.includes(siteConfig.siteName)
+  ? title
+  : `${title} | ${siteConfig.siteName}`;
+---
+
+<!-- Metadatos Básicos -->
+<title>{formattedTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"} />
+<meta name="author" content={siteConfig.author} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={formattedTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:site_name" content={siteConfig.siteName} />
+<meta property="og:locale" content="es_ES" />
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonical} />
+<meta name="twitter:title" content={formattedTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+
+<!-- Favicon e iconos -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />

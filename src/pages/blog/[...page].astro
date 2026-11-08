@@ -1,0 +1,307 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { siteConfig } from '../../data/siteConfig';
+
+export async function getStaticPaths({ paginate }: { paginate: any }) {
+  const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+  const sortedPosts = allPosts.sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
+
+  return paginate(sortedPosts, { pageSize: 6 });
+}
+
+const { page } = Astro.props as { page: any };
+
+// Extraer todas las etiquetas únicas para navegación
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const allTags = [...new Set(allPosts.flatMap((post) => post.data.tags))];
+
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('es-ES', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(date);
+};
+---
+
+<BaseLayout
+  title={`Blog de Liderazgo Industrial y Gestión de Equipos ${page.currentPage > 1 ? `- Página ${page.currentPage}` : ''} | Pablo Candela`}
+  description="Artículos prácticos, análisis de casos y herramientas de coaching ontológico para supervisores, líderes de turno y mandos medios en plantas industriales."
+  canonical={`${siteConfig.siteUrl}/blog${page.currentPage > 1 ? `/${page.currentPage}` : ''}`}
+>
+  <section class="section blog-hero">
+    <div class="container">
+      <div class="section-header text-left">
+        <span class="badge">Artículos & Recursos</span>
+        <h1 class="page-title">Blog: Liderazgo desde la Trinchera Industrial</h1>
+        <p class="hero-lead">
+          Reflexiones prácticas, herramientas de comunicación y casos reales para supervisores y mandos medios que buscan liderar con autoridad y templanza.
+        </p>
+      </div>
+
+      <!-- Nube de Etiquetas / Filtros Rápidos -->
+      {allTags.length > 0 && (
+        <div class="tags-cloud-wrap">
+          <span class="tags-label">Temas destacados:</span>
+          <div class="tags-list">
+            {allTags.map((tag) => (
+              <a href={`/blog/etiqueta/${encodeURIComponent(tag.toLowerCase())}`} class="tag-pill">
+                #{tag}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Cuadrícula de Artículos -->
+      <div class="articles-grid">
+        {page.data.map((post: any) => (
+          <article class="article-card">
+            <div class="article-meta">
+              <span class="article-date">{formatDate(post.data.pubDate)}</span>
+              <span class="article-separator">•</span>
+              <span class="article-reading-time">{post.data.readingTime}</span>
+            </div>
+
+            <h2 class="article-card-title">
+              <a href={`/blog/${post.slug}`}>
+                {post.data.title}
+              </a>
+            </h2>
+
+            <p class="article-card-desc">
+              {post.data.description}
+            </p>
+
+            <div class="article-card-footer">
+              <div class="card-tags">
+                {post.data.tags.slice(0, 2).map((t: string) => (
+                  <span class="mini-tag">#{t}</span>
+                ))}
+              </div>
+              <a href={`/blog/${post.slug}`} class="read-more-link" aria-label={`Leer artículo completo: ${post.data.title}`}>
+                Leer artículo →
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Paginación Accesible -->
+      {page.lastPage > 1 && (
+        <nav class="pagination-nav" aria-label="Navegación de páginas del blog">
+          {page.url.prev ? (
+            <a href={page.url.prev} class="btn btn-outline btn-pagination">
+              ← Página anterior
+            </a>
+          ) : (
+            <span class="btn btn-outline btn-pagination disabled" aria-disabled="true">
+              ← Página anterior
+            </span>
+          )}
+
+          <span class="pagination-info">
+            Página {page.currentPage} de {page.lastPage}
+          </span>
+
+          {page.url.next ? (
+            <a href={page.url.next} class="btn btn-outline btn-pagination">
+              Página siguiente →
+            </a>
+          ) : (
+            <span class="btn btn-outline btn-pagination disabled" aria-disabled="true">
+              Página siguiente →
+            </span>
+          )}
+        </nav>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-hero {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-16);
+  }
+
+  .hero-lead {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-body);
+    max-width: 800px;
+    margin-top: var(--space-4);
+  }
+
+  .tags-cloud-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-10);
+    padding: var(--space-4);
+    background-color: var(--color-surface-subtle);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+
+  .tags-label {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .tag-pill {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    color: var(--color-primary-900);
+    transition: all var(--transition-fast);
+  }
+
+  .tag-pill:hover {
+    background: var(--color-accent-600);
+    color: #ffffff;
+    border-color: var(--color-accent-600);
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 768px) {
+    .articles-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .articles-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .article-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+  }
+
+  .article-card-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-3);
+    line-height: 1.3;
+  }
+
+  .article-card-title a {
+    color: var(--color-primary-950);
+    transition: color var(--transition-fast);
+  }
+
+  .article-card-title a:hover {
+    color: var(--color-accent-600);
+  }
+
+  .article-card-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-body);
+    line-height: 1.6;
+    margin-bottom: var(--space-6);
+    flex: 1;
+  }
+
+  .article-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--color-border-subtle);
+    padding-top: var(--space-4);
+  }
+
+  .card-tags {
+    display: flex;
+    gap: var(--space-1);
+  }
+
+  .mini-tag {
+    font-size: 0.7rem;
+    color: var(--color-accent-700);
+    background: var(--color-accent-50);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .read-more-link {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-accent-600);
+    transition: color var(--transition-fast);
+  }
+
+  .read-more-link:hover {
+    color: var(--color-accent-700);
+  }
+
+  /* Paginación */
+  .pagination-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-4);
+    margin-top: var(--space-12);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .btn-pagination {
+    font-size: var(--font-size-sm);
+    padding: 0.6rem 1.2rem;
+  }
+
+  .btn-pagination.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .pagination-info {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    font-weight: 600;
+  }
+</style>

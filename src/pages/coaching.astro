@@ -1,0 +1,440 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqAccordion from '../components/ui/FaqAccordion.astro';
+import JsonLd from '../components/seo/JsonLd.astro';
+import { siteConfig } from '../data/siteConfig';
+
+const faqItems = [
+  {
+    question: "¿En qué se diferencia este coaching de una capacitación tradicional de liderazgo?",
+    answer: "Las capacitaciones convencionales suelen dar teoría en diapositivas que se olvidan al pisar la planta. Este proceso es un acompañamiento 1 a 1 enfocado en tus situaciones reales: la conversación difícil con el operario conflictivo de tu turno, el choque con mantenimiento o el reporte de desvío a gerencia. Trabajamos sobre tu propia forma de observar y reaccionar ante los problemas."
+  },
+  {
+    question: "¿Las sesiones son individuales o para equipos de supervisión?",
+    answer: "El formato principal es individual (1 a 1) para garantizar un espacio de absoluta confidencialidad donde el supervisor pueda abrir sus dudas y frustraciones sin temor a ser juzgado. También realizamos programas grupales a medida para equipos de supervisión de una misma planta o empresa previa cotización institucional."
+  },
+  {
+    question: "¿Cuál es la duración del proceso y cómo se coordinan los horarios de turnos rotativos?",
+    answer: "El proceso estándar consta de un ciclo de [CANTIDAD DE SESIONES, EJ: 8 a 10 SESIONES] de 60 minutos cada una. Al conocer la realidad de los turnos rotativos (mañana, tarde, noche y descansos), la agenda de sesiones se coordina con total flexibilidad para adaptarse a tu rotación horaria."
+  },
+  {
+    question: "¿Qué pasa si surge un conflicto urgente en planta entre sesión y sesión?",
+    answer: "El programa incluye canal directo de soporte y acompañamiento vía WhatsApp durante el período activo del proceso para consultas puntuales o preparación previa a una conversación crítica en planta."
+  },
+  {
+    question: "¿Se emite factura por el servicio?",
+    answer: "Sí, se emite comprobante fiscal válido tanto si la contratación la realiza el profesional de forma particular como si es financiado por la empresa a través del área de Recursos Humanos / Desarrollo Organizacional."
+  }
+];
+---
+
+<BaseLayout
+  title="Coaching para Supervisores y Líderes Industriales | Pablo Candela"
+  description="Programa de acompañamiento individual para mandos medios en la industria. Formato, metodología paso a paso, precio transparente y preguntas frecuentes."
+  canonical={`${siteConfig.siteUrl}/coaching`}
+>
+  <Fragment slot="head">
+    <JsonLd schema={{ type: 'ProfessionalService' }} />
+    <JsonLd schema={{ type: 'FAQPage', items: faqItems }} />
+  </Fragment>
+
+  <!-- Hero Coaching -->
+  <section class="section coaching-hero">
+    <div class="container">
+      <div class="section-header text-left">
+        <span class="badge">Programa de Acompañamiento 1 a 1</span>
+        <h1 class="page-title">
+          Coaching para Supervisores: Liderazgo de Alto Impacto en Planta
+        </h1>
+        <p class="hero-lead">
+          Un proceso práctico y confidencial diseñado para líderes que cargan con la responsabilidad operativa de la industria y necesitan herramientas reales para coordinar personas, gestionar conflictos y liderar sin desgaste.
+        </p>
+      </div>
+
+      <div class="quick-highlights-grid">
+        <div class="highlight-box">
+          <span class="highlight-icon" aria-hidden="true">⏱️</span>
+          <strong>Sesiones de 60 minutos</strong>
+          <span>Frecuencia quincenal o semanal</span>
+        </div>
+        <div class="highlight-box">
+          <span class="highlight-icon" aria-hidden="true">💻</span>
+          <strong>Modalidad Online Flexible</strong>
+          <span>Adaptado a turnos rotativos</span>
+        </div>
+        <div class="highlight-box">
+          <span class="highlight-icon" aria-hidden="true">🔒</span>
+          <strong>100% Confidencial</strong>
+          <span>Espacio libre de juicios de planta</span>
+        </div>
+        <div class="highlight-box">
+          <span class="highlight-icon" aria-hidden="true">📱</span>
+          <strong>Soporte en Trinchera</strong>
+          <span>Acompañamiento por WhatsApp</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Para quién y Problemas que Resuelve -->
+  <section class="section section-subtle">
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <span class="badge">Audiencia</span>
+          <h2>¿Para quién es este programa?</h2>
+          <ul class="bullet-checklist">
+            <li>
+              <strong>Supervisores en planta activa:</strong> Que sienten que la gestión de personal consume el 80% de su energía y no logran enfocarse en la mejora.
+            </li>
+            <li>
+              <strong>Mandos medios de perfil técnico:</strong> Ingenieros y técnicos que fueron ascendidos por su solvencia técnica y hoy necesitan liderar relaciones humanas.
+            </li>
+            <li>
+              <strong>Jefes de producción y mantenimiento:</strong> Que buscan erradicar el resentimiento entre sectores y construir acuerdos operativos sólidos.
+            </li>
+            <li>
+              <strong>Empresas industriales:</strong> Que desean capacitar a sus líderes de primera línea en habilidades de comunicación no violenta y liderazgo ontológico.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <span class="badge">Resultados</span>
+          <h2>¿Qué problemas concretos resolvemos?</h2>
+          <ul class="bullet-checklist">
+            <li>
+              <strong>Recuperar la autoridad sin autoritarismo:</strong> Guiar con claridad de estándares sin necesidad de gritar ni amenazar con sanciones.
+            </li>
+            <li>
+              <strong>Gestión de operarios desmotivados o resistentes:</strong> Descubrir los quiebres de confianza y rediseñar los compromisos del equipo.
+            </li>
+            <li>
+              <strong>Manejo del estrés y la carga mental:</strong> Dejar de llevarse los problemas y la frustración del turno a la mesa familiar.
+            </li>
+            <li>
+              <strong>Articulación con gerencia y sindicato:</strong> Aprender a negociar con firmeza y diplomacia en situaciones de alta tensión.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proceso Paso a Paso -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Metodología</span>
+        <h2>El Proceso Paso a Paso</h2>
+        <p class="section-subtitle">
+          Un camino estructurado desde el análisis de tu contexto de planta hasta la consolidación de nuevas conductas de liderazgo.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-number">01</span>
+          <h3>Diagnóstico Operativo y Quiebres</h3>
+          <p>
+            Mapeamos los dolores específicos de tu sector: fricciones recurrentes, cuellos de botella en la comunicación y tu forma actual de interpretar las presiones diarias.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">02</span>
+          <h3>Diseño de Nuevas Conversaciones</h3>
+          <p>
+            Entrenamos pedidos efectivos, ofertas claras, promesas cumplibles y cómo dar feedback constructivo sin generar rechazo ni resistencia en el operario.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">03</span>
+          <h3>Aplicación en Planta y Seguimiento</h3>
+          <p>
+            Llevás las herramientas directamente a tu turno. Analizamos los resultados de cada intervención y ajustamos la estrategia en función de las respuestas del equipo.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">04</span>
+          <h3>Consolidación y Autonomía</h3>
+          <p>
+            Establecemos rutinas de autogestión emocional y coordinación operativa para que sostengas este nuevo nivel de liderazgo en el largo plazo sin dependencia.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Precio y Detalle del Formato -->
+  <section class="section section-subtle" id="agendar">
+    <div class="container">
+      <div class="pricing-card-wrapper">
+        <div class="pricing-card">
+          <span class="badge badge-gold">Inversión Profesional</span>
+          <h2 class="pricing-title">Programa Individual de Coaching de Liderazgo</h2>
+          <div class="pricing-amount">
+            <span class="price-value">{siteConfig.coachingPrice}</span>
+            <span class="price-period">[ESCRIBIR AQUÍ: por ciclo completo / o por sesión mensual]</span>
+          </div>
+
+          <div class="pricing-features">
+            <h4>El programa incluye:</h4>
+            <ul>
+              <li>✓ [CANTIDAD] Sesiones individuales personalizadas de 60 minutos</li>
+              <li>✓ Diagnóstico de liderazgo inicial y fijación de objetivos clave de planta</li>
+              <li>✓ Guías de trabajo y plantillas prácticas para diseño de conversaciones difíciles</li>
+              <li>✓ Acompañamiento y soporte directo vía WhatsApp para urgencias de turno</li>
+              <li>✓ Grabación de sesiones (opcional para repaso) o minutas de acuerdos</li>
+              <li>✓ Facturación fiscal deducible para particulares o empresas</li>
+            </ul>
+          </div>
+
+          <div class="pricing-cta">
+            <a href="/contacto?plan=coaching-individual" class="btn btn-primary btn-block btn-lg">
+              Solicitar Entrevista de Admisión
+            </a>
+            <p class="pricing-note">
+              Cupos limitados por mes para garantizar atención personalizada a cada líder.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preguntas Frecuentes (FAQ) -->
+  <section class="section" id="faq">
+    <div class="container container-narrow">
+      <div class="section-header">
+        <span class="badge">Dudas Habituales</span>
+        <h2>Preguntas Frecuentes sobre el Proceso</h2>
+        <p class="section-subtitle">
+          Todo lo que necesitás saber antes de iniciar tu acompañamiento.
+        </p>
+      </div>
+
+      <FaqAccordion items={faqItems} />
+
+      <div class="faq-extra-contact text-center">
+        <p>¿Tenés una duda específica sobre tu caso o tu planta?</p>
+        <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          Consultar por WhatsApp directamente
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .coaching-hero {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+
+  .hero-lead {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-body);
+    max-width: 840px;
+    margin-top: var(--space-4);
+  }
+
+  .quick-highlights-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+  }
+
+  @media (min-width: 640px) {
+    .quick-highlights-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .quick-highlights-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .highlight-box {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .highlight-icon {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .highlight-box strong {
+    color: var(--color-primary-950);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-1);
+  }
+
+  .highlight-box span {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+  }
+
+  .bullet-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+  }
+
+  .bullet-checklist li {
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    position: relative;
+    padding-left: var(--space-6);
+  }
+
+  .bullet-checklist li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent-600);
+    font-weight: 800;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .steps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .steps-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .step-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    position: relative;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .step-number {
+    display: inline-block;
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    color: var(--color-accent-600);
+    line-height: 1;
+    margin-bottom: var(--space-3);
+  }
+
+  .step-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .step-card p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+
+  /* Tarjeta de Precio */
+  .pricing-card-wrapper {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .pricing-card {
+    background: #ffffff;
+    border: 2px solid var(--color-accent-600);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+  }
+
+  .pricing-title {
+    font-size: var(--font-size-xl);
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .pricing-amount {
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .price-value {
+    display: block;
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: var(--color-primary-950);
+    line-height: 1.1;
+  }
+
+  .price-period {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+
+  .pricing-features {
+    text-align: left;
+    margin-bottom: var(--space-8);
+  }
+
+  .pricing-features h4 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-4);
+    color: var(--color-primary-950);
+  }
+
+  .pricing-features ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .pricing-features li {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-body);
+  }
+
+  .pricing-note {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin-top: var(--space-3);
+  }
+
+  .faq-extra-contact {
+    margin-top: var(--space-10);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
+</style>

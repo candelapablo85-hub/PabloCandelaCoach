@@ -1,0 +1,84 @@
+---
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FaqItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="faq-list">
+  {items.map((item, index) => (
+    <details class="faq-item" id={`faq-${index}`}>
+      <summary class="faq-question">
+        <span>{item.question}</span>
+        <span class="faq-arrow" aria-hidden="true">+</span>
+      </summary>
+      <div class="faq-answer">
+        <p>{item.answer}</p>
+      </div>
+    </details>
+  ))}
+</div>
+
+<style>
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .faq-item {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .faq-item[open] {
+    border-color: var(--color-accent-600);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-4) var(--space-6);
+    font-weight: 700;
+    font-size: var(--font-size-base);
+    color: var(--color-primary-950);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-arrow {
+    font-size: 1.5rem;
+    color: var(--color-accent-600);
+    line-height: 1;
+    transition: transform var(--transition-fast);
+  }
+
+  .faq-item[open] .faq-arrow {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    padding: 0 var(--space-6) var(--space-5);
+    color: var(--color-text-body);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    border-top: 1px solid var(--color-border-subtle);
+    padding-top: var(--space-4);
+  }
+</style>

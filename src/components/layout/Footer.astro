@@ -1,0 +1,187 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-content">
+    <div class="footer-grid">
+      <!-- Columna 1: Autoridad y Propuesta -->
+      <div class="footer-col footer-brand">
+        <span class="footer-title">{siteConfig.siteName}</span>
+        <p class="footer-bio">
+          Coach Ontológico y de Negocios especializado en líderes y supervisores del sector industrial. 
+          Herramientas prácticas forjadas desde 2004 en la industria siderúrgica para potenciar la gestión de equipos y resultados en planta.
+        </p>
+        <p class="footer-book-plug">
+          Autor de <em>«{siteConfig.bookTitle}»</em>.
+        </p>
+      </div>
+
+      <!-- Columna 2: Navegación -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Navegación</h4>
+        <ul class="footer-links">
+          {siteConfig.navLinks.map((link) => (
+            <li>
+              <a href={link.href} class="footer-link">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Columna 3: Servicios y Recursos -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Soluciones</h4>
+        <ul class="footer-links">
+          <li><a href="/coaching" class="footer-link">Coaching para Supervisores</a></li>
+          <li><a href="/coaching#faq" class="footer-link">Preguntas Frecuentes</a></li>
+          <li><a href="/libro" class="footer-link">El Libro: «Si la vida te da la espalda...»</a></li>
+          <li><a href="/libro#capitulo-1" class="footer-link">Descargar Capítulo 1</a></li>
+          <li><a href="/blog" class="footer-link">Artículos de Liderazgo Industrial</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 4: Contacto y Redes -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Contacto Directo</h4>
+        <ul class="footer-contact-list">
+          <li>
+            <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" class="footer-link flex-align">
+              <span aria-hidden="true">💬</span> WhatsApp: [WHATSAPP_NUMERO]
+            </a>
+          </li>
+          <li>
+            <a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" class="footer-link flex-align">
+              <span aria-hidden="true">🔗</span> LinkedIn: Pablo Candela
+            </a>
+          </li>
+          <li>
+            <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer" class="footer-link flex-align">
+              <span aria-hidden="true">📸</span> Instagram: [INSTAGRAM_USUARIO]
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${siteConfig.contactEmail}`} class="footer-link flex-align">
+              <span aria-hidden="true">✉️</span> [EMAIL_CONTACTO]
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; {currentYear} {siteConfig.siteName}. Todos los derechos reservados.
+      </p>
+      <p class="legal-note">
+        Sitio web optimizado para velocidad, accesibilidad y privacidad.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-primary-950);
+    color: #94a3b8;
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-8);
+    border-top: 1px solid #1e293b;
+    margin-top: auto;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    margin-bottom: var(--space-12);
+  }
+
+  @media (min-width: 640px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+      gap: var(--space-8);
+    }
+  }
+
+  .footer-title {
+    display: block;
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: var(--space-3);
+  }
+
+  .footer-bio {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    color: #cbd5e1;
+    margin-bottom: var(--space-3);
+  }
+
+  .footer-book-plug {
+    font-size: var(--font-size-sm);
+    color: var(--color-gold-100);
+    font-weight: 500;
+  }
+
+  .footer-heading {
+    color: #ffffff;
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-links,
+  .footer-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .footer-link {
+    color: #94a3b8;
+    font-size: var(--font-size-sm);
+    transition: color var(--transition-fast);
+  }
+
+  .footer-link:hover {
+    color: #ffffff;
+  }
+
+  .flex-align {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .footer-bottom {
+    padding-top: var(--space-8);
+    border-top: 1px solid #1e293b;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    align-items: center;
+    text-align: center;
+    font-size: var(--font-size-xs);
+    color: #64748b;
+  }
+
+  @media (min-width: 768px) {
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+</style>

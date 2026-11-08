@@ -1,0 +1,373 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JsonLd from '../components/seo/JsonLd.astro';
+import { siteConfig } from '../data/siteConfig';
+---
+
+<BaseLayout
+  title="Contacto | Pablo Candela - Coaching para Líderes y Supervisores"
+  description="Iniciá una conversación para potenciar tu liderazgo o el de tus mandos medios. Formulario de contacto directo, WhatsApp, LinkedIn e Instagram."
+  canonical={`${siteConfig.siteUrl}/contacto`}
+>
+  <Fragment slot="head">
+    <JsonLd schema={{ type: 'ProfessionalService' }} />
+  </Fragment>
+
+  <section class="section contact-hero">
+    <div class="container">
+      <div class="section-header text-left">
+        <span class="badge">Canales Directos</span>
+        <h1 class="page-title">Hablemos de tus Desafíos de Liderazgo</h1>
+        <p class="hero-lead">
+          Ya sea que busques acompañamiento individual de coaching, una propuesta para tu planta industrial o consultar sobre el libro, estoy a disposición para coordinar una primera conversación.
+        </p>
+      </div>
+
+      <div class="grid-2 contact-layout-grid">
+        <!-- Columna de Información Directa y Redes -->
+        <div class="contact-info-panel">
+          <div class="info-card">
+            <h3>Vías de Comunicación Inmediata</h3>
+            <p>
+              Para una respuesta rápida o coordinar una llamada inicial, podés escribirme directamente por cualquiera de estos canales:
+            </p>
+
+            <ul class="direct-channels-list">
+              <li>
+                <a 
+                  href={siteConfig.whatsappUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="channel-box channel-whatsapp"
+                >
+                  <span class="channel-icon" aria-hidden="true">💬</span>
+                  <div class="channel-texts">
+                    <strong>WhatsApp Directo</strong>
+                    <span>[WHATSAPP_NUMERO]</span>
+                    <small>Respuesta ágil de lunes a viernes</small>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a 
+                  href={siteConfig.linkedinUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="channel-box channel-linkedin"
+                >
+                  <span class="channel-icon" aria-hidden="true">💼</span>
+                  <div class="channel-texts">
+                    <strong>LinkedIn Profesional</strong>
+                    <span>Pablo Candela</span>
+                    <small>Artículos y red de contactos del sector industrial</small>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a 
+                  href={siteConfig.instagramUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="channel-box channel-instagram"
+                >
+                  <span class="channel-icon" aria-hidden="true">📸</span>
+                  <div class="channel-texts">
+                    <strong>Instagram</strong>
+                    <span>@[INSTAGRAM_USUARIO]</span>
+                    <small>Reflexiones sobre el libro y liderazgo diario</small>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a 
+                  href={`mailto:${siteConfig.contactEmail}`} 
+                  class="channel-box channel-email"
+                >
+                  <span class="channel-icon" aria-hidden="true">✉️</span>
+                  <div class="channel-texts">
+                    <strong>Correo Electrónico</strong>
+                    <span>{siteConfig.contactEmail}</span>
+                    <small>Para consultas institucionales o corporativas</small>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Formulario de Contacto Funcional y Accesible -->
+        <div class="contact-form-panel">
+          <div class="form-wrapper">
+            <h3>Enviame tu Consulta</h3>
+            <p class="form-subtext">
+              Completá los datos y te responderé en un plazo máximo de 24 horas hábiles.
+            </p>
+
+            <!-- Preparado para Formspree, Netlify Forms, Formkeep o tu backend actual -->
+            <form 
+              action="[ENDPOINT_FORMULARIO_CONTACTO]" 
+              method="POST" 
+              class="contact-form"
+              id="main-contact-form"
+            >
+              <!-- UTMs y contexto ocultos -->
+              <input type="hidden" name="utm_source" id="contact_utm_source" value="" />
+              <input type="hidden" name="utm_medium" id="contact_utm_medium" value="" />
+              <input type="hidden" name="utm_campaign" id="contact_utm_campaign" value="" />
+              <input type="hidden" name="utm_term" id="contact_utm_term" value="" />
+              <input type="hidden" name="utm_content" id="contact_utm_content" value="" />
+
+              <div class="form-group">
+                <label for="contact_name">Nombre y Apellido *</label>
+                <input 
+                  type="text" 
+                  id="contact_name" 
+                  name="name" 
+                  required 
+                  placeholder="Tu nombre completo"
+                  class="form-input"
+                />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contact_email">Correo Electrónico *</label>
+                  <input 
+                    type="email" 
+                    id="contact_email" 
+                    name="email" 
+                    required 
+                    placeholder="tunombre@empresa.com"
+                    class="form-input"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="contact_phone">Teléfono / WhatsApp</label>
+                  <input 
+                    type="tel" 
+                    id="contact_phone" 
+                    name="phone" 
+                    placeholder="+54 9 11 ..."
+                    class="form-input"
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contact_role">Cargo o Rol Actual</label>
+                  <input 
+                    type="text" 
+                    id="contact_role" 
+                    name="role" 
+                    placeholder="Ej: Supervisor de Turno / Gerente de Planta"
+                    class="form-input"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="contact_interest">Motivo de Contacto</label>
+                  <select id="contact_interest" name="interest" class="form-input">
+                    <option value="coaching_individual">Programa de Coaching Individual</option>
+                    <option value="coaching_empresas">Propuesta para Equipos de Planta</option>
+                    <option value="libro">Consulta sobre el Libro</option>
+                    <option value="otro">Otro motivo</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact_message">Mensaje o Detalle del Desafío *</label>
+                <textarea 
+                  id="contact_message" 
+                  name="message" 
+                  rows="4" 
+                  required 
+                  placeholder="Contame brevemente cuál es la situación actual en tu equipo o qué objetivos buscás alcanzar..."
+                  class="form-input"
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-lg">
+                Enviar Consulta Directa
+              </button>
+
+              <p class="privacy-note">
+                🔒 Tus datos están protegidos bajo estricto secreto profesional y confidencialidad.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-hero {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-16);
+  }
+
+  .hero-lead {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-body);
+    max-width: 800px;
+    margin-top: var(--space-4);
+  }
+
+  .contact-layout-grid {
+    align-items: flex-start;
+    gap: var(--space-10);
+    margin-top: var(--space-10);
+  }
+
+  .info-card {
+    background: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+  }
+
+  .info-card h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .info-card p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-6);
+  }
+
+  .direct-channels-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .channel-box {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    transition: all var(--transition-fast);
+  }
+
+  .channel-box:hover {
+    border-color: var(--color-accent-600);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .channel-icon {
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .channel-texts {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .channel-texts strong {
+    font-size: var(--font-size-sm);
+    color: var(--color-primary-950);
+  }
+
+  .channel-texts span {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-accent-700);
+  }
+
+  .channel-texts small {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+  }
+
+  /* Formulario */
+  .form-wrapper {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-md);
+  }
+
+  .form-wrapper h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-2);
+  }
+
+  .form-subtext {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-6);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 640px) {
+    .form-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .form-group label {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-primary-950);
+  }
+
+  .form-input {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    background-color: #ffffff;
+    transition: border-color var(--transition-fast);
+  }
+
+  .form-input:focus {
+    border-color: var(--color-accent-600);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+  }
+
+  .privacy-note {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin-top: var(--space-2);
+    text-align: center;
+  }
+
+  .btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
+</style>

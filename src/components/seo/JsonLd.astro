@@ -1,0 +1,181 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+
+export interface PersonSchema {
+  type: 'Person';
+}
+
+export interface ProfessionalServiceSchema {
+  type: 'ProfessionalService';
+}
+
+export interface BookSchema {
+  type: 'Book';
+  name?: string;
+  isbn?: string;
+  description?: string;
+  url?: string;
+}
+
+export interface FaqItemSchema {
+  question: string;
+  answer: string;
+}
+
+export interface FaqPageSchema {
+  type: 'FAQPage';
+  items: FaqItemSchema[];
+}
+
+export interface ArticleSchema {
+  type: 'Article';
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  url: string;
+  image?: string;
+  authorName?: string;
+}
+
+type SchemaProps =
+  | PersonSchema
+  | ProfessionalServiceSchema
+  | BookSchema
+  | FaqPageSchema
+  | ArticleSchema;
+
+interface Props {
+  schema: SchemaProps;
+}
+
+const { schema } = Astro.props;
+
+let jsonLdContent: Record<string, any> = {};
+
+if (schema.type === 'Person') {
+  jsonLdContent = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: siteConfig.author,
+    url: siteConfig.siteUrl,
+    jobTitle: 'Coach Ontológico y de Negocios | Ingeniero Industrial',
+    description: 'Especialista en coaching para supervisores y mandos medios de la industria. Trayectoria en siderurgia desde 2004, supervisor desde 2013.',
+    knowsAbout: [
+      'Coaching Ontológico',
+      'Liderazgo Operativo',
+      'Supervisión de Planta Industrial',
+      'Gestión de Equipos y Turnos Rotativos',
+      'Ingeniería Industrial',
+      'Resolución de Conflictos en Manufactura',
+    ],
+    sameAs: [
+      siteConfig.linkedinUrl,
+      siteConfig.instagramUrl,
+    ],
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Industria Siderúrgica / Consultoría Independiente',
+    },
+  };
+} else if (schema.type === 'ProfessionalService') {
+  jsonLdContent = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: `${siteConfig.author} - Coaching para Líderes y Supervisores Industriales`,
+    image: `${siteConfig.siteUrl}/images/pablo-candela-coach.webp`,
+    url: `${siteConfig.siteUrl}/coaching`,
+    telephone: siteConfig.whatsappUrl,
+    priceRange: siteConfig.coachingPrice,
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'AR',
+      description: 'Atención online a toda Hispanoamérica y presencial en plantas acordadas',
+    },
+    founder: {
+      '@type': 'Person',
+      name: siteConfig.author,
+    },
+    description: 'Servicio de coaching ontológico y entrenamiento de liderazgo para supervisores, jefes de turno y mandos medios en plantas industriales.',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Programas de Coaching de Liderazgo',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Programa Individual de Coaching de Liderazgo para Supervisores',
+            description: 'Ciclo de sesiones 1 a 1 de 60 minutos enfocado en gestión de turnos, comunicación efectiva y resolución de quiebres operativos.',
+          },
+        },
+      ],
+    },
+  };
+} else if (schema.type === 'Book') {
+  jsonLdContent = {
+    '@context': 'https://schema.org',
+    '@type': 'Book',
+    name: schema.name || siteConfig.bookTitle,
+    author: {
+      '@type': 'Person',
+      name: siteConfig.author,
+    },
+    description:
+      schema.description ||
+      'Herramientas de liderazgo y transformación personal desde la trinchera industrial. Una guía honesta sobre cómo liderarse a uno mismo ante la adversidad.',
+    inLanguage: 'es',
+    url: schema.url || `${siteConfig.siteUrl}/libro`,
+    offers: {
+      '@type': 'Offer',
+      url: siteConfig.bookHotmartUrl,
+      availability: 'https://schema.org/InStock',
+      priceCurrency: 'USD',
+      seller: {
+        '@type': 'Person',
+        name: siteConfig.author,
+      },
+    },
+  };
+} else if (schema.type === 'FAQPage') {
+  jsonLdContent = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: schema.items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+} else if (schema.type === 'Article') {
+  jsonLdContent = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: schema.title,
+    description: schema.description,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': schema.url,
+    },
+    author: {
+      '@type': 'Person',
+      name: schema.authorName || siteConfig.author,
+      url: `${siteConfig.siteUrl}/sobre-mi`,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.siteName,
+      url: siteConfig.siteUrl,
+    },
+    datePublished: schema.pubDate.toISOString(),
+    dateModified: (schema.updatedDate || schema.pubDate).toISOString(),
+    image: schema.image || `${siteConfig.siteUrl}/images/og-default.jpg`,
+    inLanguage: 'es',
+  };
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLdContent)} />

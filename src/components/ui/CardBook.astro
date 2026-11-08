@@ -1,0 +1,180 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+
+interface Props {
+  showBuyButton?: boolean;
+}
+
+const { showBuyButton = true } = Astro.props;
+---
+
+<div class="book-banner-card">
+  <div class="book-visual">
+    <div class="book-cover-mockup">
+      <div class="book-spine"></div>
+      <div class="book-front">
+        <span class="book-badge">Libro Recomendado</span>
+        <h3 class="book-title-mockup">{siteConfig.bookTitle}</h3>
+        <p class="book-author-mockup">{siteConfig.author}</p>
+        <span class="book-tagline-mockup">Experiencia real en siderurgia aplicada al liderazgo</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="book-info">
+    <span class="badge badge-gold">Publicación Oficial</span>
+    <h2 class="book-heading">«{siteConfig.bookTitle}»</h2>
+    <p class="book-description">
+      Un recorrido honesto y sin rodeos corporativos sobre cómo liderarse a uno mismo cuando la realidad operativa se vuelve hostil. Inspirado en más de dos décadas de vivencias en la industria siderúrgica pesada, este libro entrega reflexiones y herramientas ontológicas directas para no claudicar ante la adversidad.
+    </p>
+
+    <div class="book-features">
+      <div class="feature-item">
+        <span class="check-icon" aria-hidden="true">✓</span>
+        <span>Herramientas concretas de cambio de observador y gestión emocional.</span>
+      </div>
+      <div class="feature-item">
+        <span class="check-icon" aria-hidden="true">✓</span>
+        <span>Casos reales desde la planta industrial, lejos de la teoría abstracta.</span>
+      </div>
+      <div class="feature-item">
+        <span class="check-icon" aria-hidden="true">✓</span>
+        <span>Especialmente pensado para supervisores, líderes de equipo y mandos medios.</span>
+      </div>
+    </div>
+
+    <div class="book-actions">
+      <a href="/libro" class="btn btn-gold">
+        Conocer más y descargar Cap. 1
+      </a>
+      {showBuyButton && (
+        <a 
+          href={siteConfig.bookHotmartUrl} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn btn-outline"
+        >
+          Comprar en Hotmart ↗
+        </a>
+      )}
+    </div>
+  </div>
+</div>
+
+<style>
+  .book-banner-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid #334155;
+    align-items: center;
+  }
+
+  @media (min-width: 860px) {
+    .book-banner-card {
+      grid-template-columns: 280px 1fr;
+      padding: var(--space-12);
+      gap: var(--space-12);
+    }
+  }
+
+  .book-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .book-cover-mockup {
+    width: 200px;
+    height: 290px;
+    background: linear-gradient(135deg, #d97706 0%, #78350f 100%);
+    border-radius: 4px 10px 10px 4px;
+    box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.4), inset 4px 0 6px rgba(255, 255, 255, 0.2);
+    position: relative;
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left: 6px solid #451a03;
+    transition: transform var(--transition-fast);
+  }
+
+  .book-cover-mockup:hover {
+    transform: translateY(-4px) rotate(-1deg);
+  }
+
+  .book-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2px 6px;
+    border-radius: 4px;
+    align-self: flex-start;
+  }
+
+  .book-title-mockup {
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-top: auto;
+    margin-bottom: var(--space-2);
+  }
+
+  .book-author-mockup {
+    color: #fef3c7;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+  }
+
+  .book-tagline-mockup {
+    font-size: 0.7rem;
+    color: #cbd5e1;
+    line-height: 1.2;
+  }
+
+  .book-heading {
+    color: #ffffff;
+    font-size: var(--font-size-2xl);
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .book-description {
+    color: #cbd5e1;
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-6);
+  }
+
+  .book-features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: #e2e8f0;
+    font-size: var(--font-size-sm);
+  }
+
+  .check-icon {
+    color: #f59e0b;
+    font-weight: bold;
+  }
+
+  .book-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+</style>

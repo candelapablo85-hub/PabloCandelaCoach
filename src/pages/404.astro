@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Página no encontrada (404) | Pablo Candela"
+  description="La página que estás buscando no existe o ha sido movida. Accedé a nuestras secciones principales."
+  noindex={true}
+>
+  <section class="section error-page-section">
+    <div class="container container-narrow text-center">
+      <span class="badge">Error 404</span>
+      <h1 class="error-title">Página no encontrada</h1>
+      <p class="error-text">
+        El enlace que seguiste no existe o fue reubicado. Te sugerimos volver a una de nuestras secciones principales:
+      </p>
+
+      <div class="error-links-grid">
+        <a href="/" class="btn btn-primary">Volver al Inicio</a>
+        <a href="/coaching" class="btn btn-outline">Coaching para Líderes</a>
+        <a href="/libro" class="btn btn-gold">El Libro</a>
+        <a href="/contacto" class="btn btn-outline">Contacto Directo</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .error-page-section {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .error-title {
+    font-size: var(--font-size-3xl);
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .error-text {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-8);
+  }
+
+  .error-links-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+</style>

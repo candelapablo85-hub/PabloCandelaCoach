@@ -1,0 +1,338 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JsonLd from '../components/seo/JsonLd.astro';
+import { siteConfig } from '../data/siteConfig';
+---
+
+<BaseLayout
+  title="Sobre mí | Pablo Candela: Trayectoria Industrial y Coaching Ontológico"
+  description="Conocé mi historia: ingreso a la industria siderúrgica en 2004, supervisor desde 2013, formación en ingeniería industrial y coaching ontológico."
+  canonical={`${siteConfig.siteUrl}/sobre-mi`}
+>
+  <Fragment slot="head">
+    <JsonLd schema={{ type: 'Person' }} />
+  </Fragment>
+
+  <section class="section bio-hero">
+    <div class="container">
+      <div class="grid-2 bio-grid">
+        <!-- Espacio optimizado para fotografía profesional -->
+        <div class="bio-image-wrapper">
+          <div class="photo-container">
+            <div class="photo-placeholder" aria-label="Fotografía profesional de Pablo Candela">
+              <!-- Si el archivo pablo-candela-coach.webp existe, se visualiza; de lo contrario muestra un marco optimizado -->
+              <img 
+                src="/images/pablo-candela-coach.webp" 
+                alt="Pablo Candela - Ingeniero Industrial, Supervisor en Siderurgia y Coach Ontológico" 
+                width="480" 
+                height="600" 
+                loading="eager"
+                fetchpriority="high"
+                onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';"
+              />
+              <div id="photo-fallback" class="fallback-frame" style="display: none;">
+                <span class="fallback-icon" aria-hidden="true">👤</span>
+                <span class="fallback-text">Espacio para Foto de Pablo Candela</span>
+                <span class="fallback-sub">Subir archivo a: <code>public/images/pablo-candela-coach.webp</code></span>
+              </div>
+            </div>
+            <div class="photo-caption">
+              <strong>Pablo Candela</strong>
+              <span>Ingeniero Industrial & Coach Ontológico</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contenido biográfico en primera persona -->
+        <div class="bio-content">
+          <span class="badge">Mi Historia & Trayectoria</span>
+          <h1 class="page-title">
+            De la operación siderúrgica al desarrollo de líderes: 20 años aprendiendo en la planta real
+          </h1>
+
+          <div class="prose bio-text">
+            <p class="lead-text">
+              No llegué al coaching desde un escritorio corporativo impoluto ni a través de manuales teóricos de autoayuda. Llegué tras años de caminar naves industriales con casco, botines de seguridad y el zumbido constante de los puentes grúa en los oídos.
+            </p>
+
+            <p>
+              Mi recorrido comenzó en el año <strong>2004</strong>, cuando ingresé a la <strong>industria siderúrgica pesada</strong>. Allí descubrí lo que significa la verdadera dinámica operativa: tolerancias mínimas, exigencias térmicas y mecánicas extremas, y un entorno donde cada minuto de parada de línea cuesta miles de dólares.
+            </p>
+
+            <p>
+              En el año <strong>2013</strong> asumí formalmente el rol de <strong>supervisor de operaciones</strong>. Ese paso cambió mi perspectiva para siempre. Pasé de responder por mi propia tarea técnica a ser el responsable del clima, la seguridad, la entrega y la contención de decenas de personas en turnos rotativos. Experimenté en carne propia la soledad del mando medio: la presión que baja desde la dirección y la resistencia o frustración que sube desde la base.
+            </p>
+
+            <div class="highlight-quote">
+              <blockquote>
+                «Comprendí que en la industria las máquinas no se rompen solas: casi todo fallo de proceso es el síntoma visible de una conversación que no ocurrió a tiempo, de un acuerdo mal coordinado o de una relación desgastada.»
+              </blockquote>
+            </div>
+
+            <h2>Ingeniería Industrial y Coaching Ontológico: el puente</h2>
+            <p>
+              Mi formación de base en <strong>ingeniería industrial</strong> me brindó la estructura mental, el pensamiento por procesos y la obsesión por la mejora continua y los indicadores de desempeño (KPIs). Sin embargo, la ingeniería se quedaba corta cuando había que destrabar el resentimiento entre dos turnos o motivar a un equipo agotado.
+            </p>
+
+            <p>
+              Por eso me formé y certifiqué en <strong>Coaching Ontológico</strong>. Encontré allí las distinciones exactas para intervenir en el fenómeno humano: cómo escuchamos, desde qué juicios operamos, cómo gestionamos el miedo al error y cómo rediseñar compromisos colectivos sin recurrir al autoritarismo estéril.
+            </p>
+
+            <p>
+              [ESCRIBIR AQUÍ: Detalle de certificaciones adicionales, acreditaciones de coaching, posgrados o hitos específicos que quieras destacar].
+            </p>
+
+            <h2>El libro: «Si la vida te da la espalda...»</h2>
+            <p>
+              Todo ese camino de tropiezos, aprendizajes y transformaciones dio vida a mi libro <em>«Si la vida te da la espalda...»</em>. Una obra nacida de vivencias directas, pensada para cualquier persona que siente que las circunstancias lo superan y necesita recuperar el timón de sus elecciones y de su propia vida.
+            </p>
+          </div>
+
+          <div class="bio-actions">
+            <a href="/coaching" class="btn btn-primary">
+              Ver programas de Coaching
+            </a>
+            <a href="/libro" class="btn btn-gold">
+              Conocer el Libro
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hitos en línea temporal accesible -->
+  <section class="section section-subtle">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Línea de Vida</span>
+        <h2>Los hitos que forjaron mi enfoque</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2004</div>
+          <div class="timeline-body">
+            <h3>Ingreso a la Industria Siderúrgica</h3>
+            <p>
+              Inmersión en el sector productivo pesado. Comprensión profunda de procesos térmicos, mecánicos, logística interna y cultura laboral en planta continua.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2013</div>
+          <div class="timeline-body">
+            <h3>Supervisor de Operaciones en Planta</h3>
+            <p>
+              Asumo la conducción directa de grupos de trabajo. Aprendizaje intensivo en gestión de conflictos sindicales y operativos, cumplimiento de seguridad y liderazgo de turnos.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">[AÑO]</div>
+          <div class="timeline-body">
+            <h3>Ingeniería Industrial & Metodología de Procesos</h3>
+            <p>
+              Consolidación de herramientas analíticas de optimización, balance de líneas, estandarización y gestión de calidad aplicada a la manufactura.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">[AÑO]</div>
+          <div class="timeline-body">
+            <h3>Certificación en Coaching Ontológico</h3>
+            <p>
+              Desarrollo de competencias de facilitación, escucha ontológica, corporalidad y coordinación de acciones para líderes y organizaciones.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">[AÑO]</div>
+          <div class="timeline-body">
+            <h3>Publicación del Libro «Si la vida te da la espalda...»</h3>
+            <p>
+              Lanzamiento editorial enfocado en la resiliencia, el liderazgo personal y la superación en entornos de alta exigencia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .bio-hero {
+    padding-top: var(--space-12);
+  }
+
+  .bio-grid {
+    align-items: flex-start;
+    gap: var(--space-12);
+  }
+
+  .bio-image-wrapper {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .photo-container {
+    background: #ffffff;
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border);
+  }
+
+  .photo-placeholder {
+    width: 100%;
+    min-height: 480px;
+    background-color: var(--color-surface-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .fallback-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-6);
+    background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+    width: 100%;
+    height: 480px;
+    gap: var(--space-3);
+  }
+
+  .fallback-icon {
+    font-size: 3.5rem;
+    color: var(--color-primary-700);
+  }
+
+  .fallback-text {
+    font-weight: 700;
+    font-size: var(--font-size-base);
+    color: var(--color-primary-900);
+  }
+
+  .fallback-sub {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+  }
+
+  .photo-caption {
+    padding: var(--space-3) var(--space-2) var(--space-1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .photo-caption strong {
+    font-size: var(--font-size-base);
+    color: var(--color-primary-950);
+  }
+
+  .photo-caption span {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+  }
+
+  .page-title {
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-6);
+    line-height: 1.2;
+  }
+
+  .lead-text {
+    font-size: var(--font-size-lg);
+    color: var(--color-primary-900);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  .highlight-quote {
+    margin: var(--space-6) 0;
+    padding: var(--space-6);
+    background-color: var(--color-accent-50);
+    border-left: 4px solid var(--color-accent-600);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  .highlight-quote blockquote {
+    font-size: var(--font-size-base);
+    font-style: italic;
+    color: var(--color-primary-900);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .bio-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+  }
+
+  /* Timeline */
+  .timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: var(--space-8);
+    border-left: 2px solid var(--color-accent-600);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .timeline-item {
+    position: relative;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: calc(-1 * var(--space-8) - 7px);
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--color-accent-600);
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 0 2px var(--color-accent-600);
+  }
+
+  .timeline-year {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    font-weight: 800;
+    color: var(--color-accent-700);
+    margin-bottom: var(--space-1);
+    background: #e0f2fe;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .timeline-body h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-2);
+  }
+
+  .timeline-body p {
+    color: var(--color-text-body);
+    font-size: var(--font-size-sm);
+  }
+</style>

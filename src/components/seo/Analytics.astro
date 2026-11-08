@@ -1,0 +1,102 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+
+const hasValidGaId = siteConfig.gaId && siteConfig.gaId !== '[GA_ID]';
+---
+
+{/* Google Analytics 4 (Solo se activa si el ID no es el marcador de posición) */}
+{hasValidGaId ? (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaId}`}></script>
+    <script define:vars={{ gaId: siteConfig.gaId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', gaId, {
+        page_path: window.location.pathname,
+        anonymize_ip: true,
+      });
+    </script>
+  </>
+) : (
+  <!-- Google Analytics desactivado temporalmente. Reemplazar [GA_ID] en src/data/siteConfig.ts -->
+)}
+
+{/* Script de Persistencia de Parámetros UTM y Traspaso a Formularios y Hotmart */}
+<script is:inline>
+  (function () {
+    const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+    const STORAGE_KEY = 'pablo_candela_utms';
+
+    function getQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      const utms = {};
+      let hasUtm = false;
+
+      UTM_KEYS.forEach((key) => {
+        const val = params.get(key);
+        if (val) {
+          utms[key] = val;
+          hasUtm = true;
+        }
+      });
+
+      return hasUtm ? utms : null;
+    }
+
+    function initUtmTracking() {
+      try {
+        // 1. Verificar si hay UTMs en la URL actual
+        const currentUtms = getQueryParams();
+        if (currentUtms) {
+          sessionStorage.setItem(STORAGE_KEY, JSON.stringify(currentUtms));
+        }
+
+        // 2. Obtener UTMs almacenadas (de esta o de visitas previas en la misma sesión)
+        const stored = sessionStorage.getItem(STORAGE_KEY);
+        if (!stored) return;
+
+        const utmData = JSON.parse(stored);
+
+        // 3. Poblar campos ocultos en todos los formularios de la página
+        document.querySelectorAll('form').forEach((form) => {
+          UTM_KEYS.forEach((key) => {
+            const input = form.querySelector(`input[name="${key}"]`);
+            if (input && utmData[key]) {
+              input.value = utmData[key];
+            }
+          });
+        });
+
+        // 4. Propagar UTMs a los enlaces salientes de Hotmart para no perder la atribución
+        document.querySelectorAll('a[href*="hotmart"]').forEach((link) => {
+          try {
+            const linkUrl = new URL(link.href);
+            Object.keys(utmData).forEach((k) => {
+              if (!linkUrl.searchParams.has(k)) {
+                linkUrl.searchParams.set(k, utmData[k]);
+              }
+            });
+            // Atributo src que Hotmart usa específicamente para tracking de origen
+            if (utmData.utm_source && !linkUrl.searchParams.has('src')) {
+              linkUrl.searchParams.set('src', utmData.utm_source);
+            }
+            link.href = linkUrl.toString();
+          } catch (e) {
+            // URL con marcador o sintaxis en desarrollo
+          }
+        });
+      } catch (err) {
+        // Modo silencioso ante navegadores con almacenamiento restringido
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initUtmTracking);
+    } else {
+      initUtmTracking();
+    }
+  })();
+</script>
