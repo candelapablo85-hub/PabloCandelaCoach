@@ -21,7 +21,7 @@ import { siteConfig } from '../data/siteConfig';
           <div class="photo-container">
             <div class="photo-placeholder" aria-label="Fotografía profesional de Pablo Candela">
               <img 
-                src="/images/pablo-candela-coach.webp" 
+                src="/imagenes/pablo-candela-coach.jpeg"
                 alt="Pablo Candela - Coach Ontológico y Supervisor Industrial" 
                 width="480" 
                 height="600" 
@@ -32,7 +32,7 @@ import { siteConfig } from '../data/siteConfig';
               <div id="photo-fallback" class="fallback-frame" style="display: none;">
                 <span class="fallback-icon" aria-hidden="true">👤</span>
                 <span class="fallback-text">Espacio para Foto de Pablo Candela</span>
-                <span class="fallback-sub">Subir archivo a: <code>public/imagenes/pablo-candela-coach.webp</code></span>
+                <span class="fallback-sub">Subir archivo a: <code>public/imagenes/pablo-candela-coach.jpeg</code></span>
               </div>
             </div>
             <div class="photo-caption">
@@ -167,8 +167,14 @@ import { siteConfig } from '../data/siteConfig';
   }
 
   .bio-image-wrapper {
-    position: sticky;
-    top: 6rem;
+    position: static;
+  }
+
+  @media (min-width: 768px) {
+    .bio-image-wrapper {
+      position: sticky;
+      top: 6rem;
+    }
   }
 
   .photo-container {
