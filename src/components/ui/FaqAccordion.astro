@@ -33,15 +33,15 @@ const { items } = Astro.props;
   }
 
   .faq-item {
-    background: #ffffff;
+    background: var(--color-bg-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-sm);
     overflow: hidden;
     transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   }
 
   .faq-item[open] {
-    border-color: var(--color-accent-600);
+    border-color: var(--color-accent);
     box-shadow: var(--shadow-sm);
   }
 
@@ -49,10 +49,11 @@ const { items } = Astro.props;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--space-4) var(--space-6);
-    font-weight: 700;
-    font-size: var(--font-size-base);
-    color: var(--color-primary-950);
+    padding: var(--space-5) var(--space-6);
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: var(--color-primary);
     cursor: pointer;
     list-style: none;
     user-select: none;
@@ -63,8 +64,9 @@ const { items } = Astro.props;
   }
 
   .faq-arrow {
+    font-family: var(--font-sans);
     font-size: 1.5rem;
-    color: var(--color-accent-600);
+    color: var(--color-accent);
     line-height: 1;
     transition: transform var(--transition-fast);
   }
@@ -74,11 +76,15 @@ const { items } = Astro.props;
   }
 
   .faq-answer {
-    padding: 0 var(--space-6) var(--space-5);
-    color: var(--color-text-body);
+    padding: 0 var(--space-6) var(--space-6);
+    color: var(--color-text-main);
     font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     border-top: 1px solid var(--color-border-subtle);
     padding-top: var(--space-4);
+  }
+
+  .faq-answer p {
+    max-width: var(--max-reading-ch);
   }
 </style>

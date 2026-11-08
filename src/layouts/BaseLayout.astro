@@ -29,6 +29,13 @@ const { title, description, canonical, image, type, noindex } = Astro.props;
       type={type} 
       noindex={noindex} 
     />
+    <!-- Tipografía Editorial Autoalojada/Google Fonts optimizada para rendimiento y SEO -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600..800;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" 
+      rel="stylesheet" 
+    />
     <Analytics />
     <slot name="head" />
   </head>
@@ -55,7 +62,7 @@ const { title, description, canonical, image, type, noindex } = Astro.props;
     position: absolute;
     top: -100px;
     left: 1rem;
-    background: var(--color-primary-950);
+    background: var(--color-primary);
     color: #ffffff;
     padding: 0.75rem 1.25rem;
     font-weight: 700;
@@ -66,7 +73,7 @@ const { title, description, canonical, image, type, noindex } = Astro.props;
 
   .skip-link:focus {
     top: 1rem;
-    outline: 2px solid var(--color-accent-600);
+    outline: 2px solid var(--color-accent);
   }
 
   main {

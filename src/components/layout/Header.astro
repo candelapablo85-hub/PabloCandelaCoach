@@ -86,7 +86,7 @@ const isActive = (href: string) => {
     position: sticky;
     top: 0;
     z-index: 50;
-    background-color: rgba(255, 255, 255, 0.96);
+    background-color: rgba(247, 245, 240, 0.96);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--color-border);
@@ -96,7 +96,7 @@ const isActive = (href: string) => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 4.5rem;
+    height: 4.75rem;
   }
 
   .brand-link {
@@ -106,17 +106,20 @@ const isActive = (href: string) => {
   }
 
   .brand-name {
-    font-size: var(--font-size-lg);
-    font-weight: 800;
-    color: var(--color-primary-950);
-    letter-spacing: -0.02em;
+    font-family: var(--font-serif);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: -0.01em;
     line-height: 1.1;
   }
 
   .brand-tagline {
+    font-family: var(--font-sans);
     font-size: var(--font-size-xs);
     color: var(--color-text-muted);
     font-weight: 500;
+    letter-spacing: 0.02em;
   }
 
   .menu-toggle {
@@ -142,7 +145,7 @@ const isActive = (href: string) => {
     display: block;
     height: 2px;
     width: 100%;
-    background-color: var(--color-primary-900);
+    background-color: var(--color-primary);
     border-radius: 2px;
     transition: transform var(--transition-fast), opacity var(--transition-fast);
   }
@@ -152,7 +155,7 @@ const isActive = (href: string) => {
     top: 100%;
     left: 0;
     right: 0;
-    background-color: #ffffff;
+    background-color: var(--color-bg);
     border-bottom: 1px solid var(--color-border);
     padding: var(--space-6) var(--space-4);
     display: none;
@@ -173,20 +176,21 @@ const isActive = (href: string) => {
 
   .nav-link {
     display: block;
+    font-family: var(--font-sans);
     font-size: var(--font-size-base);
-    font-weight: 600;
-    color: var(--color-text-body);
+    font-weight: 500;
+    color: var(--color-text-main);
     padding: 0.5rem 0;
     transition: color var(--transition-fast);
   }
 
   .nav-link:hover,
   .nav-link.active {
-    color: var(--color-accent-600);
+    color: var(--color-accent);
   }
 
   .btn-sm {
-    padding: 0.65rem 1.25rem;
+    padding: 0.65rem 1.35rem;
     font-size: var(--font-size-sm);
   }
 
@@ -225,7 +229,7 @@ const isActive = (href: string) => {
       left: 0;
       width: 100%;
       height: 2px;
-      background-color: var(--color-accent-600);
+      background-color: var(--color-accent);
       border-radius: 2px;
     }
   }

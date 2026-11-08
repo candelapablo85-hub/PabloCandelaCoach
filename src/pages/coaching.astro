@@ -328,9 +328,9 @@ const faqItems = [
   }
 
   .step-card {
-    background: #ffffff;
+    background: var(--color-bg-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     padding: var(--space-6);
     position: relative;
     box-shadow: var(--shadow-sm);
@@ -338,16 +338,19 @@ const faqItems = [
 
   .step-number {
     display: inline-block;
+    font-family: var(--font-serif);
     font-size: var(--font-size-2xl);
-    font-weight: 800;
-    color: var(--color-accent-600);
+    font-weight: 700;
+    color: var(--color-accent);
     line-height: 1;
     margin-bottom: var(--space-3);
   }
 
   .step-card h3 {
-    font-size: 1.15rem;
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
     margin-bottom: var(--space-3);
+    color: var(--color-primary);
   }
 
   .step-card p {
@@ -362,18 +365,20 @@ const faqItems = [
   }
 
   .pricing-card {
-    background: #ffffff;
-    border: 2px solid var(--color-accent-600);
-    border-radius: var(--radius-lg);
-    padding: var(--space-8);
+    background: var(--color-bg-surface);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-10);
     box-shadow: var(--shadow-lg);
     text-align: center;
   }
 
   .pricing-title {
-    font-size: var(--font-size-xl);
+    font-family: var(--font-serif);
+    font-size: var(--font-size-2xl);
     margin-top: var(--space-3);
     margin-bottom: var(--space-4);
+    color: var(--color-primary);
   }
 
   .pricing-amount {
@@ -384,9 +389,10 @@ const faqItems = [
 
   .price-value {
     display: block;
-    font-size: 2.75rem;
-    font-weight: 800;
-    color: var(--color-primary-950);
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-accent);
     line-height: 1.1;
   }
 
@@ -401,9 +407,10 @@ const faqItems = [
   }
 
   .pricing-features h4 {
+    font-family: var(--font-serif);
     font-size: var(--font-size-base);
     margin-bottom: var(--space-4);
-    color: var(--color-primary-950);
+    color: var(--color-primary);
   }
 
   .pricing-features ul {
@@ -414,7 +421,7 @@ const faqItems = [
 
   .pricing-features li {
     font-size: var(--font-size-sm);
-    color: var(--color-text-body);
+    color: var(--color-text-main);
   }
 
   .pricing-note {

@@ -84,7 +84,7 @@ const currentYear = new Date().getFullYear();
 
 <style>
   .site-footer {
-    background-color: var(--color-primary-950);
+    background-color: var(--color-bg-darker);
     color: #94a3b8;
     padding-top: var(--space-16);
     padding-bottom: var(--space-8);
@@ -114,13 +114,16 @@ const currentYear = new Date().getFullYear();
 
   .footer-title {
     display: block;
-    font-size: var(--font-size-xl);
-    font-weight: 800;
+    font-family: var(--font-serif);
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
     color: #ffffff;
     margin-bottom: var(--space-3);
+    letter-spacing: -0.01em;
   }
 
   .footer-bio {
+    font-family: var(--font-sans);
     font-size: var(--font-size-sm);
     line-height: var(--line-height-relaxed);
     color: #cbd5e1;
@@ -129,17 +132,17 @@ const currentYear = new Date().getFullYear();
 
   .footer-book-plug {
     font-size: var(--font-size-sm);
-    color: var(--color-gold-100);
+    color: #fdba74;
     font-weight: 500;
   }
 
   .footer-heading {
+    font-family: var(--font-serif);
     color: #ffffff;
-    font-size: var(--font-size-base);
-    font-weight: 700;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
     margin-bottom: var(--space-4);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: -0.01em;
   }
 
   .footer-links,
