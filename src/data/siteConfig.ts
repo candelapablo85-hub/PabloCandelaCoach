@@ -36,7 +36,7 @@ export const siteConfig: SiteConfig = {
   bookSubtitle: "Un espacio para repensar cómo nos paramos frente a la vida, con menos culpa y más actitud. Una charla con mates, anécdotas reales y una dosis de humor para quienes se animan a mirar sus derrotas con una sonrisa.",
   bookUrl: "https://si-la-vida-te-da-la-espalda.vercel.app/",
   bookHotmartUrl: "https://si-la-vida-te-da-la-espalda.vercel.app/",
-  coachingPrice: "[PRECIO]",
+  coachingPrice: "A convenir",
   contactEmail: "candelapablo85@gmail.com",
   whatsappNumber: "+54 336 4012374",
   whatsappUrl: "https://wa.me/543364012374?text=Quiero%20tener%20mi%20sesi%C3%B3n%20...",

@@ -15,7 +15,7 @@ const faqItems = [
   },
   {
     question: "¿Cuál es la duración del proceso y cómo se coordinan los horarios de turnos rotativos?",
-    answer: "El proceso estándar consta de un ciclo de [CANTIDAD DE SESIONES, EJ: 8 a 10 SESIONES] de 60 minutos cada una. Al conocer la realidad de los turnos rotativos (mañana, tarde, noche y descansos), la agenda de sesiones se coordina con total flexibilidad para adaptarse a tu rotación horaria."
+    answer: "La cantidad y frecuencia de las sesiones se definen según tus objetivos y contexto. La agenda se coordina con flexibilidad para adaptarse a la rotación horaria de cada persona."
   },
   {
     question: "¿Qué pasa si surge un conflicto urgente en planta entre sesión y sesión?",
@@ -26,11 +26,70 @@ const faqItems = [
     answer: "Sí, se emite comprobante fiscal válido tanto si la contratación la realiza el profesional de forma particular como si es financiado por la empresa a través del área de Recursos Humanos / Desarrollo Organizacional."
   }
 ];
+
+const leadershipPillars = [
+  {
+    number: '01',
+    title: 'El líder y su forma de estar',
+    description: 'La base de toda autoridad real: el carácter que sostiene las decisiones, más allá del cargo.',
+    items: ['Autoconocimiento y valores', 'Gestión emocional bajo presión', 'Coherencia entre lo que se dice y se hace'],
+    quote: 'Sin esto, no hay liderazgo. Hay cargo nomás.'
+  },
+  {
+    number: '02',
+    title: 'La comunicación que ordena',
+    description: 'El liderazgo sucede en las conversaciones. Una comunicación clara evita que la operación se detenga.',
+    items: ['Escucha activa y asertiva', 'Pedidos y límites claros', 'Conversaciones difíciles y feedback'],
+    quote: 'Liderar también es decir lo necesario con claridad.'
+  },
+  {
+    number: '03',
+    title: 'Decisión y acción',
+    description: 'Transformar prioridades y objetivos en movimiento concreto en la planta.',
+    items: ['Priorización estratégica', 'Toma de decisiones', 'Ejecución y sostenimiento de estándares'],
+    quote: 'Esto se pone en práctica en la operación, todos los días.'
+  },
+  {
+    number: '04',
+    title: 'Las personas y la responsabilidad',
+    description: 'Construir equipos de alto desempeño con confianza, compromiso y responsabilidad compartida.',
+    items: ['Generación de confianza', 'Gestión de conflictos', 'Influencia y cultura de equipo'],
+    quote: 'Motivación auténtica, no frases de taza de café.'
+  },
+  {
+    number: '05',
+    title: 'Contexto y orden de gestión',
+    description: 'Responder a las demandas de la organización sin perder de vista el equilibrio humano y operativo.',
+    items: ['Objetivos e indicadores', 'Productividad, seguridad y calidad', 'Respuesta ante la crisis'],
+    quote: 'Liderar es responder bien bajo presión.'
+  }
+];
+
+const testimonials = [
+  {
+    name: 'Carla Paez E.',
+    role: 'Encargada de Administración, AUDI UB Motors',
+    quote: 'Antes sentía enojo porque la gente no actuaba como yo esperaba. Con Pablo aprendí a gestionar mis emociones y mejorar la comunicación para obtener los resultados que esperaba.',
+    image: '/imagenes/testimonio-carla.jpeg'
+  },
+  {
+    name: 'Gladys G.',
+    role: 'Responsable de RR. HH.',
+    quote: 'Su conocimiento real en gestión de equipos me ayudó a delegar con más confianza. Pude equilibrar mi vida personal, mejorar mi salud y bajar el estrés diario.',
+    image: '/imagenes/testimonio-gladys.jpeg'
+  },
+  {
+    name: 'Carlos R.',
+    role: 'Supervisor Operativo',
+    quote: 'La comunicación con mi equipo era un desastre de malentendidos. Hoy tenemos reuniones efectivas de 20 minutos donde todo queda claro y obtenemos mejores resultados.',
+    image: '/imagenes/testimonio-carlos.jpeg'
+  }
+];
 ---
 
 <BaseLayout
-  title="Coaching para Supervisores y Líderes Industriales | Pablo Candela"
-  description="Programa de acompañamiento individual para mandos medios en la industria. Formato, metodología paso a paso, precio transparente y preguntas frecuentes."
+  title="Programa de los 5 Pilares del Liderazgo | Pablo Candela"
+  description="Un programa práctico de coaching para fortalecer el liderazgo industrial desde la persona, la comunicación, la acción, el equipo y la gestión del contexto."
   canonical={`${siteConfig.siteUrl}/coaching`}
 >
   <Fragment slot="head">
@@ -42,12 +101,12 @@ const faqItems = [
   <section class="section coaching-hero">
     <div class="container">
       <div class="section-header text-left">
-        <span class="badge">Programa de Acompañamiento 1 a 1</span>
+        <span class="badge">Coaching de Liderazgo · Programa 1 a 1</span>
         <h1 class="page-title">
-          Coaching para Supervisores: Liderazgo de Alto Impacto en Planta
+          Los 5 pilares del liderazgo, aplicados a tu realidad
         </h1>
         <p class="hero-lead">
-          Un proceso práctico y confidencial diseñado para líderes que cargan con la responsabilidad operativa de la industria y necesitan herramientas reales para coordinar personas, gestionar conflictos y liderar sin desgaste.
+          Un proceso práctico y confidencial para líderes que necesitan fortalecer su forma de estar, comunicarse y actuar, mientras coordinan personas y responden a la presión diaria de la operación.
         </p>
       </div>
 
@@ -72,6 +131,88 @@ const faqItems = [
           <strong>Soporte en Trinchera</strong>
           <span>Acompañamiento por WhatsApp</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-subtle pillars-section" id="5-pilares">
+    <div class="container">
+      <div class="pillars-intro">
+        <div class="section-header text-left">
+          <span class="badge badge-accent">El programa</span>
+          <h2>Cinco pilares para liderar con hechos</h2>
+          <p class="section-subtitle">
+            Una guía para trabajar los fundamentos que sostienen a un equipo y su operación, con herramientas conectadas a los desafíos reales de cada líder.
+          </p>
+        </div>
+        <aside class="pillar-coach">
+          <img
+            src="/imagenes/pablo-candela.jpeg"
+            alt="Pablo Candela en su entorno de trabajo industrial"
+            loading="lazy"
+            decoding="async"
+          />
+          <div>
+            <strong>Pablo Candela</strong>
+            <span>Coach ontológico y ejecutivo · Experiencia en supervisión industrial</span>
+          </div>
+        </aside>
+      </div>
+
+      <figure class="pillars-overview">
+        <img
+          src="/imagenes/cinco-pilares-liderazgo.png"
+          alt="Los cinco pilares del liderazgo: la forma de estar, la comunicación, la decisión y acción, las personas y la responsabilidad, y el orden de gestión."
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>Los cinco pilares reales del liderazgo industrial.</figcaption>
+      </figure>
+
+      <div class="pillars-grid">
+        {leadershipPillars.map((pillar) => (
+          <article class="pillar-card">
+            <div class="pillar-card-heading">
+              <span class="pillar-number">{pillar.number}</span>
+              <span class="pillar-rule" aria-hidden="true"></span>
+            </div>
+            <h3>{pillar.title}</h3>
+            <p>{pillar.description}</p>
+            <ul class="pillar-list">
+              {pillar.items.map((item) => <li>{item}</li>)}
+            </ul>
+            <p class="pillar-quote">“{pillar.quote}”</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section testimonials-section" id="testimonios">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Experiencias reales</span>
+        <h2>Lo que cuentan quienes ya trabajaron estos desafíos</h2>
+        <p class="section-subtitle">
+          Cada proceso parte de una realidad distinta y busca cambios concretos en la forma de liderar.
+        </p>
+      </div>
+      <div class="testimonials-grid">
+        {testimonials.map((testimonial) => (
+          <article class="testimonial-card">
+            <img
+              src={testimonial.image}
+              alt={`Foto de ${testimonial.name}`}
+              loading="lazy"
+              decoding="async"
+            />
+            <blockquote>“{testimonial.quote}”</blockquote>
+            <div class="testimonial-author">
+              <strong>{testimonial.name}</strong>
+              <span>{testimonial.role}</span>
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   </section>
@@ -174,16 +315,16 @@ const faqItems = [
       <div class="pricing-card-wrapper">
         <div class="pricing-card">
           <span class="badge badge-gold">Inversión Profesional</span>
-          <h2 class="pricing-title">Programa Individual de Coaching de Liderazgo</h2>
+          <h2 class="pricing-title">Programa de los 5 Pilares del Liderazgo</h2>
           <div class="pricing-amount">
             <span class="price-value">{siteConfig.coachingPrice}</span>
-            <span class="price-period">[ESCRIBIR AQUÍ: por ciclo completo / o por sesión mensual]</span>
+            <span class="price-period">Modalidad y alcance a definir según tus objetivos</span>
           </div>
 
           <div class="pricing-features">
             <h4>El programa incluye:</h4>
             <ul>
-              <li>✓ [CANTIDAD] Sesiones individuales personalizadas de 60 minutos</li>
+              <li>✓ Sesiones individuales personalizadas de 60 minutos</li>
               <li>✓ Diagnóstico de liderazgo inicial y fijación de objetivos clave de planta</li>
               <li>✓ Guías de trabajo y plantillas prácticas para diseño de conversaciones difíciles</li>
               <li>✓ Acompañamiento y soporte directo vía WhatsApp para urgencias de turno</li>
@@ -232,6 +373,216 @@ const faqItems = [
   .coaching-hero {
     padding-top: var(--space-12);
     padding-bottom: var(--space-12);
+  }
+
+  .pillars-intro {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    align-items: center;
+  }
+
+  .pillars-section,
+  .testimonials-section {
+    scroll-margin-top: calc(4.75rem + var(--space-4));
+  }
+
+  .pillars-intro .section-header {
+    margin-bottom: 0;
+  }
+
+  .pillar-coach {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+
+  .pillar-coach img {
+    width: 72px;
+    height: 72px;
+    flex: 0 0 72px;
+    object-fit: cover;
+    object-position: center 35%;
+    border-radius: 50%;
+  }
+
+  .pillar-coach strong,
+  .pillar-coach span {
+    display: block;
+  }
+
+  .pillar-coach strong {
+    color: var(--color-primary);
+    margin-bottom: var(--space-1);
+  }
+
+  .pillar-coach span {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+    line-height: 1.5;
+  }
+
+  .pillars-overview {
+    margin: var(--space-10) 0;
+    text-align: center;
+  }
+
+  .pillars-overview img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+  }
+
+  .pillars-overview figcaption {
+    margin-top: var(--space-3);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+  }
+
+  .pillars-grid,
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .pillar-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-6);
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .pillar-card-heading {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .pillar-number {
+    font-family: var(--font-serif);
+    color: var(--color-accent);
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .pillar-rule {
+    height: 1px;
+    flex: 1;
+    background: var(--color-border);
+  }
+
+  .pillar-card h3 {
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+  }
+
+  .pillar-card > p {
+    font-size: var(--font-size-sm);
+  }
+
+  .pillar-list {
+    display: grid;
+    gap: var(--space-2);
+    margin: var(--space-3) 0 var(--space-6);
+  }
+
+  .pillar-list li {
+    position: relative;
+    padding-left: var(--space-6);
+    color: var(--color-text-main);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+  }
+
+  .pillar-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  .pillar-card .pillar-quote {
+    margin-top: auto;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-primary);
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  .testimonial-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-8);
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+  }
+
+  .testimonial-card img {
+    width: 76px;
+    height: 76px;
+    margin-bottom: var(--space-6);
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .testimonial-card blockquote {
+    flex: 1;
+    margin-bottom: var(--space-6);
+    color: var(--color-text-main);
+    font-size: var(--font-size-sm);
+    font-style: italic;
+    line-height: var(--line-height-relaxed);
+  }
+
+  .testimonial-author strong,
+  .testimonial-author span {
+    display: block;
+  }
+
+  .testimonial-author strong {
+    color: var(--color-primary);
+  }
+
+  .testimonial-author span {
+    margin-top: var(--space-1);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+  }
+
+  @media (min-width: 768px) {
+    .pillars-grid,
+    .testimonials-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pillars-intro {
+      grid-template-columns: minmax(0, 1fr) minmax(250px, 0.55fr);
+      gap: var(--space-10);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .pillars-grid,
+    .testimonials-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   .hero-lead {
