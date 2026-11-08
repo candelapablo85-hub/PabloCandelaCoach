@@ -6,8 +6,8 @@ import { siteConfig } from '../data/siteConfig';
 ---
 
 <BaseLayout
-  title="Pablo Candela | Coaching Ontológico para Supervisores y Líderes de Industria"
-  description="Desarrollo de liderazgo operativo y gestión humana para mandos medios en entornos industriales. De la trinchera en planta a la gestión efectiva de equipos."
+  title={siteConfig.defaultTitle}
+  description={siteConfig.defaultDescription}
   canonical={`${siteConfig.siteUrl}/`}
 >
   <Fragment slot="head">
@@ -20,12 +20,12 @@ import { siteConfig } from '../data/siteConfig';
   <section class="hero-section">
     <div class="container hero-container">
       <div class="hero-content">
-        <span class="badge">Coaching Ontológico & Operativo</span>
+        <span class="badge">Coaching Ontológico & Liderazgo</span>
         <h1 class="hero-title">
-          Liderazgo real para la trinchera industrial: de apagar fuegos a guiar equipos de alto desempeño
+          Liderarse para Liderar equipos de trabajo, mejorando lo que tenés para ofrecer.
         </h1>
         <p class="hero-subtitle">
-          Acompañamiento especializado para supervisores, jefes de turno y líderes de planta que necesitan transformar la presión operativa, los conflictos y el desgaste diario en autoridad genuina y resultados sostenibles.
+          Acompañamiento especializado para líderes que necesitan transformar la presión operativa, los conflictos y el desgaste diario en autoridad genuina y resultados sostenibles.
         </p>
         <div class="hero-actions">
           <a href="/coaching#agendar" class="btn btn-primary">
@@ -45,12 +45,17 @@ import { siteConfig } from '../data/siteConfig';
           <div class="metric-divider" aria-hidden="true"></div>
           <div class="metric-item">
             <span class="metric-number">2013</span>
-            <span class="metric-label">Supervisor activo en línea de fuego</span>
+            <span class="metric-label">Supervisor Operativo</span>
           </div>
           <div class="metric-divider" aria-hidden="true"></div>
           <div class="metric-item">
-            <span class="metric-number">Ingeniería</span>
-            <span class="metric-label">Formación técnica + Coaching ontológico</span>
+            <span class="metric-number">2019</span>
+            <span class="metric-label">Coaching ontológico y ejecutivo</span>
+          </div>
+          <div class="metric-divider" aria-hidden="true"></div>
+          <div class="metric-item">
+            <span class="metric-number">Actualidad</span>
+            <span class="metric-label">3er Año Ingeniería Industrial</span>
           </div>
         </div>
       </div>
@@ -64,7 +69,7 @@ import { siteConfig } from '../data/siteConfig';
         <span class="badge">Audiencia Clave</span>
         <h2>¿Para quién está diseñado este acompañamiento?</h2>
         <p class="section-subtitle">
-          No hacemos teoría abstracta de pizarrón. Trabajamos con los desafíos concretos de quienes tienen la responsabilidad de hacer rodar la producción día a día.
+          Basado en experiencias personales y los 5 pilares del liderazgo. Trabajamos con los desafíos concretos de quienes tienen la responsabilidad de hacer que las cosas sucedan.
         </p>
       </div>
 
@@ -73,7 +78,7 @@ import { siteConfig } from '../data/siteConfig';
           <div class="card-icon" aria-hidden="true">🏭</div>
           <h3>Supervisores y Jefes de Turno</h3>
           <p>
-            Profesionales que están bajo fuego cruzado constante: la presión de las metas gerenciales arriba y la resistencia, apatía o conflictos del personal operativo abajo.
+            Profesionales que están en medio del conflicto constantemente: la presión de las metas gerenciales arriba y la resistencia o conflictos del personal operativo abajo.
           </p>
         </div>
 
@@ -87,9 +92,9 @@ import { siteConfig } from '../data/siteConfig';
 
         <div class="card">
           <div class="card-icon" aria-hidden="true">📊</div>
-          <h3>Gerencias de Operaciones y Planta</h3>
+          <h3>Dueños de PYMES que buscan delegar para crecer</h3>
           <p>
-            Directores que buscan profesionalizar su primera línea de mando para reducir el ausentismo, evitar paradas operativas por roces interpersonales y crear cultura de seguridad real.
+            Emprendedores que lograron un crecimiento de su negocio pero hoy sienten que se estancan en la operativa diaria, y necesitan delegar para dedicarse a hacer crecer su negocio.
           </p>
         </div>
       </div>
@@ -101,9 +106,9 @@ import { siteConfig } from '../data/siteConfig';
     <div class="container">
       <div class="section-header">
         <span class="badge">Foco en Soluciones</span>
-        <h2>Desafíos críticos que resolvemos en planta</h2>
+        <h2>Desafíos críticos que resolvemos</h2>
         <p class="section-subtitle">
-          El coaching ontológico aplicado a la industria permite desarmar los patrones de conducta que hoy frenan el rendimiento operativo.
+          El coaching ontológico aplicado a las empresas permite desarmar los patrones de conducta que hoy frenan el rendimiento operativo.
         </p>
       </div>
 
@@ -114,7 +119,7 @@ import { siteConfig } from '../data/siteConfig';
             <h3>El síndrome del «apagafuegos permanente»</h3>
           </div>
           <p class="pain-problem">
-            <strong>El síntoma:</strong> Vivís corriendo detrás de las urgencias de planta, sin tiempo para planificar, revisar procesos ni formar a tu equipo.
+            <strong>El síntoma:</strong> Vivís corriendo detrás de las urgencias, sin tiempo para planificar, revisar procesos ni formar a tu equipo.
           </p>
           <p class="pain-solution">
             <strong>La intervención:</strong> Redefinición de distinciones operativas, estructura de compromisos y delegación efectiva con seguimiento sin microgestión.
@@ -127,7 +132,7 @@ import { siteConfig } from '../data/siteConfig';
             <h3>Conversaciones difíciles postergadas o explosivas</h3>
           </div>
           <p class="pain-problem">
-            <strong>El síntoma:</strong> Miedo a poner límites por temor a una huelga de brazos caídos o choques que terminan escalando innecesariamente a recursos humanos.
+            <strong>El síntoma:</strong> Miedo a poner límites por temor a conflictos que terminan escalando innecesariamente a recursos humanos.
           </p>
           <p class="pain-solution">
             <strong>La intervención:</strong> Adquisición de herramientas de comunicación asertiva, escucha activa de los juicios del operario y diseño de conversaciones constructivas.
@@ -140,7 +145,7 @@ import { siteConfig } from '../data/siteConfig';
             <h3>Resistencia crónica al cambio y a nuevas normativas</h3>
           </div>
           <p class="pain-problem">
-            <strong>El síntoma:</strong> La clásica respuesta: <em>«Acá las cosas siempre se hicieron así»</em> cuando se implementa 5S, TPM o un nuevo estándar de seguridad.
+            <strong>El síntoma:</strong> La clásica respuesta: <em>«Acá las cosas siempre se hicieron así»</em> cuando se quiere implementar un nuevo estándar operativo.
           </p>
           <p class="pain-solution">
             <strong>La intervención:</strong> Trabajo sobre la corporalidad, los estados de ánimo colectivos y la generación de sentido para lograr adhesión voluntaria en lugar de sumisión forzada.
@@ -163,7 +168,7 @@ import { siteConfig } from '../data/siteConfig';
     </div>
   </section>
 
-  <!-- Bloque del Libro -->
+  <!-- Bloque del Libro Unificado -->
   <section class="section section-dark" id="libro">
     <div class="container">
       <CardBook />
@@ -182,12 +187,12 @@ import { siteConfig } from '../data/siteConfig';
         <a href="/coaching#agendar" class="btn btn-primary btn-lg">
           Agendar Sesión de Diagnóstico
         </a>
-        <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+        <a href={siteConfig.whatsappConsultationUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline">
           Consultar por WhatsApp
         </a>
       </div>
       <p class="cta-guarantee">
-        [ESCRIBIR AQUÍ: Política de confidencialidad o detalles sobre modalidad online/presencial]
+        Sesiones online para toda Hispanoamérica y presenciales a convenir. Absoluta confidencialidad profesional.
       </p>
     </div>
   </section>

@@ -1,3 +1,9 @@
+export interface NavLink {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
 export interface SiteConfig {
   siteName: string;
   author: string;
@@ -7,37 +13,41 @@ export interface SiteConfig {
   gaId: string;
   bookTitle: string;
   bookSubtitle: string;
+  bookUrl: string;
   bookHotmartUrl: string;
   coachingPrice: string;
   contactEmail: string;
+  whatsappNumber: string;
   whatsappUrl: string;
+  whatsappConsultationUrl: string;
   linkedinUrl: string;
   instagramUrl: string;
-  oldVercelUrl: string;
-  navLinks: Array<{ label: string; href: string }>;
+  navLinks: NavLink[];
 }
 
 export const siteConfig: SiteConfig = {
   siteName: "Pablo Candela",
   author: "Pablo Candela",
-  siteUrl: "https://pablocandela.com", // [DOMINIO]: Reemplazar con tu dominio oficial (ej: https://pablocandela.com)
-  defaultTitle: "Pablo Candela | Coaching Ontológico y de Negocios para Líderes Industriales",
-  defaultDescription: "Acompañamiento especializado a líderes y supervisores de industria. Desarrollá liderazgo operativo, comunicación efectiva y gestión de equipos en planta. Autor de 'Si la vida te da la espalda...'",
-  gaId: "[GA_ID]", // Reemplazar con tu ID de Google Analytics (ej: G-XXXXXXXXXX)
-  bookTitle: "Si la vida te da la espalda...",
-  bookSubtitle: "Herramientas de liderazgo y transformación personal desde la trinchera industrial",
-  bookHotmartUrl: "[URL_HOTMART]", // Reemplazar con tu link de compra en Hotmart
-  coachingPrice: "[PRECIO]", // Reemplazar con el precio y modalidad del programa
-  contactEmail: "[EMAIL_CONTACTO]", // Reemplazar con tu email de contacto
-  whatsappUrl: "https://wa.me/[WHATSAPP_NUMERO]?text=Hola%20Pablo,%20quiero%20coordinar%20una%20consulta%20de%20coaching",
-  linkedinUrl: "https://www.linkedin.com/in/[LINKEDIN_PERFIL]",
-  instagramUrl: "https://www.instagram.com/[INSTAGRAM_USUARIO]",
-  oldVercelUrl: "si-la-vida-te-da-la-espalda.vercel.app",
+  siteUrl: "https://pablocandela.com", // Cuando esté el dominio definitivo
+  defaultTitle: "Pablo Candela | Coaching Ontológico para Liderar",
+  defaultDescription: "Desarrollo de auto-liderazgo y gestión humana para mandos medios en entornos empresariales. Del coaching a la gestión efectiva de equipos.",
+  gaId: "[GA_ID]",
+  bookTitle: "Si la vida te da la espalda... Tocale el culo",
+  bookSubtitle: "Un espacio para repensar cómo nos paramos frente a la vida, con menos culpa y más actitud. Una charla con mates, anécdotas reales y una dosis de humor para quienes se animan a mirar sus derrotas con una sonrisa.",
+  bookUrl: "https://si-la-vida-te-da-la-espalda.vercel.app/",
+  bookHotmartUrl: "https://si-la-vida-te-da-la-espalda.vercel.app/",
+  coachingPrice: "[PRECIO]",
+  contactEmail: "candelapablo85@gmail.com",
+  whatsappNumber: "+54 336 4012374",
+  whatsappUrl: "https://wa.me/543364012374?text=Quiero%20tener%20mi%20sesi%C3%B3n%20...",
+  whatsappConsultationUrl: "https://wa.me/543364012374?text=Hola%20Pablo,%20quiero%20coordinar%20una%20consulta%20de%20coaching",
+  linkedinUrl: "https://www.linkedin.com/in/pablo-candela-coach/",
+  instagramUrl: "https://www.instagram.com/pablocandela.coach/?hl=es-la",
   navLinks: [
     { label: "Inicio", href: "/" },
     { label: "Sobre mí", href: "/sobre-mi" },
     { label: "Coaching", href: "/coaching" },
-    { label: "Libro", href: "/libro" },
+    { label: "Libro", href: "https://si-la-vida-te-da-la-espalda.vercel.app/", external: true },
     { label: "Blog", href: "/blog" },
     { label: "Contacto", href: "/contacto" },
   ],

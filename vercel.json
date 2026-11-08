@@ -2,14 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "si-la-vida-te-da-la-espalda.vercel.app"
-        }
-      ],
-      "destination": "https://[DOMINIO]/$1",
+      "source": "/libro",
+      "destination": "https://si-la-vida-te-da-la-espalda.vercel.app/",
       "permanent": true
     }
   ],

@@ -1,62 +1,60 @@
 ---
 import { siteConfig } from '../../data/siteConfig';
-
-interface Props {
-  showBuyButton?: boolean;
-}
-
-const { showBuyButton = true } = Astro.props;
 ---
 
 <div class="book-banner-card">
   <div class="book-visual">
-    <div class="book-cover-mockup">
-      <div class="book-spine"></div>
-      <div class="book-front">
-        <span class="book-badge">Libro Recomendado</span>
-        <h3 class="book-title-mockup">{siteConfig.bookTitle}</h3>
-        <p class="book-author-mockup">{siteConfig.author}</p>
-        <span class="book-tagline-mockup">Experiencia real en siderurgia aplicada al liderazgo</span>
+    <a 
+      href={siteConfig.bookUrl} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="book-link-wrap"
+      aria-label="Visitar la web oficial del libro Si la vida te da la espalda... Tocale el culo"
+    >
+      <div class="book-cover-mockup">
+        <div class="book-spine"></div>
+        <div class="book-front">
+          <span class="book-badge">Libro Recomendado</span>
+          <h3 class="book-title-mockup">{siteConfig.bookTitle}</h3>
+          <p class="book-author-mockup">{siteConfig.author}</p>
+          <span class="book-tagline-mockup">Menos culpa, más actitud y anécdotas reales</span>
+        </div>
       </div>
-    </div>
+    </a>
   </div>
 
   <div class="book-info">
-    <span class="badge badge-gold">Publicación Oficial</span>
+    <span class="badge badge-accent">Libro Recomendado</span>
     <h2 class="book-heading">«{siteConfig.bookTitle}»</h2>
+    <p class="book-author-line">Por <strong>{siteConfig.author}</strong></p>
     <p class="book-description">
-      Un recorrido honesto y sin rodeos corporativos sobre cómo liderarse a uno mismo cuando la realidad operativa se vuelve hostil. Inspirado en más de dos décadas de vivencias en la industria siderúrgica pesada, este libro entrega reflexiones y herramientas ontológicas directas para no claudicar ante la adversidad.
+      {siteConfig.bookSubtitle}
     </p>
 
     <div class="book-features">
       <div class="feature-item">
         <span class="check-icon" aria-hidden="true">✓</span>
-        <span>Herramientas concretas de cambio de observador y gestión emocional.</span>
+        <span>Mirar las derrotas y errores con una sonrisa y sin drama.</span>
       </div>
       <div class="feature-item">
         <span class="check-icon" aria-hidden="true">✓</span>
-        <span>Casos reales desde la planta industrial, lejos de la teoría abstracta.</span>
+        <span>Herramientas de liderazgo y coaching aplicadas a la vida real.</span>
       </div>
       <div class="feature-item">
         <span class="check-icon" aria-hidden="true">✓</span>
-        <span>Especialmente pensado para supervisores, líderes de equipo y mandos medios.</span>
+        <span>Directo, claro y sin vueltas: una conversación entre amigos.</span>
       </div>
     </div>
 
     <div class="book-actions">
-      <a href="/libro" class="btn btn-gold">
-        Conocer más y descargar Cap. 1
+      <a 
+        href={siteConfig.bookUrl} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="btn btn-primary"
+      >
+        Visitar la Web Oficial del Libro ↗
       </a>
-      {showBuyButton && (
-        <a 
-          href={siteConfig.bookHotmartUrl} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="btn btn-outline"
-        >
-          Comprar en Hotmart ↗
-        </a>
-      )}
     </div>
   </div>
 </div>
@@ -88,9 +86,19 @@ const { showBuyButton = true } = Astro.props;
     justify-content: center;
   }
 
+  .book-link-wrap {
+    display: block;
+    text-decoration: none;
+    transition: transform var(--transition-fast);
+  }
+
+  .book-link-wrap:hover {
+    transform: translateY(-4px);
+  }
+
   .book-cover-mockup {
-    width: 200px;
-    height: 290px;
+    width: 210px;
+    height: 300px;
     background: linear-gradient(135deg, var(--color-accent) 0%, #7c2d12 100%);
     border-radius: 3px 10px 10px 3px;
     box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.4), inset 4px 0 6px rgba(255, 255, 255, 0.2);
@@ -100,11 +108,6 @@ const { showBuyButton = true } = Astro.props;
     flex-direction: column;
     justify-content: space-between;
     border-left: 6px solid #451a03;
-    transition: transform var(--transition-fast);
-  }
-
-  .book-cover-mockup:hover {
-    transform: translateY(-4px) rotate(-1deg);
   }
 
   .book-badge {
@@ -122,7 +125,7 @@ const { showBuyButton = true } = Astro.props;
     color: #ffffff;
     font-size: 1.15rem;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.25;
     margin-top: auto;
     margin-bottom: var(--space-2);
   }
@@ -135,9 +138,9 @@ const { showBuyButton = true } = Astro.props;
   }
 
   .book-tagline-mockup {
-    font-size: 0.7rem;
+    font-size: 0.725rem;
     color: #e2e8f0;
-    line-height: 1.2;
+    line-height: 1.3;
   }
 
   .book-heading {
@@ -145,6 +148,12 @@ const { showBuyButton = true } = Astro.props;
     color: #ffffff;
     font-size: var(--font-size-2xl);
     margin-top: var(--space-2);
+    margin-bottom: var(--space-2);
+  }
+
+  .book-author-line {
+    color: #fed7aa;
+    font-size: var(--font-size-sm);
     margin-bottom: var(--space-4);
   }
 
@@ -153,6 +162,7 @@ const { showBuyButton = true } = Astro.props;
     font-size: var(--font-size-base);
     max-width: var(--max-reading-ch);
     margin-bottom: var(--space-6);
+    line-height: 1.7;
   }
 
   .book-features {

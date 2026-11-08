@@ -112,14 +112,14 @@ const canonicalUrl = `${siteConfig.siteUrl}/blog/${post.slug}`;
       <aside class="post-conversion-banner" aria-label="Recurso recomendado">
         <div class="banner-inner">
           <div class="banner-text">
-            <span class="badge badge-gold">Lectura Recomendada</span>
+            <span class="badge badge-accent">Lectura Recomendada</span>
             <h3>¿Te sirvió esta perspectiva para tu liderazgo?</h3>
             <p>
-              En mi libro <em>«{siteConfig.bookTitle}»</em> profundizo en estas y otras herramientas forjadas en más de 20 años en la industria siderúrgica para liderar con templanza ante la adversidad.
+              En mi libro <em>«{siteConfig.bookTitle}»</em> profundizo en estas y otras herramientas forjadas en más de 20 años en la industria y el coaching para liderar con templanza ante la adversidad.
             </p>
             <div class="banner-ctas">
-              <a href="/libro" class="btn btn-gold">
-                Conocer el Libro y Descargar Cap. 1
+              <a href={siteConfig.bookUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Conocer la Web del Libro ↗
               </a>
               <a href="/coaching" class="btn btn-outline-white">
                 Coaching para Supervisores

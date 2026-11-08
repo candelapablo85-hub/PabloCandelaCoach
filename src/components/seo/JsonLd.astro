@@ -122,15 +122,13 @@ if (schema.type === 'Person') {
       name: siteConfig.author,
     },
     description:
-      schema.description ||
-      'Herramientas de liderazgo y transformación personal desde la trinchera industrial. Una guía honesta sobre cómo liderarse a uno mismo ante la adversidad.',
+      schema.description || siteConfig.bookSubtitle,
     inLanguage: 'es',
-    url: schema.url || `${siteConfig.siteUrl}/libro`,
+    url: schema.url || siteConfig.bookUrl,
     offers: {
       '@type': 'Offer',
-      url: siteConfig.bookHotmartUrl,
+      url: siteConfig.bookUrl,
       availability: 'https://schema.org/InStock',
-      priceCurrency: 'USD',
       seller: {
         '@type': 'Person',
         name: siteConfig.author,

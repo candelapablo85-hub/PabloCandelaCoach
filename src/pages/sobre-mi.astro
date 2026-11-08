@@ -5,8 +5,8 @@ import { siteConfig } from '../data/siteConfig';
 ---
 
 <BaseLayout
-  title="Sobre mí | Pablo Candela: Trayectoria Industrial y Coaching Ontológico"
-  description="Conocé mi historia: ingreso a la industria siderúrgica en 2004, supervisor desde 2013, formación en ingeniería industrial y coaching ontológico."
+  title={`Sobre mí | ${siteConfig.author} - Coaching Ontológico y Liderazgo`}
+  description="Conocé mi historia: operador de línea en 2004, supervisor desde 2013, coach ontológico desde 2019 y estudiante de ingeniería industrial."
   canonical={`${siteConfig.siteUrl}/sobre-mi`}
 >
   <Fragment slot="head">
@@ -20,10 +20,9 @@ import { siteConfig } from '../data/siteConfig';
         <div class="bio-image-wrapper">
           <div class="photo-container">
             <div class="photo-placeholder" aria-label="Fotografía profesional de Pablo Candela">
-              <!-- Si el archivo pablo-candela-coach.webp existe, se visualiza; de lo contrario muestra un marco optimizado -->
               <img 
                 src="/images/pablo-candela-coach.webp" 
-                alt="Pablo Candela - Ingeniero Industrial, Supervisor en Siderurgia y Coach Ontológico" 
+                alt="Pablo Candela - Coach Ontológico y Supervisor Industrial" 
                 width="480" 
                 height="600" 
                 loading="eager"
@@ -38,62 +37,65 @@ import { siteConfig } from '../data/siteConfig';
             </div>
             <div class="photo-caption">
               <strong>Pablo Candela</strong>
-              <span>Ingeniero Industrial & Coach Ontológico</span>
+              <span>Coach Ontológico & Supervisor Operativo</span>
             </div>
           </div>
         </div>
 
         <!-- Contenido biográfico en primera persona -->
         <div class="bio-content">
-          <span class="badge">Mi Historia & Trayectoria</span>
+          <span class="badge">Sobre Pablo Candela</span>
           <h1 class="page-title">
-            De la operación siderúrgica al desarrollo de líderes: 20 años aprendiendo en la planta real
+            De la operación al desarrollo de líderes: 20 años aprendiendo en la planta real
           </h1>
 
           <div class="prose bio-text">
             <p class="lead-text">
-              No llegué al coaching desde un escritorio corporativo impoluto ni a través de manuales teóricos de autoayuda. Llegué tras años de caminar naves industriales con casco, botines de seguridad y el zumbido constante de los puentes grúa en los oídos.
+              Llegué como operador de línea, inexperto y con miedos. Con el correr del tiempo logré afianzarme como referente de mejoras y años después asumí el desafío de liderar equipos, nuevamente sin experiencia en el puesto, pero con muchas ganas de aprender y perfeccionarme.
             </p>
 
             <p>
-              Mi recorrido comenzó en el año <strong>2004</strong>, cuando ingresé a la <strong>industria siderúrgica pesada</strong>. Allí descubrí lo que significa la verdadera dinámica operativa: tolerancias mínimas, exigencias térmicas y mecánicas extremas, y un entorno donde cada minuto de parada de línea cuesta miles de dólares.
-            </p>
-
-            <p>
-              En el año <strong>2013</strong> asumí formalmente el rol de <strong>supervisor de operaciones</strong>. Ese paso cambió mi perspectiva para siempre. Pasé de responder por mi propia tarea técnica a ser el responsable del clima, la seguridad, la entrega y la contención de decenas de personas en turnos rotativos. Experimenté en carne propia la soledad del mando medio: la presión que baja desde la dirección y la resistencia o frustración que sube desde la base.
+              Las exigencias cambiaban, pasé de responder por mi propia tarea técnica a ser el responsable del clima, la seguridad, la entrega y la contención de decenas de personas en turnos rotativos. Experimenté en carne propia la soledad del mando medio: la presión que baja desde la dirección y la resistencia o frustración que sube desde la base.
             </p>
 
             <div class="highlight-quote">
               <blockquote>
-                «Comprendí que en la industria las máquinas no se rompen solas: casi todo fallo de proceso es el síntoma visible de una conversación que no ocurrió a tiempo, de un acuerdo mal coordinado o de una relación desgastada.»
+                «Comprendí que liderar no es mandar con autoritarismo estéril, sino ponerse en el lugar del otro, entender desde dónde surgen sus acciones y coordinar compromisos reales.»
               </blockquote>
             </div>
 
-            <h2>Ingeniería Industrial y Coaching Ontológico: el puente</h2>
             <p>
-              Mi formación de base en <strong>ingeniería industrial</strong> me brindó la estructura mental, el pensamiento por procesos y la obsesión por la mejora continua y los indicadores de desempeño (KPIs). Sin embargo, la ingeniería se quedaba corta cuando había que destrabar el resentimiento entre dos turnos o motivar a un equipo agotado.
+              Decidí estudiar <strong>Coaching Ontológico</strong> para mejorar mi capacidad de relacionarme, de ponerme en el lugar del otro y entender desde dónde surgen sus acciones. Encontré allí las distinciones exactas para intervenir en el fenómeno humano: cómo escuchamos, desde qué juicios operamos, cómo gestionamos el miedo al error y cómo rediseñar compromisos colectivos sin recurrir al autoritarismo estéril. Trabajé con emprendedores de todo el País a través del <strong>Programa Argentina Potencia</strong> y ahí descubrí la necesidad de trabajar sobre el liderazgo propio y de equipos.
             </p>
 
             <p>
-              Por eso me formé y certifiqué en <strong>Coaching Ontológico</strong>. Encontré allí las distinciones exactas para intervenir en el fenómeno humano: cómo escuchamos, desde qué juicios operamos, cómo gestionamos el miedo al error y cómo rediseñar compromisos colectivos sin recurrir al autoritarismo estéril.
+              Años después retomé mis estudios de <strong>Ingeniería Industrial</strong>, lo cual me brindó la estructura mental, el pensamiento por procesos y la obsesión por la mejora continua. Combinado con las bases del coaching y el liderazgo, forjé herramientas para abarcar toda la gestión de un negocio o empresa, desde lo técnico operativo hasta la gestión de emociones y relaciones humanas.
             </p>
 
             <p>
-              [ESCRIBIR AQUÍ: Detalle de certificaciones adicionales, acreditaciones de coaching, posgrados o hitos específicos que quieras destacar].
+              Hoy me baso en los <strong>5 pilares del liderazgo</strong> para llevar adelante el acompañamiento de líderes que sientan que necesitan mejorar su desempeño.
             </p>
 
-            <h2>El libro: «Si la vida te da la espalda...»</h2>
+            <h2>El libro: «Si la vida te da la espalda... Tocale el culo»</h2>
             <p>
-              Todo ese camino de tropiezos, aprendizajes y transformaciones dio vida a mi libro <em>«Si la vida te da la espalda...»</em>. Una obra nacida de vivencias directas, pensada para cualquier persona que siente que las circunstancias lo superan y necesita recuperar el timón de sus elecciones y de su propia vida.
+              Todo ese camino de tropiezos, aprendizajes y transformaciones dio vida a mi libro <em>«Si la vida te da la espalda...Tocale el culo»</em>. Una obra nacida de vivencias directas, pensada para cualquier persona que siente que las circunstancias lo superan y necesita recuperar el timón de sus elecciones y de su propia vida.
+            </p>
+
+            <p>
+              Escrito desde la postura de alguien que se animó a mirarse de frente: a sus logros, a sus errores y a sus derrotas, sin drama… y con una buena dosis de humor. Creo que reírse de uno mismo es una de las formas más sanas de crecer. Escrito de forma directa, clara y sin vueltas, como si fuera una charla entre amigos. Buscando mostrar el lado absurdo y gracioso de las situaciones cotidianas para bajar el peso de los problemas y subir el nivel de conciencia, actitud y responsabilidad personal.
+            </p>
+
+            <p>
+              Este libro nace de esa mezcla: liderazgo, coaching y vida real. No promete fórmulas mágicas, pero sí algo mucho más poderoso: una nueva manera de mirarte, de entenderte y de pararte frente a lo que te pasa.
             </p>
           </div>
 
           <div class="bio-actions">
-            <a href="/coaching" class="btn btn-primary">
-              Ver programas de Coaching
+            <a href={siteConfig.bookUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              Ver la web del libro ↗
             </a>
-            <a href="/libro" class="btn btn-gold">
-              Conocer el Libro
+            <a href="/coaching" class="btn btn-outline">
+              Ver programas de Coaching
             </a>
           </div>
         </div>
@@ -115,7 +117,7 @@ import { siteConfig } from '../data/siteConfig';
           <div class="timeline-body">
             <h3>Ingreso a la Industria Siderúrgica</h3>
             <p>
-              Inmersión en el sector productivo pesado. Comprensión profunda de procesos térmicos, mecánicos, logística interna y cultura laboral en planta continua.
+              Ingreso como operador de línea. Inmersión en planta real, aprendizaje de procesos productivos, cultura operativa y mejora continua desde la base.
             </p>
           </div>
         </div>
@@ -123,39 +125,29 @@ import { siteConfig } from '../data/siteConfig';
         <div class="timeline-item">
           <div class="timeline-year">2013</div>
           <div class="timeline-body">
-            <h3>Supervisor de Operaciones en Planta</h3>
+            <h3>Supervisor Operativo de Turno</h3>
             <p>
-              Asumo la conducción directa de grupos de trabajo. Aprendizaje intensivo en gestión de conflictos sindicales y operativos, cumplimiento de seguridad y liderazgo de turnos.
+              Asumo la conducción directa de equipos de trabajo. Gestión de clima, turnos rotativos, seguridad operativa y el desafío humano del mando medio.
             </p>
           </div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-year">[AÑO]</div>
+          <div class="timeline-year">2019</div>
           <div class="timeline-body">
-            <h3>Ingeniería Industrial & Metodología de Procesos</h3>
+            <h3>Coaching Ontológico & Programa Argentina Potencia</h3>
             <p>
-              Consolidación de herramientas analíticas de optimización, balance de líneas, estandarización y gestión de calidad aplicada a la manufactura.
+              Formación profesional en coaching ontológico y ejecutivo. Facilitación y acompañamiento a líderes y emprendedores de todo el país.
             </p>
           </div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-year">[AÑO]</div>
+          <div class="timeline-year">Actualidad</div>
           <div class="timeline-body">
-            <h3>Certificación en Coaching Ontológico</h3>
+            <h3>Ingeniería Industrial (3er Año) & Los 5 Pilares del Liderazgo</h3>
             <p>
-              Desarrollo de competencias de facilitación, escucha ontológica, corporalidad y coordinación de acciones para líderes y organizaciones.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-year">[AÑO]</div>
-          <div class="timeline-body">
-            <h3>Publicación del Libro «Si la vida te da la espalda...»</h3>
-            <p>
-              Lanzamiento editorial enfocado en la resiliencia, el liderazgo personal y la superación en entornos de alta exigencia.
+              Fusión del pensamiento analítico por procesos con el desarrollo humano y emocional, acompañando a supervisores y dueños de PYMES.
             </p>
           </div>
         </div>

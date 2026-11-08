@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../data/siteConfig';
 ---
 
 <BaseLayout
@@ -18,7 +19,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="error-links-grid">
         <a href="/" class="btn btn-primary">Volver al Inicio</a>
         <a href="/coaching" class="btn btn-outline">Coaching para Líderes</a>
-        <a href="/libro" class="btn btn-gold">El Libro</a>
+        <a href={siteConfig.bookUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline">El Libro ↗</a>
         <a href="/contacto" class="btn btn-outline">Contacto Directo</a>
       </div>
     </div>

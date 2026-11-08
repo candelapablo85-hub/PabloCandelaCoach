@@ -18,7 +18,7 @@ const isActive = (href: string) => {
   <div class="container header-container">
     <a href="/" class="brand-link" aria-label="Pablo Candela - Inicio">
       <span class="brand-name">{siteConfig.siteName}</span>
-      <span class="brand-tagline">Coach Ontológico & Industrial</span>
+      <span class="brand-tagline">Coach Ontológico & Liderazgo</span>
     </a>
 
     <!-- Mobile menu toggle button -->
@@ -45,8 +45,10 @@ const isActive = (href: string) => {
               href={link.href} 
               class={`nav-link ${isActive(link.href) ? 'active' : ''}`}
               aria-current={isActive(link.href) ? 'page' : undefined}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
             >
-              {link.label}
+              {link.label} {link.external && <span class="external-icon" aria-hidden="true">↗</span>}
             </a>
           </li>
         ))}

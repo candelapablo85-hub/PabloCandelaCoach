@@ -11,8 +11,7 @@ const currentYear = new Date().getFullYear();
       <div class="footer-col footer-brand">
         <span class="footer-title">{siteConfig.siteName}</span>
         <p class="footer-bio">
-          Coach Ontológico y de Negocios especializado en líderes y supervisores del sector industrial. 
-          Herramientas prácticas forjadas desde 2004 en la industria siderúrgica para potenciar la gestión de equipos y resultados en planta.
+          Coach Ontológico y de Negocios especializado en líderes empresariales. Herramientas prácticas forjadas desde el coaching ejecutivo y la ingeniería industrial, para potenciar la gestión de equipos y resultados en planta.
         </p>
         <p class="footer-book-plug">
           Autor de <em>«{siteConfig.bookTitle}»</em>.
@@ -25,7 +24,14 @@ const currentYear = new Date().getFullYear();
         <ul class="footer-links">
           {siteConfig.navLinks.map((link) => (
             <li>
-              <a href={link.href} class="footer-link">{link.label}</a>
+              <a 
+                href={link.href} 
+                class="footer-link"
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
+              >
+                {link.label} {link.external && <span aria-hidden="true">↗</span>}
+              </a>
             </li>
           ))}
         </ul>
@@ -37,8 +43,16 @@ const currentYear = new Date().getFullYear();
         <ul class="footer-links">
           <li><a href="/coaching" class="footer-link">Coaching para Supervisores</a></li>
           <li><a href="/coaching#faq" class="footer-link">Preguntas Frecuentes</a></li>
-          <li><a href="/libro" class="footer-link">El Libro: «Si la vida te da la espalda...»</a></li>
-          <li><a href="/libro#capitulo-1" class="footer-link">Descargar Capítulo 1</a></li>
+          <li>
+            <a 
+              href={siteConfig.bookUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="footer-link"
+            >
+              El Libro: «Si la vida te da la espalda... Tocale el culo» ↗
+            </a>
+          </li>
           <li><a href="/blog" class="footer-link">Artículos de Liderazgo Industrial</a></li>
         </ul>
       </div>
@@ -49,22 +63,22 @@ const currentYear = new Date().getFullYear();
         <ul class="footer-contact-list">
           <li>
             <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" class="footer-link flex-align">
-              <span aria-hidden="true">💬</span> WhatsApp: [WHATSAPP_NUMERO]
+              <span aria-hidden="true">💬</span> WhatsApp: {siteConfig.whatsappNumber}
             </a>
           </li>
           <li>
             <a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" class="footer-link flex-align">
-              <span aria-hidden="true">🔗</span> LinkedIn: Pablo Candela
+              <span aria-hidden="true">💼</span> LinkedIn: Pablo Candela
             </a>
           </li>
           <li>
             <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer" class="footer-link flex-align">
-              <span aria-hidden="true">📸</span> Instagram: [INSTAGRAM_USUARIO]
+              <span aria-hidden="true">📸</span> Instagram: @pablocandela.coach
             </a>
           </li>
           <li>
             <a href={`mailto:${siteConfig.contactEmail}`} class="footer-link flex-align">
-              <span aria-hidden="true">✉️</span> [EMAIL_CONTACTO]
+              <span aria-hidden="true">✉️</span> {siteConfig.contactEmail}
             </a>
           </li>
         </ul>
