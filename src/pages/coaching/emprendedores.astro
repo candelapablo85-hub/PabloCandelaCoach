@@ -1,0 +1,342 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqAccordion from '../../components/ui/FaqAccordion.astro';
+import JsonLd from '../../components/seo/JsonLd.astro';
+import { siteConfig } from '../../data/siteConfig';
+
+const pageUrl = `${siteConfig.siteUrl}/coaching/emprendedores`;
+const pageTitle = 'Coaching para emprendedores sin dejar tu trabajo | Pablo Candela';
+const pageDescription = 'Un proceso de coaching para dar forma a tu proyecto propio mientras sostenés tu trabajo, tus turnos y tus responsabilidades actuales.';
+const offerUrl = `${siteConfig.siteUrl}/contacto?plan=emprendedores`;
+
+const faqItems = [
+  {
+    question: '¿Este proceso es para mí si todavía tengo un trabajo en relación de dependencia?',
+    answer: 'Sí. Está pensado para quienes quieren empezar un proyecto propio sin dejar su trabajo actual, incluyendo personas con turnos y otras responsabilidades.'
+  },
+  {
+    question: '¿Cuánto dura el proceso y cuál es el precio?',
+    answer: 'El proceso es de seis sesiones y cuesta 100 USD. La primera sesión es gratuita para que conozcas el proceso.'
+  },
+  {
+    question: '¿Qué temas podemos trabajar?',
+    answer: 'Podemos trabajar la claridad de la idea, su validación, la gestión del tiempo y la búsqueda de los primeros clientes.'
+  },
+  {
+    question: '¿Cómo se coordinan los horarios?',
+    answer: 'La agenda se conversa para encontrar una organización compatible con tus turnos, tu trabajo y tus responsabilidades.'
+  }
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical={pageUrl}
+>
+  <Fragment slot="head">
+    <JsonLd
+      schema={{
+        type: 'Service',
+        name: 'Coaching para emprendedores',
+        description: pageDescription,
+        url: pageUrl,
+        offers: [
+          {
+            name: 'Proceso de coaching para emprendedores de seis sesiones',
+            description: 'Proceso de seis sesiones para avanzar con un proyecto propio mientras sostenés tu trabajo actual. La primera sesión es gratuita para conocer el proceso.',
+            price: '100',
+            priceCurrency: 'USD',
+            url: offerUrl,
+          },
+        ],
+      }}
+    />
+    <JsonLd schema={{ type: 'FAQPage', items: faqItems }} />
+  </Fragment>
+
+  <section class="section entrepreneurs-hero">
+    <div class="container">
+      <a class="entrepreneurs-back" href="/coaching">Volver a todas las propuestas</a>
+      <div class="entrepreneurs-hero-grid">
+        <div class="entrepreneurs-hero-copy">
+          <span class="badge badge-accent">Coaching para emprendedores</span>
+          <h1 class="page-title">Emprender sin dejar tu trabajo</h1>
+          <p>
+            Si tenés una idea propia y querés empezar a desarrollarla mientras sostenés tu trabajo, tus turnos y tus responsabilidades actuales, este proceso te acompaña a avanzar paso a paso.
+          </p>
+          <a class="btn btn-primary" href="#proceso">Conocer el proceso</a>
+        </div>
+
+        <aside class="entrepreneurs-offer" id="proceso" aria-label="Proceso y precio">
+          <span class="badge">Proceso individual</span>
+          <h2>Seis sesiones</h2>
+          <p class="entrepreneurs-price"><span>100</span> USD</p>
+          <p class="entrepreneurs-free-session">
+            La primera sesión es gratuita para que conozcas el proceso.
+          </p>
+          <a class="btn btn-primary" href={offerUrl}>Consultar por el proceso</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-subtle entrepreneurs-topics">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Un proyecto compatible con tu realidad</span>
+        <h2>¿Qué podés trabajar?</h2>
+        <p class="section-subtitle">
+          El proceso se enfoca en los desafíos concretos de poner en marcha una idea mientras mantenés tu actividad actual.
+        </p>
+      </div>
+      <div class="entrepreneurs-topic-grid">
+        <article class="entrepreneurs-topic-card">
+          <h3>Claridad de la idea</h3>
+          <p>Ordenar qué querés ofrecer y qué necesitás definir para empezar.</p>
+        </article>
+        <article class="entrepreneurs-topic-card">
+          <h3>Validación</h3>
+          <p>Explorar cómo contrastar tu propuesta antes de avanzar con más decisiones.</p>
+        </article>
+        <article class="entrepreneurs-topic-card">
+          <h3>Gestión del tiempo</h3>
+          <p>Revisar cómo organizar tus próximos pasos entre turnos, trabajo y otras responsabilidades.</p>
+        </article>
+        <article class="entrepreneurs-topic-card">
+          <h3>Primeros clientes</h3>
+          <p>Trabajar cómo acercarte a las primeras personas interesadas en tu propuesta.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section entrepreneurs-audience">
+    <div class="container grid-2">
+      <div>
+        <span class="badge">Para quién es</span>
+        <h2>Para dar lugar a una idea sin soltar lo que hoy te sostiene</h2>
+        <p>
+          Para personas con turnos o en relación de dependencia que quieren iniciar algo propio y necesitan encontrar una manera posible de avanzar junto con su realidad actual.
+        </p>
+      </div>
+      <div>
+        <span class="badge">Cómo funciona</span>
+        <h2>Un proceso de seis sesiones</h2>
+        <ol class="entrepreneurs-steps">
+          <li><span>01</span><p>Tené una primera sesión gratuita para conocer el proceso.</p></li>
+          <li><span>02</span><p>Definí qué idea querés poner en marcha y qué necesitás trabajar.</p></li>
+          <li><span>03</span><p>Avanzá en seis sesiones sobre claridad, validación, tiempo y primeros clientes.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-subtle entrepreneurs-faq" id="preguntas">
+    <div class="container container-narrow">
+      <div class="section-header">
+        <span class="badge">Dudas habituales</span>
+        <h2>Preguntas frecuentes</h2>
+      </div>
+      <FaqAccordion items={faqItems} />
+    </div>
+  </section>
+
+  <section class="section section-dark entrepreneurs-cta">
+    <div class="container container-narrow text-center">
+      <h2>¿Querés conversar sobre tu idea?</h2>
+      <p>
+        La primera sesión es gratuita para que conozcas el proceso y puedas consultar si se ajusta a tu momento.
+      </p>
+      <div class="entrepreneurs-cta-actions">
+        <a class="btn btn-primary" href={offerUrl}>Consultar por el proceso</a>
+        <a class="btn btn-outline-white" href="/coaching">Volver a Coaching</a>
+      </div>
+      <nav class="entrepreneurs-related" aria-label="Otras propuestas y recursos">
+        <a href="/coaching/autoliderazgo">Coaching de vida y autoliderazgo</a>
+        <a href="/coaching/liderazgo">Programa de los 5 Pilares</a>
+        <a href="/libro">Conocer el libro</a>
+        <a href="/blog">Leer artículos del blog</a>
+      </nav>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .entrepreneurs-hero {
+    padding-top: var(--space-8);
+  }
+
+  .entrepreneurs-back {
+    display: inline-block;
+    margin-bottom: var(--space-8);
+    color: var(--color-primary);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .entrepreneurs-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  .entrepreneurs-hero-copy .page-title {
+    margin: var(--space-3) 0 var(--space-6);
+    color: var(--color-primary);
+  }
+
+  .entrepreneurs-hero-copy > p {
+    margin-bottom: var(--space-6);
+    font-size: var(--font-size-lg);
+  }
+
+  .entrepreneurs-offer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-8);
+    border: 2px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-surface);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .entrepreneurs-offer h2 {
+    margin: 0;
+    color: var(--color-primary);
+  }
+
+  .entrepreneurs-price {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    margin: 0;
+    color: var(--color-text-muted);
+    font-weight: 600;
+  }
+
+  .entrepreneurs-price span {
+    color: var(--color-accent);
+    font-family: var(--font-serif);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .entrepreneurs-free-session {
+    margin: 0;
+    color: var(--color-text-main);
+    font-size: var(--font-size-sm);
+  }
+
+  .entrepreneurs-offer > .btn {
+    width: 100%;
+    margin-top: var(--space-2);
+  }
+
+  .entrepreneurs-topic-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .entrepreneurs-topic-card {
+    padding: var(--space-8);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-surface);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .entrepreneurs-topic-card h3 {
+    margin-bottom: var(--space-3);
+    color: var(--color-primary);
+  }
+
+  .entrepreneurs-topic-card p,
+  .entrepreneurs-audience p {
+    font-size: var(--font-size-sm);
+  }
+
+  .entrepreneurs-audience .grid-2 {
+    align-items: start;
+  }
+
+  .entrepreneurs-audience h2 {
+    margin-bottom: var(--space-5);
+  }
+
+  .entrepreneurs-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .entrepreneurs-steps li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .entrepreneurs-steps li > span {
+    color: var(--color-accent);
+    font-family: var(--font-serif);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .entrepreneurs-steps p {
+    margin: 0;
+  }
+
+  .entrepreneurs-cta h2 {
+    color: #fff;
+  }
+
+  .entrepreneurs-cta > .container > p {
+    margin: var(--space-4) auto var(--space-6);
+    color: #e2e8f0;
+  }
+
+  .entrepreneurs-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+
+  .entrepreneurs-related {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-4) var(--space-6);
+    margin-top: var(--space-8);
+    font-size: var(--font-size-sm);
+  }
+
+  .entrepreneurs-related a {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (min-width: 768px) {
+    .entrepreneurs-hero-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+      gap: var(--space-12);
+    }
+
+    .entrepreneurs-topic-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

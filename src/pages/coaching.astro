@@ -4,798 +4,299 @@ import FaqAccordion from '../components/ui/FaqAccordion.astro';
 import JsonLd from '../components/seo/JsonLd.astro';
 import { siteConfig } from '../data/siteConfig';
 
+const pageUrl = `${siteConfig.siteUrl}/coaching`;
+
 const faqItems = [
   {
-    question: "¿En qué se diferencia este coaching de una capacitación tradicional de liderazgo?",
-    answer: "Las capacitaciones convencionales suelen dar teoría en diapositivas que se olvidan al pisar la planta. Este proceso es un acompañamiento 1 a 1 enfocado en tus situaciones reales: la conversación difícil con el operario conflictivo de tu turno, el choque con mantenimiento o el reporte de desvío a gerencia. Trabajamos sobre tu propia forma de observar y reaccionar ante los problemas."
+    question: '¿Cómo sé qué propuesta es la indicada para mí?',
+    answer: 'Podés empezar por la etapa en la que estás: autoliderazgo y vida personal, lanzamiento de un proyecto propio o desarrollo de liderazgo y equipos. Si todavía tenés dudas, escribime y lo conversamos.'
   },
   {
-    question: "¿Las sesiones son individuales o para equipos de supervisión?",
-    answer: "El formato principal es individual (1 a 1) para garantizar un espacio de absoluta confidencialidad donde el supervisor pueda abrir sus dudas y frustraciones sin temor a ser juzgado. También realizamos programas grupales a medida para equipos de supervisión de una misma planta o empresa previa cotización institucional."
+    question: '¿Las sesiones son presenciales o virtuales?',
+    answer: 'La modalidad y los horarios se coordinan según cada propuesta y tu disponibilidad. Consultame para revisar las opciones antes de empezar.'
   },
   {
-    question: "¿Cuál es la duración del proceso y cómo se coordinan los horarios de turnos rotativos?",
-    answer: "La cantidad y frecuencia de las sesiones se definen según tus objetivos y contexto. La agenda se coordina con flexibilidad para adaptarse a la rotación horaria de cada persona."
-  },
-  {
-    question: "¿Qué pasa si surge un conflicto urgente en planta entre sesión y sesión?",
-    answer: "El programa incluye canal directo de soporte y acompañamiento vía WhatsApp durante el período activo del proceso para consultas puntuales o preparación previa a una conversación crítica en planta."
-  },
-  {
-    question: "¿Se emite factura por el servicio?",
-    answer: "Sí, se emite comprobante fiscal válido tanto si la contratación la realiza el profesional de forma particular como si es financiado por la empresa a través del área de Recursos Humanos / Desarrollo Organizacional."
-  }
-];
-
-const leadershipPillars = [
-  {
-    number: '01',
-    title: 'El líder y su forma de estar',
-    description: 'La base de toda autoridad real: el carácter que sostiene las decisiones, más allá del cargo.',
-    items: ['Autoconocimiento y valores', 'Gestión emocional bajo presión', 'Coherencia entre lo que se dice y se hace'],
-    quote: 'Sin esto, no hay liderazgo. Hay cargo nomás.'
-  },
-  {
-    number: '02',
-    title: 'La comunicación que ordena',
-    description: 'El liderazgo sucede en las conversaciones. Una comunicación clara evita que la operación se detenga.',
-    items: ['Escucha activa y asertiva', 'Pedidos y límites claros', 'Conversaciones difíciles y feedback'],
-    quote: 'Liderar también es decir lo necesario con claridad.'
-  },
-  {
-    number: '03',
-    title: 'Decisión y acción',
-    description: 'Transformar prioridades y objetivos en movimiento concreto en la planta.',
-    items: ['Priorización estratégica', 'Toma de decisiones', 'Ejecución y sostenimiento de estándares'],
-    quote: 'Esto se pone en práctica en la operación, todos los días.'
-  },
-  {
-    number: '04',
-    title: 'Las personas y la responsabilidad',
-    description: 'Construir equipos de alto desempeño con confianza, compromiso y responsabilidad compartida.',
-    items: ['Generación de confianza', 'Gestión de conflictos', 'Influencia y cultura de equipo'],
-    quote: 'Motivación auténtica, no frases de taza de café.'
-  },
-  {
-    number: '05',
-    title: 'Contexto y orden de gestión',
-    description: 'Responder a las demandas de la organización sin perder de vista el equilibrio humano y operativo.',
-    items: ['Objetivos e indicadores', 'Productividad, seguridad y calidad', 'Respuesta ante la crisis'],
-    quote: 'Liderar es responder bien bajo presión.'
-  }
-];
-
-const testimonials = [
-  {
-    name: 'Carla Paez E.',
-    role: 'Encargada de Administración, AUDI UB Motors',
-    quote: 'Antes sentía enojo porque la gente no actuaba como yo esperaba. Con Pablo aprendí a gestionar mis emociones y mejorar la comunicación para obtener los resultados que esperaba.',
-    image: '/imagenes/testimonio-carla.jpeg'
-  },
-  {
-    name: 'Gladys G.',
-    role: 'Responsable de RR. HH.',
-    quote: 'Su conocimiento real en gestión de equipos me ayudó a delegar con más confianza. Pude equilibrar mi vida personal, mejorar mi salud y bajar el estrés diario.',
-    image: '/imagenes/testimonio-gladys.jpeg'
-  },
-  {
-    name: 'Carlos R.',
-    role: 'Supervisor Operativo',
-    quote: 'La comunicación con mi equipo era un desastre de malentendidos. Hoy tenemos reuniones efectivas de 20 minutos donde todo queda claro y obtenemos mejores resultados.',
-    image: '/imagenes/testimonio-carlos.jpeg'
+    question: '¿Puedo consultar antes de contratar un proceso?',
+    answer: 'Sí. Podemos tener una primera conversación para conocer tu situación, tus objetivos y ver qué propuesta se ajusta mejor a lo que necesitás.'
   }
 ];
 ---
 
 <BaseLayout
-  title="Programa de los 5 Pilares del Liderazgo | Pablo Candela"
-  description="Un programa práctico de coaching para fortalecer el liderazgo industrial desde la persona, la comunicación, la acción, el equipo y la gestión del contexto."
-  canonical={`${siteConfig.siteUrl}/coaching`}
+  title="Coaching para cada etapa de tu camino | Pablo Candela"
+  description="Explorá propuestas de coaching para tu vida y autoliderazgo, para emprender mientras trabajás y para fortalecer tu liderazgo."
+  canonical={pageUrl}
 >
   <Fragment slot="head">
-    <JsonLd schema={{ type: 'ProfessionalService' }} />
+    <JsonLd
+      schema={{
+        type: 'Service',
+        name: 'Coaching y desarrollo personal',
+        description: 'Propuestas de coaching para autoliderazgo, emprendimiento y liderazgo.',
+        url: pageUrl,
+        offers: [
+          {
+            name: 'Libro digital',
+            description: 'Acceso al libro digital para leerlo a tu ritmo.',
+            price: '10',
+            priceCurrency: 'USD',
+            url: `${siteConfig.siteUrl}/coaching/autoliderazgo#opciones`,
+          },
+          {
+            name: 'Libro + sesión de arranque',
+            description: 'Libro digital y una sesión individual de arranque.',
+            price: '30',
+            priceCurrency: 'USD',
+            url: `${siteConfig.siteUrl}/coaching/autoliderazgo#opciones`,
+          },
+          {
+            name: 'Libro + cuatro sesiones',
+            description: 'Libro digital y cuatro sesiones, una por cada bloque del libro, con ejercicios.',
+            price: '60',
+            priceCurrency: 'USD',
+            url: `${siteConfig.siteUrl}/coaching/autoliderazgo#opciones`,
+          },
+          {
+            name: 'Proceso de coaching para emprendedores de seis sesiones',
+            description: 'Proceso de seis sesiones para avanzar con un proyecto propio mientras sostenés tu trabajo actual. La primera sesión es gratuita para conocer el proceso.',
+            price: '100',
+            priceCurrency: 'USD',
+            url: `${siteConfig.siteUrl}/coaching/emprendedores`,
+          },
+          {
+            name: 'Programa de liderazgo de los 5 Pilares',
+            description: 'Proceso de 12 sesiones para fortalecer el liderazgo.',
+            url: `${siteConfig.siteUrl}/coaching/liderazgo`,
+          },
+        ],
+      }}
+    />
     <JsonLd schema={{ type: 'FAQPage', items: faqItems }} />
   </Fragment>
 
-  <!-- Hero Coaching -->
-  <section class="section coaching-hero">
+  <section class="section coaching-portal">
     <div class="container">
-      <div class="section-header text-left">
-        <span class="badge">Coaching de Liderazgo · Programa 1 a 1</span>
-        <h1 class="page-title">
-          Los 5 pilares del liderazgo
-        </h1>
-        <p class="hero-lead">
-          Un proceso práctico y confidencial para líderes que necesitan fortalecer su forma de estar, comunicarse y actuar, mientras coordinan personas y responden a la presión diaria de la operación.
-        </p>
-      </div>
-
-      <div class="quick-highlights-grid">
-        <div class="highlight-box">
-          <span class="highlight-icon" aria-hidden="true">⏱️</span>
-          <strong>Sesiones de 60 minutos</strong>
-          <span>Frecuencia quincenal o semanal</span>
-        </div>
-        <div class="highlight-box">
-          <span class="highlight-icon" aria-hidden="true">💻</span>
-          <strong>Modalidad Online Flexible</strong>
-          <span>Adaptado a turnos rotativos</span>
-        </div>
-        <div class="highlight-box">
-          <span class="highlight-icon" aria-hidden="true">🔒</span>
-          <strong>100% Confidencial</strong>
-          <span>Espacio libre de juicios de planta</span>
-        </div>
-        <div class="highlight-box">
-          <span class="highlight-icon" aria-hidden="true">📱</span>
-          <strong>Soporte en Trinchera</strong>
-          <span>Acompañamiento por WhatsApp</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-subtle pillars-section" id="5-pilares">
-    <div class="container">
-      <div class="pillars-intro">
-        <div class="section-header text-left">
-          <span class="badge badge-accent">El programa</span>
-          <h2>Cinco pilares para liderar con hechos</h2>
-          <p class="section-subtitle">
-            Una guía para trabajar los fundamentos que sostienen a un equipo y su operación, con herramientas conectadas a los desafíos reales de cada líder.
-          </p>
-        </div>
-        <aside class="pillar-coach">
-          <img
-            src="/imagenes/pablo-candela.jpeg"
-            alt="Pablo Candela en su entorno de trabajo industrial"
-            loading="lazy"
-            decoding="async"
-          />
-          <div>
-            <strong>Pablo Candela</strong>
-            <span>Coach ontológico y ejecutivo · Experiencia en supervisión industrial</span>
-          </div>
-        </aside>
-      </div>
-
-      <figure class="pillars-overview">
-        <img
-          src="/imagenes/cinco-pilares-liderazgo.png"
-          alt="Los cinco pilares del liderazgo: la forma de estar, la comunicación, la decisión y acción, las personas y la responsabilidad, y el orden de gestión."
-          loading="lazy"
-          decoding="async"
-        />
-        <figcaption>Los cinco pilares reales del liderazgo industrial.</figcaption>
-      </figure>
-
-      <div class="pillars-grid">
-        {leadershipPillars.map((pillar) => (
-          <article class="pillar-card">
-            <div class="pillar-card-heading">
-              <span class="pillar-number">{pillar.number}</span>
-              <span class="pillar-rule" aria-hidden="true"></span>
-            </div>
-            <h3>{pillar.title}</h3>
-            <p>{pillar.description}</p>
-            <ul class="pillar-list">
-              {pillar.items.map((item) => <li>{item}</li>)}
-            </ul>
-            <p class="pillar-quote">“{pillar.quote}”</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section testimonials-section" id="testimonios">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge">Experiencias reales</span>
-        <h2>Lo que cuentan quienes ya trabajaron estos desafíos</h2>
+      <header class="section-header coaching-portal-header">
+        <span class="badge">Coaching y desarrollo personal</span>
+        <h1 class="page-title">Un acompañamiento de coaching para cada etapa de tu camino</h1>
         <p class="section-subtitle">
-          Cada proceso parte de una realidad distinta y busca cambios concretos en la forma de liderar.
+          Bienvenido. Elegí el proceso que mejor acompaña lo que hoy querés cambiar, iniciar o fortalecer.
         </p>
-      </div>
-      <div class="testimonials-grid">
-        {testimonials.map((testimonial) => (
-          <article class="testimonial-card">
-            <img
-              src={testimonial.image}
-              alt={`Foto de ${testimonial.name}`}
-              loading="lazy"
-              decoding="async"
-            />
-            <blockquote>“{testimonial.quote}”</blockquote>
-            <div class="testimonial-author">
-              <strong>{testimonial.name}</strong>
-              <span>{testimonial.role}</span>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+      </header>
 
-  <!-- Para quién y Problemas que Resuelve -->
-  <section class="section section-subtle">
-    <div class="container">
-      <div class="grid-2">
-        <div>
-          <span class="badge">Audiencia</span>
-          <h2>¿Para quién es este programa?</h2>
-          <ul class="bullet-checklist">
-            <li>
-              <strong>Supervisores en planta activa:</strong> Que sienten que la gestión de personal consume el 80% de su energía y no logran enfocarse en la mejora.
-            </li>
-            <li>
-              <strong>Mandos medios de perfil técnico:</strong> Ingenieros y técnicos que fueron ascendidos por su solvencia técnica y hoy necesitan liderar relaciones humanas.
-            </li>
-            <li>
-              <strong>Jefes de producción y mantenimiento:</strong> Que buscan erradicar el resentimiento entre sectores y construir acuerdos operativos sólidos.
-            </li>
-            <li>
-              <strong>Empresas industriales:</strong> Que desean capacitar a sus líderes de primera línea en habilidades de comunicación no violenta y liderazgo ontológico.
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <span class="badge">Resultados</span>
-          <h2>¿Qué problemas concretos resolvemos?</h2>
-          <ul class="bullet-checklist">
-            <li>
-              <strong>Recuperar la autoridad sin autoritarismo:</strong> Guiar con claridad de estándares sin necesidad de gritar ni amenazar con sanciones.
-            </li>
-            <li>
-              <strong>Gestión de operarios desmotivados o resistentes:</strong> Descubrir los quiebres de confianza y rediseñar los compromisos del equipo.
-            </li>
-            <li>
-              <strong>Manejo del estrés y la carga mental:</strong> Dejar de llevarse los problemas y la frustración del turno a la mesa familiar.
-            </li>
-            <li>
-              <strong>Articulación con gerencia y sindicato:</strong> Aprender a negociar con firmeza y diplomacia en situaciones de alta tensión.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Proceso Paso a Paso -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge">Metodología</span>
-        <h2>El Proceso Paso a Paso</h2>
-        <p class="section-subtitle">
-          Un camino estructurado desde el análisis de tu contexto de planta hasta la consolidación de nuevas conductas de liderazgo.
-        </p>
-      </div>
-
-      <div class="steps-grid">
-        <div class="step-card">
-          <span class="step-number">01</span>
-          <h3>Diagnóstico Operativo y Quiebres</h3>
-          <p>
-            Mapeamos los dolores específicos de tu sector: fricciones recurrentes, cuellos de botella en la comunicación y tu forma actual de interpretar las presiones diarias.
-          </p>
-        </div>
-
-        <div class="step-card">
-          <span class="step-number">02</span>
-          <h3>Diseño de Nuevas Conversaciones</h3>
-          <p>
-            Entrenamos pedidos efectivos, ofertas claras, promesas cumplibles y cómo dar feedback constructivo sin generar rechazo ni resistencia en el operario.
-          </p>
-        </div>
-
-        <div class="step-card">
-          <span class="step-number">03</span>
-          <h3>Aplicación en Planta y Seguimiento</h3>
-          <p>
-            Llevás las herramientas directamente a tu turno. Analizamos los resultados de cada intervención y ajustamos la estrategia en función de las respuestas del equipo.
-          </p>
-        </div>
-
-        <div class="step-card">
-          <span class="step-number">04</span>
-          <h3>Consolidación y Autonomía</h3>
-          <p>
-            Establecemos rutinas de autogestión emocional y coordinación operativa para que sostengas este nuevo nivel de liderazgo en el largo plazo sin dependencia.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Precio y Detalle del Formato -->
-  <section class="section section-subtle" id="agendar">
-    <div class="container">
-      <div class="pricing-card-wrapper">
-        <div class="pricing-card">
-          <span class="badge badge-gold">Inversión Profesional</span>
-          <h2 class="pricing-title">Programa de los 5 Pilares del Liderazgo</h2>
-          <div class="pricing-amount">
-            <span class="price-value">{siteConfig.coachingPrice}</span>
-            <span class="price-period">Modalidad y alcance a definir según tus objetivos</span>
-          </div>
-
-          <div class="pricing-features">
-            <h4>El programa incluye:</h4>
-            <ul>
-              <li>✓ Sesiones individuales personalizadas de 60 minutos</li>
-              <li>✓ Diagnóstico de liderazgo inicial y fijación de objetivos clave de planta</li>
-              <li>✓ Guías de trabajo y plantillas prácticas para diseño de conversaciones difíciles</li>
-              <li>✓ Acompañamiento y soporte directo vía WhatsApp para urgencias de turno</li>
-              <li>✓ Grabación de sesiones (opcional para repaso) o minutas de acuerdos</li>
-              <li>✓ Facturación fiscal deducible para particulares o empresas</li>
-            </ul>
-          </div>
-
-          <div class="pricing-cta">
-            <a href="/contacto?plan=coaching-individual" class="btn btn-primary btn-block btn-lg">
-              Solicitar Entrevista de Admisión
+      <div class="coaching-offers" aria-label="Propuestas de coaching">
+        <article class="coaching-offer">
+          <div class="coaching-offer-body">
+            <span class="badge badge-accent">Vida y autoliderazgo</span>
+            <h2>Un libro para mirarte y volver a elegir</h2>
+            <p>
+              «{siteConfig.bookTitle}»: una invitación a revisar cómo te parás frente a lo que te pasa y qué querés hacer con eso.
+            </p>
+            <a class="coaching-offer-book" href="/coaching/autoliderazgo">
+              Conocer el libro <span aria-hidden="true">↗</span>
             </a>
-            <a href="/coaching/liderazgo" class="btn btn-outline btn-block btn-lg">
-              Conocer el Programa de los 5 Pilares
-            </a>
-            <p class="pricing-note">
-              Cupos limitados por mes para garantizar atención personalizada a cada líder.
+          </div>
+          <a class="btn btn-primary coaching-offer-cta" href="/coaching/autoliderazgo">
+            Explorar autoliderazgo
+          </a>
+        </article>
+
+        <article class="coaching-offer">
+          <div class="coaching-offer-body">
+            <span class="badge">Emprendimiento</span>
+            <h2>Empezar algo propio sin dejar tu trabajo</h2>
+            <p>
+              Un espacio para dar forma a una idea y avanzar paso a paso, compatible con tus horarios y responsabilidades actuales.
             </p>
           </div>
-        </div>
+          <a class="btn btn-primary coaching-offer-cta" href="/coaching/emprendedores">
+            Explorar coaching para emprendedores
+          </a>
+        </article>
+
+        <article class="coaching-offer coaching-offer-premium">
+          <div class="coaching-offer-body">
+            <div class="coaching-offer-labels">
+              <span class="badge badge-accent">Programa premium</span>
+              <span class="coaching-session-count">Proceso de 12 sesiones</span>
+            </div>
+            <h2>Liderazgo: Programa de los 5 Pilares</h2>
+            <p>
+              Un recorrido para fortalecer tu forma de estar, comunicar, decidir, trabajar con personas y gestionar el contexto.
+            </p>
+          </div>
+          <a class="btn btn-primary coaching-offer-cta" href="/coaching/liderazgo">
+            Ver el programa completo
+          </a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Preguntas Frecuentes (FAQ) -->
-  <section class="section" id="faq">
+  <section class="section section-subtle coaching-choice">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Cómo elegir</span>
+        <h2>Empezá por lo que hoy necesitás</h2>
+      </div>
+      <div class="coaching-choice-grid">
+        <p><strong>Vida y autoliderazgo:</strong> si querés revisar tu manera de afrontar lo que te pasa y tomar nuevas decisiones.</p>
+        <p><strong>Emprendedores:</strong> si querés probar una idea propia mientras mantenés tu trabajo actual.</p>
+        <p><strong>Los 5 Pilares:</strong> si buscás un proceso para fortalecer tu liderazgo y tu forma de trabajar con equipos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section coaching-faq" id="faq">
     <div class="container container-narrow">
       <div class="section-header">
-        <span class="badge">Dudas Habituales</span>
-        <h2>Preguntas Frecuentes sobre el Proceso</h2>
-        <p class="section-subtitle">
-          Todo lo que necesitás saber antes de iniciar tu acompañamiento.
-        </p>
+        <span class="badge">Dudas habituales</span>
+        <h2>Preguntas frecuentes</h2>
       </div>
-
       <FaqAccordion items={faqItems} />
+    </div>
+  </section>
 
-      <div class="faq-extra-contact text-center">
-        <p>¿Tenés una duda específica sobre tu caso o tu planta?</p>
-        <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-          Consultar por WhatsApp directamente
-        </a>
-      </div>
+  <section class="section section-dark coaching-portal-cta">
+    <div class="container container-narrow text-center">
+      <span class="badge badge-accent">Una primera conversación</span>
+      <h2>¿No sabés por dónde empezar?</h2>
+      <p>
+        Contame qué te gustaría cambiar o poner en marcha y vemos juntos cuál puede ser el próximo paso.
+      </p>
+      <a class="btn btn-primary btn-lg" href="/contacto">
+        Conversar sobre mi situación
+      </a>
+      <p class="coaching-blog-link">
+        También podés leer las <a href="/blog">ideas y herramientas del blog</a>.
+      </p>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .coaching-hero {
-    padding-top: var(--space-12);
-    padding-bottom: var(--space-12);
+  .coaching-portal-header {
+    max-width: 860px;
+    margin: 0 auto var(--space-12);
   }
 
-  .pillars-intro {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-    align-items: center;
-  }
-
-  .pillars-section,
-  .testimonials-section {
-    scroll-margin-top: calc(4.75rem + var(--space-4));
-  }
-
-  .pillars-intro .section-header {
-    margin-bottom: 0;
-  }
-
-  .pillar-coach {
-    display: flex;
-    align-items: center;
-    gap: var(--space-4);
-    padding: var(--space-4);
-    background: var(--color-bg-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-  }
-
-  .pillar-coach img {
-    width: 72px;
-    height: 72px;
-    flex: 0 0 72px;
-    object-fit: cover;
-    object-position: center 35%;
-    border-radius: 50%;
-  }
-
-  .pillar-coach strong,
-  .pillar-coach span {
-    display: block;
-  }
-
-  .pillar-coach strong {
-    color: var(--color-primary);
-    margin-bottom: var(--space-1);
-  }
-
-  .pillar-coach span {
-    color: var(--color-text-muted);
-    font-size: var(--font-size-xs);
-    line-height: 1.5;
-  }
-
-  .pillars-overview {
-    margin: var(--space-10) 0;
-    text-align: center;
-  }
-
-  .pillars-overview img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-  }
-
-  .pillars-overview figcaption {
+  .coaching-portal-header .page-title {
     margin-top: var(--space-3);
-    color: var(--color-text-muted);
-    font-size: var(--font-size-xs);
+    margin-bottom: var(--space-4);
+    color: var(--color-primary);
   }
 
-  .pillars-grid,
-  .testimonials-grid {
+  .coaching-offers {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-6);
+    align-items: stretch;
   }
 
-  .pillar-card {
+  .coaching-offer {
     display: flex;
     flex-direction: column;
-    padding: var(--space-6);
-    background: var(--color-bg-surface);
+    gap: var(--space-8);
+    padding: var(--space-8);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
+    background: var(--color-bg-surface);
     box-shadow: var(--shadow-sm);
   }
 
-  .pillar-card-heading {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    margin-bottom: var(--space-4);
-  }
-
-  .pillar-number {
-    font-family: var(--font-serif);
-    color: var(--color-accent);
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-    line-height: 1;
-  }
-
-  .pillar-rule {
-    height: 1px;
+  .coaching-offer-body {
     flex: 1;
-    background: var(--color-border);
   }
 
-  .pillar-card h3 {
+  .coaching-offer h2 {
+    margin: var(--space-3) 0;
     color: var(--color-primary);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-xl);
   }
 
-  .pillar-card > p {
+  .coaching-offer p {
+    color: var(--color-text-muted);
     font-size: var(--font-size-sm);
   }
 
-  .pillar-list {
-    display: grid;
+  .coaching-offer-book {
+    display: inline-flex;
+    align-items: center;
     gap: var(--space-2);
-    margin: var(--space-3) 0 var(--space-6);
-  }
-
-  .pillar-list li {
-    position: relative;
-    padding-left: var(--space-6);
-    color: var(--color-text-main);
-    font-size: var(--font-size-sm);
-    line-height: 1.5;
-  }
-
-  .pillar-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--color-accent);
-    font-weight: 700;
-  }
-
-  .pillar-card .pillar-quote {
-    margin-top: auto;
-    padding-top: var(--space-4);
-    border-top: 1px solid var(--color-border);
+    margin-top: var(--space-2);
     color: var(--color-primary);
-    font-style: italic;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .coaching-offer-cta {
+    width: 100%;
+    min-height: 3.25rem;
+  }
+
+  .coaching-offer-premium {
+    border: 2px solid var(--color-accent);
+  }
+
+  .coaching-offer-labels {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .coaching-session-count {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
     font-weight: 600;
   }
 
-  .testimonial-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: var(--space-8);
-    background: var(--color-bg-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    text-align: center;
+  .coaching-choice .section-header {
+    margin-bottom: var(--space-8);
   }
 
-  .testimonial-card img {
-    width: 76px;
-    height: 76px;
-    margin-bottom: var(--space-6);
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
-  .testimonial-card blockquote {
-    flex: 1;
-    margin-bottom: var(--space-6);
-    color: var(--color-text-main);
-    font-size: var(--font-size-sm);
-    font-style: italic;
-    line-height: var(--line-height-relaxed);
-  }
-
-  .testimonial-author strong,
-  .testimonial-author span {
-    display: block;
-  }
-
-  .testimonial-author strong {
-    color: var(--color-primary);
-  }
-
-  .testimonial-author span {
-    margin-top: var(--space-1);
-    color: var(--color-text-muted);
-    font-size: var(--font-size-xs);
-  }
-
-  @media (min-width: 768px) {
-    .pillars-grid,
-    .testimonials-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .pillars-intro {
-      grid-template-columns: minmax(0, 1fr) minmax(250px, 0.55fr);
-      gap: var(--space-10);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .pillars-grid,
-    .testimonials-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .hero-lead {
-    font-size: var(--font-size-lg);
-    line-height: var(--line-height-relaxed);
-    color: var(--color-text-body);
-    max-width: 840px;
-    margin-top: var(--space-4);
-  }
-
-  .quick-highlights-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-    margin-top: var(--space-8);
-  }
-
-  @media (min-width: 640px) {
-    .quick-highlights-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .quick-highlights-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  .highlight-box {
-    background: #ffffff;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: var(--space-5);
-    display: flex;
-    flex-direction: column;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .highlight-icon {
-    font-size: 1.75rem;
-    margin-bottom: var(--space-2);
-  }
-
-  .highlight-box strong {
-    color: var(--color-primary-950);
-    font-size: var(--font-size-base);
-    margin-bottom: var(--space-1);
-  }
-
-  .highlight-box span {
-    font-size: var(--font-size-xs);
-    color: var(--color-text-muted);
-  }
-
-  .bullet-checklist {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-top: var(--space-4);
-  }
-
-  .bullet-checklist li {
-    font-size: var(--font-size-base);
-    line-height: 1.5;
-    position: relative;
-    padding-left: var(--space-6);
-  }
-
-  .bullet-checklist li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--color-accent-600);
-    font-weight: 800;
-  }
-
-  .steps-grid {
+  .coaching-choice-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-6);
   }
 
+  .coaching-choice-grid p {
+    margin: 0;
+    padding-left: var(--space-4);
+    border-left: 2px solid var(--color-accent);
+    font-size: var(--font-size-sm);
+  }
+
+  .coaching-portal-cta h2 {
+    color: #fff;
+  }
+
+  .coaching-portal-cta p {
+    margin: 0 auto var(--space-6);
+    color: #e2e8f0;
+  }
+
+  .coaching-blog-link {
+    margin-top: var(--space-6) !important;
+    font-size: var(--font-size-sm);
+  }
+
+  .coaching-blog-link a {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
   @media (min-width: 768px) {
-    .steps-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .coaching-offers {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-  }
 
-  @media (min-width: 1024px) {
-    .steps-grid {
-      grid-template-columns: repeat(4, 1fr);
+    .coaching-choice-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-  }
-
-  .step-card {
-    background: var(--color-bg-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: var(--space-6);
-    position: relative;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .step-number {
-    display: inline-block;
-    font-family: var(--font-serif);
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-    color: var(--color-accent);
-    line-height: 1;
-    margin-bottom: var(--space-3);
-  }
-
-  .step-card h3 {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    margin-bottom: var(--space-3);
-    color: var(--color-primary);
-  }
-
-  .step-card p {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-muted);
-  }
-
-  /* Tarjeta de Precio */
-  .pricing-card-wrapper {
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
-  .pricing-card {
-    background: var(--color-bg-surface);
-    border: 2px solid var(--color-primary);
-    border-radius: var(--radius-md);
-    padding: var(--space-10);
-    box-shadow: var(--shadow-lg);
-    text-align: center;
-  }
-
-  .pricing-title {
-    font-family: var(--font-serif);
-    font-size: var(--font-size-2xl);
-    margin-top: var(--space-3);
-    margin-bottom: var(--space-4);
-    color: var(--color-primary);
-  }
-
-  .pricing-amount {
-    margin-bottom: var(--space-6);
-    padding-bottom: var(--space-6);
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .price-value {
-    display: block;
-    font-family: var(--font-serif);
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--color-accent);
-    line-height: 1.1;
-  }
-
-  .price-period {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-muted);
-  }
-
-  .pricing-features {
-    text-align: left;
-    margin-bottom: var(--space-8);
-  }
-
-  .pricing-features h4 {
-    font-family: var(--font-serif);
-    font-size: var(--font-size-base);
-    margin-bottom: var(--space-4);
-    color: var(--color-primary);
-  }
-
-  .pricing-features ul {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-  }
-
-  .pricing-features li {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-main);
-  }
-
-  .pricing-note {
-    font-size: var(--font-size-xs);
-    color: var(--color-text-muted);
-    margin-top: var(--space-3);
-  }
-
-  .faq-extra-contact {
-    margin-top: var(--space-10);
-    padding-top: var(--space-6);
-    border-top: 1px solid var(--color-border);
-  }
-
-  .text-center {
-    text-align: center;
-  }
-
-  .btn-lg {
-    padding: 1rem 2rem;
-    font-size: 1.125rem;
   }
 </style>

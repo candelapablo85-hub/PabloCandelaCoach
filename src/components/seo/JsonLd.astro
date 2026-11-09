@@ -15,6 +15,15 @@ export interface ServiceSchema {
   description: string;
   url: string;
   image?: string;
+  offers?: ServiceOfferSchema[];
+}
+
+export interface ServiceOfferSchema {
+  name: string;
+  description: string;
+  price?: string;
+  priceCurrency?: string;
+  url: string;
 }
 
 export interface BookSchema {
@@ -135,7 +144,28 @@ if (schema.type === 'Person') {
       url: siteConfig.siteUrl,
     },
     areaServed: 'Hispanoamérica',
-    serviceType: 'Programa de liderazgo industrial',
+    serviceType: schema.name,
+    ...(schema.offers && {
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: schema.name,
+        itemListElement: schema.offers.map((offer) => ({
+          '@type': 'Offer',
+          name: offer.name,
+          description: offer.description,
+          ...(offer.price && {
+            price: offer.price,
+            priceCurrency: offer.priceCurrency,
+          }),
+          url: offer.url,
+          itemOffered: {
+            '@type': 'Service',
+            name: offer.name,
+            description: offer.description,
+          },
+        })),
+      },
+    }),
   };
 } else if (schema.type === 'Book') {
   jsonLdContent = {

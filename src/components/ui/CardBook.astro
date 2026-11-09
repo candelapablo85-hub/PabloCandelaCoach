@@ -9,7 +9,7 @@ import { siteConfig } from '../../data/siteConfig';
       target="_blank" 
       rel="noopener noreferrer" 
       class="book-link-wrap"
-      aria-label="Visitar la web oficial del libro Si la vida te da la espalda... Tocale el culo"
+      aria-label={`Visitar la web oficial del libro «${siteConfig.bookTitle}»`}
     >
       <img
         class="book-cover"
@@ -52,6 +52,9 @@ import { siteConfig } from '../../data/siteConfig';
         class="btn btn-primary"
       >
         Visitar la Web Oficial del Libro ↗
+      </a>
+      <a href="/coaching/autoliderazgo" class="btn btn-outline-white">
+        Explorar libro y autoliderazgo
       </a>
     </div>
   </div>

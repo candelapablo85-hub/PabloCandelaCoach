@@ -33,9 +33,9 @@ Podemos situarnos en dos lugares ontológicos antagónicos:
 
 [ESCRIBIR AQUÍ: Desarrollo del concepto de protagonismo versus victimización según lo abordás en tu libro].
 
-## 3. «Si la vida te da la espalda...»: la trinchera convertida en aprendizaje
+## 3. El libro «Si la vida te da la espalda...Tocale el culo»: la trinchera convertida en aprendizaje
 
-Este principio es el núcleo conceptual de mi libro *«Si la vida te da la espalda...»*. La adversidad no es un castigo ni una fatalidad inevitable: es el terreno fértil donde se forja el carácter de un verdadero líder.
+Este principio es el núcleo conceptual de mi libro *«Si la vida te da la espalda...Tocale el culo»*. La adversidad no es un castigo ni una fatalidad inevitable: es el terreno fértil donde se forja el carácter de un verdadero líder.
 
 Aprender a pararse frente a lo adverso implica:
 * **Aceptar lo que no se puede cambiar** para no desgastar energía en quejas estériles.

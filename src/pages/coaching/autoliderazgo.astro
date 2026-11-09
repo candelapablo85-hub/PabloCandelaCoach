@@ -1,0 +1,455 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqAccordion from '../../components/ui/FaqAccordion.astro';
+import JsonLd from '../../components/seo/JsonLd.astro';
+import { siteConfig } from '../../data/siteConfig';
+
+const pageUrl = `${siteConfig.siteUrl}/coaching/autoliderazgo`;
+const pageTitle = 'Coaching de vida y autoliderazgo | Pablo Candela';
+const pageDescription = 'Un libro y opciones de coaching para reflexionar sobre tu historia, fortalecer tu autoliderazgo y elegir cómo seguir.';
+const bookTitle = siteConfig.bookTitle;
+const bookCover = `${siteConfig.siteUrl}/Tapa_Libro.png`;
+const hotmartUrl = 'https://hotmart.com/es/marketplace/productos/si-la-vida-te-da-la-espalda-tocale-el-culo/N101050605D';
+const sessionOfferUrl = `${siteConfig.siteUrl}/contacto?plan=autoliderazgo`;
+
+const offers = [
+  {
+    name: 'Libro digital',
+    description: 'Acceso al libro digital para leerlo a tu ritmo.',
+    price: '10',
+    url: hotmartUrl,
+    action: 'Comprar libro digital',
+    featured: false,
+    details: ['Libro digital', 'Lectura a tu ritmo', 'Acceso a través de Hotmart']
+  },
+  {
+    name: 'Libro + sesión de arranque',
+    description: 'Libro digital y una sesión individual para empezar a trabajar desde tu lectura.',
+    price: '30',
+    url: `${sessionOfferUrl}&opcion=libro-sesion-arranque`,
+    action: 'Consultar esta opción',
+    featured: true,
+    details: ['Libro digital', 'Una sesión individual de arranque', '[ESCRIBIR AQUÍ: duración de la sesión]']
+  },
+  {
+    name: 'Libro + cuatro sesiones',
+    description: 'Libro digital y cuatro sesiones, una por cada bloque del libro, con ejercicios.',
+    price: '60',
+    url: `${sessionOfferUrl}&opcion=libro-cuatro-sesiones`,
+    action: 'Consultar esta opción',
+    featured: false,
+    details: ['Libro digital', 'Cuatro sesiones individuales', 'Una sesión por bloque del libro', 'Ejercicios para acompañar cada bloque']
+  }
+];
+
+const faqItems = [
+  {
+    question: '¿Qué incluye la opción de libro digital?',
+    answer: 'Incluye el libro en formato digital para que puedas leerlo a tu ritmo. La compra se realiza a través de Hotmart.'
+  },
+  {
+    question: '¿Cómo se coordinan las sesiones?',
+    answer: 'La agenda se coordina entre los dos. [ESCRIBIR AQUÍ: modalidad disponible y horarios habituales].'
+  },
+  {
+    question: '¿Qué se trabaja en la sesión de arranque?',
+    answer: 'Es un espacio para conversar sobre lo que te dejó la lectura y elegir un punto de partida personal. [ESCRIBIR AQUÍ: objetivo y duración de la sesión].'
+  },
+  {
+    question: '¿Cómo funcionan las cuatro sesiones?',
+    answer: 'Se realiza una sesión por cada bloque del libro y se proponen ejercicios para acompañar la reflexión de cada bloque.'
+  }
+];
+
+const serviceDescription = 'Propuestas de coaching de vida y autoliderazgo a partir del libro y sesiones individuales.';
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical={pageUrl}
+  image={bookCover}
+>
+  <Fragment slot="head">
+    <JsonLd
+      schema={{
+        type: 'Service',
+        name: 'Coaching de vida y autoliderazgo',
+        description: serviceDescription,
+        url: pageUrl,
+        image: bookCover,
+        offers: offers.map((offer) => ({
+          name: offer.name,
+          description: offer.description,
+          price: offer.price,
+          priceCurrency: 'USD',
+          url: offer.url,
+        })),
+      }}
+    />
+    <JsonLd schema={{ type: 'FAQPage', items: faqItems }} />
+  </Fragment>
+
+  <section class="section self-leadership-hero">
+    <div class="container">
+      <a class="self-leadership-back" href="/coaching">Volver a todas las propuestas</a>
+      <div class="self-leadership-hero-grid">
+        <div class="self-leadership-hero-copy">
+          <span class="badge badge-accent">Vida y autoliderazgo</span>
+          <h1 class="page-title">{bookTitle}</h1>
+          <p>
+            Una invitación a mirar tu historia con honestidad y humor, recuperar perspectiva y elegir cómo querés seguir.
+          </p>
+          <a class="btn btn-primary" href="#opciones">Elegir una opción</a>
+        </div>
+        <div class="self-leadership-cover-frame">
+          <img
+            src="/Tapa_Libro.png"
+            alt={`Tapa del libro ${bookTitle}, de ${siteConfig.author}`}
+            width="1381"
+            height="2000"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-subtle self-leadership-offers" id="opciones">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Opciones de acompañamiento</span>
+        <h2>Elegí cómo querés empezar</h2>
+        <p class="section-subtitle">
+          Podés leer por tu cuenta o sumar sesiones para conversar y trabajar lo que te resulte significativo.
+        </p>
+      </div>
+
+      <div class="self-leadership-offers-grid">
+        {offers.map((offer) => (
+          <article class:list={['self-leadership-offer', offer.featured && 'self-leadership-offer-featured']}>
+            {offer.featured && <span class="badge badge-accent">Opción con acompañamiento</span>}
+            <h3>{offer.name}</h3>
+            <p class="self-leadership-offer-description">{offer.description}</p>
+            <p class="self-leadership-price"><span>{offer.price}</span> USD</p>
+            <ul>
+              {offer.details.map((detail) => <li>{detail}</li>)}
+            </ul>
+            <a
+              class:list={['btn', offer.featured ? 'btn-primary' : 'btn-outline']}
+              href={offer.url}
+              target={offer.name === 'Libro digital' ? '_blank' : undefined}
+              rel={offer.name === 'Libro digital' ? 'noopener noreferrer' : undefined}
+            >
+              {offer.action}
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Lectura y reflexión</span>
+        <h2>¿Qué podés trabajar con el libro?</h2>
+        <p class="section-subtitle">
+          Las sesiones se orientan a tu lectura y a los temas que quieras traer a la conversación.
+        </p>
+      </div>
+      <div class="self-leadership-work-grid">
+        <article class="self-leadership-work-card">
+          <h3>Mirar tu historia</h3>
+          <p>Reconocer las experiencias, decisiones y aprendizajes que forman parte de tu recorrido.</p>
+        </article>
+        <article class="self-leadership-work-card">
+          <h3>Cambiar la perspectiva</h3>
+          <p>Explorar otras formas de interpretar lo que te pasa y las posibilidades que ves por delante.</p>
+        </article>
+        <article class="self-leadership-work-card">
+          <h3>Elegir próximos pasos</h3>
+          <p>Convertir una reflexión de la lectura en una decisión o acción que tenga sentido para vos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-subtle">
+    <div class="container grid-2 self-leadership-audience">
+      <div>
+        <span class="badge">Para quién es</span>
+        <h2>Una lectura para encontrarte con tu propio recorrido</h2>
+        <ul class="self-leadership-checklist">
+          <li>Personas que atraviesan cambios o momentos de incertidumbre.</li>
+          <li>Quienes quieren revisar decisiones, aprendizajes y próximos pasos.</li>
+          <li>Lectores que prefieren una reflexión cercana, directa y con humor.</li>
+          <li>Personas que quieren sumar un espacio de conversación individual a la lectura.</li>
+        </ul>
+      </div>
+      <div>
+        <span class="badge">Cómo funciona</span>
+        <h2>Tres formas de acercarte al proceso</h2>
+        <ol class="self-leadership-steps">
+          <li><span>01</span><div><strong>Elegí una opción</strong><p>Libro digital, libro con una sesión de arranque o libro con cuatro sesiones.</p></div></li>
+          <li><span>02</span><div><strong>Leé y tomá nota</strong><p>Avanzá a tu ritmo y registrá los pasajes o temas que quieras conversar.</p></div></li>
+          <li><span>03</span><div><strong>Coordinemos las sesiones</strong><p>Para las opciones con coaching, consultá disponibilidad y detalles antes de contratar.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section self-leadership-faq" id="preguntas">
+    <div class="container container-narrow">
+      <div class="section-header">
+        <span class="badge">Dudas habituales</span>
+        <h2>Preguntas frecuentes</h2>
+      </div>
+      <FaqAccordion items={faqItems} />
+    </div>
+  </section>
+
+  <section class="section section-dark self-leadership-cta">
+    <div class="container container-narrow text-center">
+      <h2>¿Querés empezar por la lectura?</h2>
+      <p>Conocé más sobre el libro o volvé al portal para explorar las otras propuestas de coaching.</p>
+      <div class="self-leadership-cta-actions">
+        <a class="btn btn-primary" href={siteConfig.bookUrl} target="_blank" rel="noopener noreferrer">Conocer el libro</a>
+        <a class="btn btn-outline-white" href="/coaching">Volver a Coaching</a>
+      </div>
+      <p class="self-leadership-blog-link"><a href="/blog">Leer artículos del blog</a></p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .self-leadership-hero {
+    padding-top: var(--space-8);
+  }
+
+  .self-leadership-back {
+    display: inline-block;
+    margin-bottom: var(--space-8);
+    color: var(--color-primary);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .self-leadership-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  .self-leadership-hero-copy .page-title {
+    margin: var(--space-3) 0 var(--space-6);
+    color: var(--color-primary);
+  }
+
+  .self-leadership-hero-copy > p {
+    margin-bottom: var(--space-6);
+    font-size: var(--font-size-lg);
+  }
+
+  .self-leadership-cover-frame {
+    width: min(100%, 300px);
+    margin: 0 auto;
+    padding: var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-surface);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .self-leadership-cover-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-sm);
+  }
+
+  .self-leadership-offers-grid,
+  .self-leadership-work-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    align-items: stretch;
+  }
+
+  .self-leadership-offer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-8);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-surface);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .self-leadership-offer-featured {
+    border: 2px solid var(--color-accent);
+  }
+
+  .self-leadership-offer h3,
+  .self-leadership-work-card h3 {
+    margin: 0;
+    color: var(--color-primary);
+  }
+
+  .self-leadership-offer-description {
+    flex: 1;
+    font-size: var(--font-size-sm);
+  }
+
+  .self-leadership-price {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    margin: 0;
+    color: var(--color-text-muted);
+    font-weight: 600;
+  }
+
+  .self-leadership-price span {
+    color: var(--color-accent);
+    font-family: var(--font-serif);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .self-leadership-offer ul,
+  .self-leadership-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .self-leadership-offer li,
+  .self-leadership-checklist li {
+    position: relative;
+    padding-left: var(--space-6);
+    color: var(--color-text-main);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+  }
+
+  .self-leadership-offer li::before,
+  .self-leadership-checklist li::before {
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    content: '✓';
+    font-weight: 700;
+  }
+
+  .self-leadership-offer > .btn {
+    width: 100%;
+    margin-top: auto;
+  }
+
+  .self-leadership-work-card {
+    padding: var(--space-8);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-surface);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .self-leadership-work-card h3 {
+    margin-bottom: var(--space-3);
+  }
+
+  .self-leadership-work-card p {
+    font-size: var(--font-size-sm);
+  }
+
+  .self-leadership-audience {
+    align-items: flex-start;
+  }
+
+  .self-leadership-audience h2 {
+    margin-bottom: var(--space-6);
+  }
+
+  .self-leadership-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .self-leadership-steps li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .self-leadership-steps li > span {
+    color: var(--color-accent);
+    font-family: var(--font-serif);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .self-leadership-steps strong {
+    display: block;
+    margin-bottom: var(--space-1);
+    color: var(--color-primary);
+  }
+
+  .self-leadership-steps p {
+    font-size: var(--font-size-sm);
+  }
+
+  .self-leadership-cta h2 {
+    color: #fff;
+  }
+
+  .self-leadership-cta > .container > p {
+    margin: var(--space-4) auto var(--space-6);
+    color: #e2e8f0;
+  }
+
+  .self-leadership-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+
+  .self-leadership-blog-link {
+    margin-top: var(--space-6) !important;
+    font-size: var(--font-size-sm);
+  }
+
+  .self-leadership-blog-link a {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (min-width: 768px) {
+    .self-leadership-hero-grid {
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: var(--space-12);
+    }
+
+    .self-leadership-offers-grid,
+    .self-leadership-work-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>

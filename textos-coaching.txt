@@ -1,0 +1,353 @@
+[COACHING.PORTAL.HERO.H1]
+Un acompañamiento de coaching para cada etapa de tu camino
+
+[COACHING.PORTAL.HERO.BIENVENIDA]
+Bienvenido. Elegí el proceso que mejor acompaña lo que hoy querés cambiar, iniciar o fortalecer.
+
+[COACHING.PORTAL.OFERTA.AUTO.NOMBRE]
+Coaching de vida y autoliderazgo
+
+[COACHING.PORTAL.OFERTA.AUTO.TITULO]
+Un libro para mirarte y volver a elegir
+
+[COACHING.PORTAL.OFERTA.AUTO.DESCRIPCION]
+«Si la vida te da la espalda...Tocale el culo»: una invitación a revisar cómo te parás frente a lo que te pasa y qué querés hacer con eso.
+
+[COACHING.PORTAL.OFERTA.AUTO.ENLACE_LIBRO]
+Conocer el libro
+
+[COACHING.PORTAL.OFERTA.AUTO.BOTON]
+Explorar autoliderazgo
+
+[COACHING.PORTAL.OFERTA.EMPRENDEDORES.NOMBRE]
+Emprendimiento
+
+[COACHING.PORTAL.OFERTA.EMPRENDEDORES.TITULO]
+Empezar algo propio sin dejar tu trabajo
+
+[COACHING.PORTAL.OFERTA.EMPRENDEDORES.DESCRIPCION]
+Un espacio para dar forma a una idea y avanzar paso a paso, compatible con tus horarios y responsabilidades actuales.
+
+[COACHING.PORTAL.OFERTA.EMPRENDEDORES.BOTON]
+Explorar coaching para emprendedores
+
+[COACHING.PORTAL.OFERTA.LIDERAZGO.ETIQUETA]
+Programa premium
+
+[COACHING.PORTAL.OFERTA.LIDERAZGO.SESIONES]
+Proceso de 12 sesiones
+
+[COACHING.PORTAL.OFERTA.LIDERAZGO.TITULO]
+Liderazgo: Programa de los 5 Pilares
+
+[COACHING.PORTAL.OFERTA.LIDERAZGO.DESCRIPCION]
+Un recorrido para fortalecer tu forma de estar, comunicar, decidir, trabajar con personas y gestionar el contexto.
+
+[COACHING.PORTAL.OFERTA.LIDERAZGO.BOTON]
+Ver el programa completo
+
+[COACHING.PORTAL.ELEGIR.TITULO]
+Empezá por lo que hoy necesitás
+
+[COACHING.PORTAL.ELEGIR.AUTO]
+Si querés revisar tu manera de afrontar lo que te pasa y tomar nuevas decisiones.
+
+[COACHING.PORTAL.ELEGIR.EMPRENDEDORES]
+Si querés probar una idea propia mientras mantenés tu trabajo actual.
+
+[COACHING.PORTAL.ELEGIR.LIDERAZGO]
+Si buscás un proceso para fortalecer tu liderazgo y tu forma de trabajar con equipos.
+
+[COACHING.PORTAL.FAQ.TITULO]
+Preguntas frecuentes
+
+[COACHING.PORTAL.FAQ.1.PREGUNTA]
+¿Cómo sé qué propuesta es la indicada para mí?
+
+[COACHING.PORTAL.FAQ.1.RESPUESTA]
+Podés empezar por la etapa en la que estás: autoliderazgo y vida personal, lanzamiento de un proyecto propio o desarrollo de liderazgo y equipos. Si todavía tenés dudas, escribime y lo conversamos.
+
+[COACHING.PORTAL.FAQ.2.PREGUNTA]
+¿Las sesiones son presenciales o virtuales?
+
+[COACHING.PORTAL.FAQ.2.RESPUESTA]
+La modalidad y los horarios se coordinan según cada propuesta y tu disponibilidad. Consultame para revisar las opciones antes de empezar.
+
+[COACHING.PORTAL.FAQ.3.PREGUNTA]
+¿Puedo consultar antes de contratar un proceso?
+
+[COACHING.PORTAL.FAQ.3.RESPUESTA]
+Sí. Podemos tener una primera conversación para conocer tu situación, tus objetivos y ver qué propuesta se ajusta mejor a lo que necesitás.
+
+[COACHING.PORTAL.CTA.TITULO]
+¿No sabés por dónde empezar?
+
+[COACHING.PORTAL.CTA.DESCRIPCION]
+Contame qué te gustaría cambiar o poner en marcha y vemos juntos cuál puede ser el próximo paso.
+
+[COACHING.PORTAL.CTA.BOTON]
+Conversar sobre mi situación
+
+[COACHING.PORTAL.BLOG.ENLACE]
+También podés leer las ideas y herramientas del blog.
+
+[AUTO.HERO.ETIQUETA]
+Vida y autoliderazgo
+
+[AUTO.HERO.TITULO]
+Si la vida te da la espalda...Tocale el culo
+
+[AUTO.HERO.DESCRIPCION]
+Una invitación a mirar tu historia con honestidad y humor, recuperar perspectiva y elegir cómo querés seguir.
+
+[AUTO.HERO.BOTON]
+Elegir una opción
+
+[AUTO.OPCIONES.TITULO]
+Elegí cómo querés empezar
+
+[AUTO.OPCIONES.DESCRIPCION]
+Podés leer por tu cuenta o sumar sesiones para conversar y trabajar lo que te resulte significativo.
+
+[AUTO.OPCION.DIGITAL.NOMBRE]
+Libro digital
+
+[AUTO.OPCION.DIGITAL.DESCRIPCION]
+Acceso al libro digital para leerlo a tu ritmo.
+
+[AUTO.OPCION.DIGITAL.PRECIO]
+10 USD
+
+[AUTO.OPCION.DIGITAL.INCLUYE]
+Libro digital; lectura a tu ritmo; acceso a través de Hotmart.
+
+[AUTO.OPCION.DIGITAL.BOTON]
+Comprar libro digital
+
+[AUTO.OPCION.ARRANQUE.NOMBRE]
+Libro + sesión de arranque
+
+[AUTO.OPCION.ARRANQUE.DESCRIPCION]
+Libro digital y una sesión individual para empezar a trabajar desde tu lectura.
+
+[AUTO.OPCION.ARRANQUE.PRECIO]
+30 USD
+
+[AUTO.OPCION.ARRANQUE.INCLUYE]
+Libro digital y una sesión individual de arranque.
+
+[AUTO.OPCION.ARRANQUE.DURACION]
+[ESCRIBIR AQUÍ: duración de la sesión]
+
+[AUTO.OPCION.ARRANQUE.BOTON]
+Consultar esta opción
+
+[AUTO.OPCION.CUATRO_SESIONES.NOMBRE]
+Libro + cuatro sesiones
+
+[AUTO.OPCION.CUATRO_SESIONES.DESCRIPCION]
+Libro digital y cuatro sesiones, una por cada bloque del libro, con ejercicios.
+
+[AUTO.OPCION.CUATRO_SESIONES.PRECIO]
+60 USD
+
+[AUTO.OPCION.CUATRO_SESIONES.INCLUYE]
+Libro digital; cuatro sesiones individuales; una sesión por bloque del libro; ejercicios para acompañar cada bloque.
+
+[AUTO.OPCION.CUATRO_SESIONES.BOTON]
+Consultar esta opción
+
+[AUTO.TRABAJO.TITULO]
+¿Qué podés trabajar con el libro?
+
+[AUTO.TRABAJO.DESCRIPCION]
+Las sesiones se orientan a tu lectura y a los temas que quieras traer a la conversación.
+
+[AUTO.TRABAJO.HISTORIA.TITULO]
+Mirar tu historia
+
+[AUTO.TRABAJO.HISTORIA.DESCRIPCION]
+Reconocer las experiencias, decisiones y aprendizajes que forman parte de tu recorrido.
+
+[AUTO.TRABAJO.PERSPECTIVA.TITULO]
+Cambiar la perspectiva
+
+[AUTO.TRABAJO.PERSPECTIVA.DESCRIPCION]
+Explorar otras formas de interpretar lo que te pasa y las posibilidades que ves por delante.
+
+[AUTO.TRABAJO.PASOS.TITULO]
+Elegir próximos pasos
+
+[AUTO.TRABAJO.PASOS.DESCRIPCION]
+Convertir una reflexión de la lectura en una decisión o acción que tenga sentido para vos.
+
+[AUTO.PARA_QUIEN.TITULO]
+Una lectura para encontrarte con tu propio recorrido
+
+[AUTO.PARA_QUIEN.1]
+Personas que atraviesan cambios o momentos de incertidumbre.
+
+[AUTO.PARA_QUIEN.2]
+Quienes quieren revisar decisiones, aprendizajes y próximos pasos.
+
+[AUTO.PARA_QUIEN.3]
+Lectores que prefieren una reflexión cercana, directa y con humor.
+
+[AUTO.PARA_QUIEN.4]
+Personas que quieren sumar un espacio de conversación individual a la lectura.
+
+[AUTO.COMO_FUNCIONA.TITULO]
+Tres formas de acercarte al proceso
+
+[AUTO.COMO_FUNCIONA.PASO.1]
+Elegí una opción: libro digital, libro con una sesión de arranque o libro con cuatro sesiones.
+
+[AUTO.COMO_FUNCIONA.PASO.2]
+Leé a tu ritmo y registrá los pasajes o temas que quieras conversar.
+
+[AUTO.COMO_FUNCIONA.PASO.3]
+Para las opciones con coaching, consultá disponibilidad y detalles antes de contratar.
+
+[AUTO.FAQ.TITULO]
+Preguntas frecuentes
+
+[AUTO.FAQ.1.PREGUNTA]
+¿Qué incluye la opción de libro digital?
+
+[AUTO.FAQ.1.RESPUESTA]
+Incluye el libro en formato digital para que puedas leerlo a tu ritmo. La compra se realiza a través de Hotmart.
+
+[AUTO.FAQ.2.PREGUNTA]
+¿Cómo se coordinan las sesiones?
+
+[AUTO.FAQ.2.RESPUESTA]
+La agenda se coordina entre los dos. [ESCRIBIR AQUÍ: modalidad disponible y horarios habituales].
+
+[AUTO.FAQ.3.PREGUNTA]
+¿Qué se trabaja en la sesión de arranque?
+
+[AUTO.FAQ.3.RESPUESTA]
+Es un espacio para conversar sobre lo que te dejó la lectura y elegir un punto de partida personal. [ESCRIBIR AQUÍ: objetivo y duración de la sesión].
+
+[AUTO.FAQ.4.PREGUNTA]
+¿Cómo funcionan las cuatro sesiones?
+
+[AUTO.FAQ.4.RESPUESTA]
+Se realiza una sesión por cada bloque del libro y se proponen ejercicios para acompañar la reflexión de cada bloque.
+
+[AUTO.CTA.TITULO]
+¿Querés empezar por la lectura?
+
+[AUTO.CTA.DESCRIPCION]
+Conocé más sobre el libro o volvé al portal para explorar las otras propuestas de coaching.
+
+[EMPRENDEDORES.HERO.ETIQUETA]
+Coaching para emprendedores
+
+[EMPRENDEDORES.HERO.H1]
+Emprender sin dejar tu trabajo
+
+[EMPRENDEDORES.HERO.DESCRIPCION]
+Si tenés una idea propia y querés empezar a desarrollarla mientras sostenés tu trabajo, tus turnos y tus responsabilidades actuales, este proceso te acompaña a avanzar paso a paso.
+
+[EMPRENDEDORES.HERO.BOTON]
+Conocer el proceso
+
+[EMPRENDEDORES.OFERTA.ETIQUETA]
+Proceso individual
+
+[EMPRENDEDORES.OFERTA.DURACION]
+Seis sesiones
+
+[EMPRENDEDORES.OFERTA.PRECIO]
+100 USD
+
+[EMPRENDEDORES.OFERTA.PRIMERA_SESION]
+La primera sesión es gratuita para que conozcas el proceso.
+
+[EMPRENDEDORES.OFERTA.BOTON]
+Consultar por el proceso
+
+[EMPRENDEDORES.TEMAS.TITULO]
+¿Qué podés trabajar?
+
+[EMPRENDEDORES.TEMAS.DESCRIPCION]
+El proceso se enfoca en los desafíos concretos de poner en marcha una idea mientras mantenés tu actividad actual.
+
+[EMPRENDEDORES.TEMAS.CLARIDAD.TITULO]
+Claridad de la idea
+
+[EMPRENDEDORES.TEMAS.CLARIDAD.DESCRIPCION]
+Ordenar qué querés ofrecer y qué necesitás definir para empezar.
+
+[EMPRENDEDORES.TEMAS.VALIDACION.TITULO]
+Validación
+
+[EMPRENDEDORES.TEMAS.VALIDACION.DESCRIPCION]
+Explorar cómo contrastar tu propuesta antes de avanzar con más decisiones.
+
+[EMPRENDEDORES.TEMAS.TIEMPO.TITULO]
+Gestión del tiempo
+
+[EMPRENDEDORES.TEMAS.TIEMPO.DESCRIPCION]
+Revisar cómo organizar tus próximos pasos entre turnos, trabajo y otras responsabilidades.
+
+[EMPRENDEDORES.TEMAS.CLIENTES.TITULO]
+Primeros clientes
+
+[EMPRENDEDORES.TEMAS.CLIENTES.DESCRIPCION]
+Trabajar cómo acercarte a las primeras personas interesadas en tu propuesta.
+
+[EMPRENDEDORES.PARA_QUIEN.TITULO]
+Para dar lugar a una idea sin soltar lo que hoy te sostiene
+
+[EMPRENDEDORES.PARA_QUIEN.DESCRIPCION]
+Para personas con turnos o en relación de dependencia que quieren iniciar algo propio y necesitan encontrar una manera posible de avanzar junto con su realidad actual.
+
+[EMPRENDEDORES.COMO_FUNCIONA.TITULO]
+Un proceso de seis sesiones
+
+[EMPRENDEDORES.COMO_FUNCIONA.PASO.1]
+Tené una primera sesión gratuita para conocer el proceso.
+
+[EMPRENDEDORES.COMO_FUNCIONA.PASO.2]
+Definí qué idea querés poner en marcha y qué necesitás trabajar.
+
+[EMPRENDEDORES.COMO_FUNCIONA.PASO.3]
+Avanzá en seis sesiones sobre claridad, validación, tiempo y primeros clientes.
+
+[EMPRENDEDORES.FAQ.TITULO]
+Preguntas frecuentes
+
+[EMPRENDEDORES.FAQ.1.PREGUNTA]
+¿Este proceso es para mí si todavía tengo un trabajo en relación de dependencia?
+
+[EMPRENDEDORES.FAQ.1.RESPUESTA]
+Sí. Está pensado para quienes quieren empezar un proyecto propio sin dejar su trabajo actual, incluyendo personas con turnos y otras responsabilidades.
+
+[EMPRENDEDORES.FAQ.2.PREGUNTA]
+¿Cuánto dura el proceso y cuál es el precio?
+
+[EMPRENDEDORES.FAQ.2.RESPUESTA]
+El proceso es de seis sesiones y cuesta 100 USD. La primera sesión es gratuita para que conozcas el proceso.
+
+[EMPRENDEDORES.FAQ.3.PREGUNTA]
+¿Qué temas podemos trabajar?
+
+[EMPRENDEDORES.FAQ.3.RESPUESTA]
+Podemos trabajar la claridad de la idea, su validación, la gestión del tiempo y la búsqueda de los primeros clientes.
+
+[EMPRENDEDORES.FAQ.4.PREGUNTA]
+¿Cómo se coordinan los horarios?
+
+[EMPRENDEDORES.FAQ.4.RESPUESTA]
+La agenda se conversa para encontrar una organización compatible con tus turnos, tu trabajo y tus responsabilidades.
+
+[EMPRENDEDORES.CTA.TITULO]
+¿Querés conversar sobre tu idea?
+
+[EMPRENDEDORES.CTA.DESCRIPCION]
+La primera sesión es gratuita para que conozcas el proceso y puedas consultar si se ajusta a tu momento.
+
+[EMPRENDEDORES.CTA.BOTON]
+Consultar por el proceso

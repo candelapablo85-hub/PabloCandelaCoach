@@ -1,8 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// NOTA: Reemplazar 'https://pablocandela.com' con tu dominio final cuando esté definido
-const SITE_URL = process.env.SITE_URL || 'https://pablocandela.com';
+const SITE_URL = process.env.SITE_URL || 'https://pablocandelacoach.vercel.app';
 
 export default defineConfig({
   site: SITE_URL,
