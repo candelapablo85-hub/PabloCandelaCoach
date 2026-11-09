@@ -1,0 +1,427 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JsonLd from '../../components/seo/JsonLd.astro';
+import { siteConfig } from '../../data/siteConfig';
+
+const pageUrl = `${siteConfig.siteUrl}/coaching/liderazgo`;
+const pageDescription = 'Programa de Liderazgo 5 Pilares';
+const pillarImage = `${siteConfig.siteUrl}/imagenes/cinco-pilares-liderazgo.png`;
+
+const pillars = [
+  {
+    id: '01',
+    title: 'El líder como Persona (El Ser)',
+    description: 'La base de toda autoridad real. No se trata del título en la tarjeta, sino del carácter que sostiene las decisiones.',
+    items: ['Autoconocimiento profundo', 'Gestión emocional bajo presión', 'Coherencia entre valores y acciones', 'Fortaleza de carácter'],
+    quote: 'Sin esto, no hay liderazgo. Hay cargo nomás.'
+  },
+  {
+    id: '02',
+    title: 'El líder en la Comunicación',
+    description: 'El liderazgo ocurre en las conversaciones. Si la comunicación falla, la operación se detiene.',
+    items: ['Escucha activa y asertiva', 'Diseño de conversaciones difíciles', 'Pedidos y promesas claras', 'Feedback que construye resultados'],
+    quote: 'El 80% de los problemas en equipos son conversacionales, no técnicos.'
+  },
+  {
+    id: '03',
+    title: 'El líder en la Acción',
+    description: 'Ejecución pura. Es la capacidad de transformar la estrategia en movimiento real en la planta.',
+    items: ['Priorización estratégica', 'Sostenimiento de estándares', 'Toma de decisiones crítica', 'Liderazgo visible en el campo'],
+    quote: 'Esto lo vivís todos los días en la operación, no lo leíste en un libro.'
+  },
+  {
+    id: '04',
+    title: 'El líder con Personas',
+    description: 'Construcción de equipos de alto desempeño basados en la confianza y la responsabilidad mutua.',
+    items: ['Generación de confianza real', 'Gestión de conflictos internos', 'Influencia sin autoridad formal', 'Cultura de equipo sólida'],
+    quote: 'Motivación auténtica, no frases de taza de café.'
+  },
+  {
+    id: '05',
+    title: 'El líder en Contexto',
+    description: 'Responder a las demandas de la organización manteniendo el equilibrio humano y operativo.',
+    items: ['Enfoque en KPIs y resultados', 'Gestión de la productividad', 'Seguridad y Calidad innegociables', 'Respuesta ante la crisis'],
+    quote: 'El liderazgo no es inspirar, es responder bien bajo presión.'
+  }
+];
+---
+
+<BaseLayout
+  title="Pablo Candela Coach | Programa de Liderazgo"
+  description={pageDescription}
+  canonical={pageUrl}
+  image={pillarImage}
+>
+  <Fragment slot="head">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <JsonLd
+      schema={{
+        type: 'Service',
+        name: 'Programa de Liderazgo 5 Pilares',
+        description: pageDescription,
+        url: pageUrl,
+        image: pillarImage,
+      }}
+    />
+  </Fragment>
+
+  <div class="leadership-page">
+    <header class="leadership-hero">
+      <div class="leadership-hero-decoration" aria-hidden="true"></div>
+      <div class="leadership-container leadership-hero-content">
+        <a class="leadership-back" href="/coaching">
+          <svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
+            <path d="m15 19-7-7 7-7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+          </svg>
+          Volver al inicio
+        </a>
+        <h1>
+          Los 5 pilares reales <br />
+          <span>del Liderazgo Industrial</span>
+        </h1>
+        <p>
+          Más allá de los nombres o los enfoques que se utilicen, el liderazgo que funciona se apoya siempre en fundamentos claros y probados. Son estos pilares los que sostienen el día a día de los equipos y la operación, incluso en contextos de presión y decisiones difíciles.
+        </p>
+      </div>
+    </header>
+
+    <section class="leadership-container leadership-content" aria-label="Los cinco pilares del liderazgo">
+      <div class="leadership-pillars">
+        {pillars.map((pillar, index) => (
+          <article class:list={['leadership-pillar', index % 2 !== 0 && 'leadership-pillar-reversed']}>
+            <div class="leadership-pillar-copy">
+              <div class="leadership-pillar-heading">
+                <span>{pillar.id}</span>
+                <div aria-hidden="true"></div>
+              </div>
+              <h2>{pillar.title}</h2>
+              <p>{pillar.description}</p>
+              <blockquote>" {pillar.quote} "</blockquote>
+            </div>
+            <div class="leadership-work-card">
+              <h3>Ejes de trabajo:</h3>
+              <ul>
+                {pillar.items.map((item) => (
+                  <li>
+                    <span aria-hidden="true"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="leadership-cta">
+      <div class="leadership-cta-content">
+        <h2>¿Querés fortalecer estos pilares en tu gestión?</h2>
+        <p>
+          El liderazgo no es una meta, es un proceso constante de ajuste y mejora. Conversemos sobre cómo aplicarlo en tu contexto real.
+        </p>
+        <a href="/contacto">Agendar conversación inicial</a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .leadership-page {
+    min-height: 100vh;
+    padding-bottom: 6rem;
+    background: #fff;
+    color: #0f172a;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .leadership-page h1,
+  .leadership-page h2 {
+    margin: 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+  }
+
+  .leadership-page p {
+    margin: 0;
+    max-width: none;
+    line-height: inherit;
+  }
+
+  .leadership-container {
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .leadership-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 0 5rem;
+    background: #020617;
+    color: #fff;
+  }
+
+  .leadership-hero-decoration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    transform: translateX(25%) skewX(-12deg);
+    background: rgb(79 70 229 / 10%);
+  }
+
+  .leadership-hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .leadership-back {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    color: #818cf8;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 180ms ease;
+  }
+
+  .leadership-back:hover {
+    color: #fff;
+  }
+
+  .leadership-back svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .leadership-hero h1 {
+    margin-bottom: 1.5rem;
+    color: #fff;
+    font-size: 2.25rem;
+    line-height: 1.1;
+  }
+
+  .leadership-hero h1 span {
+    color: #6366f1;
+  }
+
+  .leadership-hero p {
+    max-width: 48rem;
+    color: #94a3b8;
+    font-size: 1.25rem;
+    line-height: 1.625;
+  }
+
+  .leadership-content {
+    margin-top: 6rem;
+  }
+
+  .leadership-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+  }
+
+  .leadership-pillar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4rem;
+  }
+
+  .leadership-pillar-copy,
+  .leadership-work-card {
+    width: 100%;
+  }
+
+  .leadership-pillar-heading {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .leadership-pillar-heading span {
+    color: #e2e8f0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 3.75rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .leadership-pillar-heading div {
+    height: 1px;
+    flex: 1;
+    background: #f1f5f9;
+  }
+
+  .leadership-pillar-copy h2 {
+    margin-bottom: 1.5rem;
+    color: #020617;
+    font-size: clamp(1.875rem, 4vw, 2.25rem);
+    line-height: 1.25;
+  }
+
+  .leadership-pillar-copy > p {
+    margin-bottom: 2rem;
+    color: #475569;
+    font-size: 1.125rem;
+    line-height: 1.625;
+  }
+
+  .leadership-pillar-copy blockquote {
+    margin: 0 0 2rem;
+    padding: 2rem;
+    border-left: 4px solid #4f46e5;
+    border-radius: 0 1rem 1rem 0;
+    background: #f8fafc;
+    color: #1e293b;
+    font-size: 1.125rem;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .leadership-work-card {
+    height: 100%;
+    padding: 2.5rem;
+    border: 1px solid #f1f5f9;
+    border-radius: 1.5rem;
+    background: #fff;
+    box-shadow: 0 20px 25px -5px rgb(15 23 42 / 10%), 0 8px 10px -6px rgb(15 23 42 / 10%);
+  }
+
+  .leadership-work-card h3 {
+    margin: 0 0 2rem;
+    color: #4f46e5;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .leadership-work-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .leadership-work-card li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    color: #334155;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .leadership-work-card li span {
+    width: 0.5rem;
+    height: 0.5rem;
+    flex: 0 0 0.5rem;
+    margin-top: 0.5rem;
+    border-radius: 50%;
+    background: #6366f1;
+  }
+
+  .leadership-cta {
+    margin: 10rem 1rem 0;
+    padding: 6rem 1rem;
+    border-radius: 3rem;
+    background: #020617;
+    text-align: center;
+  }
+
+  .leadership-cta-content {
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+
+  .leadership-cta h2 {
+    margin-bottom: 2rem;
+    color: #fff;
+    font-size: clamp(1.875rem, 5vw, 3rem);
+    line-height: 1.2;
+  }
+
+  .leadership-cta p {
+    margin-bottom: 3rem;
+    color: #94a3b8;
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+
+  .leadership-cta a {
+    display: inline-flex;
+    justify-content: center;
+    padding: 1.25rem 2.5rem;
+    border-radius: 0.75rem;
+    background: #fff;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 25%);
+    color: #020617;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 180ms ease;
+  }
+
+  .leadership-cta a:hover {
+    background: #eef2ff;
+  }
+
+  @media (min-width: 640px) {
+    .leadership-container {
+      padding-right: 1.5rem;
+      padding-left: 1.5rem;
+    }
+
+    .leadership-cta {
+      margin-right: 2rem;
+      margin-left: 2rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .leadership-hero h1 {
+      font-size: 4.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .leadership-pillar {
+      flex-direction: row;
+      gap: 4rem;
+    }
+
+    .leadership-pillar-copy,
+    .leadership-work-card {
+      width: 50%;
+    }
+
+    .leadership-pillar-reversed {
+      flex-direction: row-reverse;
+    }
+
+    .leadership-cta {
+      padding-right: 1.5rem;
+      padding-left: 1.5rem;
+    }
+  }
+</style>
